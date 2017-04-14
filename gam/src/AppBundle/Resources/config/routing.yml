@@ -1,0 +1,11 @@
+app_user:
+    resource: "@AppBundle/Resources/config/routing/user.yml"
+    prefix: /
+
+app_cenote:
+    resource: "@AppBundle/Resources/config/routing/cenote.yml"
+    prefix: /
+
+app_homepage:
+    path: /
+    defaults: { _controller: AppBundle:User:login }

@@ -1,0 +1,3 @@
+home_cenotes:
+    path: /home
+    defaults: { _controller: AppBundle:Cenote:index }
