@@ -1,0 +1,401 @@
+BackendBundle\Entity\Cenote:
+    type: entity
+    table: cenotes
+    indexes:
+        fk_cenotes_users:
+            columns:
+                - user_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        entitiname:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: entitiName
+        keysite:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: keySite
+        coordinatesutm:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: coordinatesUTM
+        kindofcontext:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: kindOfContext
+        drycave:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: dryCave
+        equipment:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        contextdescription:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: contextDescription
+        relevanttraits:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: relevantTraits
+        preservationgeneral:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: preservationGeneral
+        alteration:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        technicaldescription:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: technicalDescription
+        depth:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        horizontalpenetration:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: horizontalPenetration
+        sitedimensions:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: siteDimensions
+        entrancedistance:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: entranceDistance
+        siteassociated:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: siteAssociated
+        watersamples:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: waterSamples
+        typeofwater:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: typeOfWater
+        contact:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        exploredby:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: exploredBy
+        documentedby:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: DocumentedBy
+        inspectiondate:
+            type: datetime
+            nullable: true
+            column: inspectionDate
+        registrationby:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: registrationBy
+        sitecode:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: siteCode
+        coordinates:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        state:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+        townquintanaroo:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: townQuintanaRoo
+        townyucatan:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: townYucatan
+        location:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+        characteristics:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        typeofcontext:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: typeOfContext
+        conservationstatus:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: conservationStatus
+        flora:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        fauna:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        archaelements:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: archaElements
+        whichelements:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: whichElements
+        archasurvey:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: archaSurvey
+        touristactivities:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: touristActivities
+        whichactivities:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: whichActivities
+        dateofanalisis:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: dateOfAnalisis
+        temperature:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+        turbidity:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+        ph:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+        ammonium:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+        nitrites:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+        nitratos:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+        phosphates:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+        hardness:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+        detergents:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+        chlorine:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+        coliforms:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+        observations:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        status:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+        image:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        videoPath:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: video_path
+        createdAt:
+            type: datetime
+            nullable: true
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: true
+            column: updated_at
+    manyToOne:
+        user:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
