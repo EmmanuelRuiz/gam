@@ -4,9 +4,10 @@ USE gam;
 CREATE TABLE users(
 id                  int(255) auto_increment not null,
 role                varchar(20) not null,
-name                varchar(255) not null,
-lastname            varchar(255) not null,
-email               varchar(255),
+name                varchar(100) not null,
+plastname           varchar(100) not null,
+mlastname           varchar(100) not null,
+email               varchar(100),
 password            varchar(255) not null,
 image               varchar(255),
 created_at          datetime,
@@ -92,9 +93,17 @@ CONSTRAINT fk_comment_user FOREIGN KEY(user_id) REFERENCES users(id)
 )ENGINE=InnoDb CHARSET=utf8;
 
 CREATE TABLE images(
-id 				int(255) auto_increment not null,
+id              int(255) auto_increment not null,
 cenote_id    	int(255) not null,
 image 			varchar(255),
 CONSTRAINT pk_image PRIMARY KEY(id),
 CONSTRAINT fk_image_cenote FOREIGN KEY(cenote_id) REFERENCES cenotes(id)
+)ENGINE =InnoDb CHARSET=utf8;
+
+CREATE TABLE videos(
+id 		int(255) auto_increment not null,
+cenote_id    	int(255) not null,
+video           varchar(255),
+CONSTRAINT pk_video PRIMARY KEY(id),
+CONSTRAINT fk_video_cenote FOREIGN KEY(cenote_id) REFERENCES cenotes(id)
 )ENGINE =InnoDb CHARSET=utf8;
