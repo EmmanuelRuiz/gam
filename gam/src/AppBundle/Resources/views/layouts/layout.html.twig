@@ -11,6 +11,10 @@
             <link href="{{ asset('assets/css/styles.css') }}" type="text/css" rel="stylesheet">
         {% endblock %}
         {% block javascripts %}
+            <script type="text/javascript">
+                //cuando se publique el proyecto se borra la url extra (/gam/gam...)
+                var URL = "{{ app.request.getSchemeAndHttpHost() }}/gam/gam/web/app_dev.php";
+            </script>
             <script src="{{ asset('assets/js/jquery.min.js')}}"></script>
             <script src="{{ asset('assets/bootstrap/js/bootstrap.min.js')}}"></script>
             

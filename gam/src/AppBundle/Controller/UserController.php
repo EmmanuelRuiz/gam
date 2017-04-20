@@ -5,12 +5,14 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+
 use Symfony\Component\HttpFoundation\Session\Session;
 use BackendBundle\Entity\User;
 use AppBundle\Form\RegisterType;
 
 class UserController extends Controller {
-    /* sesion y constructor para crear mensajes flag */
+    /* sesion y constructor para crear mensajes flash */
 
     private $session;
 
@@ -76,6 +78,27 @@ class UserController extends Controller {
         return $this->render('AppBundle:User:register.html.twig', array(
                     "form" => $form->createView()
         ));
+    }
+    
+    public function emailTestAction(Request $request){
+        //recogemos variable email mediante request ajax
+        $email = $request->get("email");
+        //cargamos entitimanager
+        $em = $this->getDoctrine()->getManager();
+        //cargamos repositorio de user
+        $user_repo = $em->getRepository("BackendBundle:User");
+        //usamos metodo find para saber si el email está siendo usado
+        $user_isset = $user_repo->findOneBy(array("email" => $email));
+        
+        //used es que el email está siendo usado
+        $result = "used";
+        //si es verdadero el resultado es used
+        if(count($user_isset) >= 1 && is_object($user_isset)){
+            $result = "used";
+        } else {
+            $result = "unused";
+        }
+        return new response($result);
     }
 
 }
