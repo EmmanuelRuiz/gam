@@ -40,7 +40,7 @@
                                 &nbsp;
                                 Entrar
                                 </a></li>
-                            <li><a href="{{path("login")}}">
+                            <li><a href="{{path("register")}}">
                             <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 
                             Registro
@@ -51,6 +51,13 @@
             </nav>
         </header>
         <section id="content">
+            <!-- sessiones mensajes flag-->
+            <div class="container">
+                {% for message in app.session.flashbag().get('status') %}
+                    <div class="alert alert-success">{{message}}</div>
+                {% endfor %}
+                </div>
+                <div class="clearfix"></div>
             {% block content %}
                 content default
             {% endblock %}

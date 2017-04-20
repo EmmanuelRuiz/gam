@@ -7,4 +7,25 @@ and open the template in the editor.
     Created on : 13/04/2017, 10:35:02 PM
     Author     : Emmanuel
 */
+/*GENERAL*/
+body{
+    background: #eee;
+}
+.page-header {
+    padding-bottom: 9px;
+    margin: 40px 0 20px;
+    border-bottom: 1px solid #149c82;
+}
 
+/*REGISTRO*/
+.box-form{
+    background:white;
+    border: 1px solid #ccc;
+    padding:20px;
+    padding-top: 0px;
+    margin: 0px auto;
+    float: none;
+}
+.box-form input{
+    margin-bottom: 10px;
+}
