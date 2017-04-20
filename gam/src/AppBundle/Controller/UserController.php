@@ -6,7 +6,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-
 use Symfony\Component\HttpFoundation\Session\Session;
 use BackendBundle\Entity\User;
 use AppBundle\Form\RegisterType;
@@ -22,8 +21,15 @@ class UserController extends Controller {
 
     public function loginAction(Request $request) {
 
+        //cargar servicio de autenticacion
+        $authenticationUtils = $this->get('security.authentication_utils');
+        //si el login falla conseguimos el error con esto
+        $error = $authenticationUtils->getLastAuthenticationError();
+        //sacar el usuario que probo loguearse pero no pudo
+        $lastUsername = $authenticationUtils->getLastUsername();
         return $this->render('AppBundle:User:login.html.twig', array(
-                    "titulo" => "login"
+                    'last_username' => $lastUsername,
+                    'error' => $error
         ));
     }
 
@@ -71,7 +77,7 @@ class UserController extends Controller {
             } else {
                 $status = "No te has registrado correctamente";
             }
-            /*mensaje flash*/
+            /* mensaje flash */
             $this->session->getFlashBag()->add("status", $status);
         }
 
@@ -79,8 +85,8 @@ class UserController extends Controller {
                     "form" => $form->createView()
         ));
     }
-    
-    public function emailTestAction(Request $request){
+
+    public function emailTestAction(Request $request) {
         //recogemos variable email mediante request ajax
         $email = $request->get("email");
         //cargamos entitimanager
@@ -89,11 +95,11 @@ class UserController extends Controller {
         $user_repo = $em->getRepository("BackendBundle:User");
         //usamos metodo find para saber si el email está siendo usado
         $user_isset = $user_repo->findOneBy(array("email" => $email));
-        
+
         //used es que el email está siendo usado
         $result = "used";
         //si es verdadero el resultado es used
-        if(count($user_isset) >= 1 && is_object($user_isset)){
+        if (count($user_isset) >= 1 && is_object($user_isset)) {
             $result = "used";
         } else {
             $result = "unused";
