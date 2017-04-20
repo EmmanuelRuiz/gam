@@ -1,0 +1,12 @@
+{% extends "AppBundle:layouts:layout.html.twig" %}
+{% block content %}
+<h1>Registrar usuario</h1>
+<div class="box-form">
+    <h2 class="page-header">Registrarse</h2>
+    {{form_start(form, {'action':'', 'method':'POST'})}}
+    {{form_errors(form)}}
+    {{form_end(form)}}
+    
+</div>
+
+{% endblock %}
