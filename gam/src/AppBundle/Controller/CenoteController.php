@@ -10,9 +10,7 @@ class CenoteController extends Controller {
 
     public function indexAction() {
 
-        echo "ACCION index cenote";
-        die();
-        //put your code here
+        return $this->render('AppBundle:Cenote:home.html.twig');
     }
 
 }

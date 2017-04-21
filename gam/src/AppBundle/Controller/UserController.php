@@ -20,7 +20,11 @@ class UserController extends Controller {
     }
 
     public function loginAction(Request $request) {
-
+        //redirección si ya estamos logueados
+        if(is_object($this->getUser())){
+            return $this->redirect('home');
+        }
+        
         //cargar servicio de autenticacion
         $authenticationUtils = $this->get('security.authentication_utils');
         //si el login falla conseguimos el error con esto
@@ -34,6 +38,11 @@ class UserController extends Controller {
     }
 
     public function registerAction(Request $request) {
+        //redirección si ya estamos logueados
+        if(is_object($this->getUser())){
+            return $this->redirect('home');
+        }
+        
         $user = new User();
         $form = $this->createForm(RegisterType::class, $user);
 
