@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Session;
 use BackendBundle\Entity\User;
 use AppBundle\Form\RegisterType;
+use AppBundle\Form\UserType;
 
 class UserController extends Controller {
     /* sesion y constructor para crear mensajes flash */
@@ -21,10 +22,10 @@ class UserController extends Controller {
 
     public function loginAction(Request $request) {
         //redirección si ya estamos logueados
-        if(is_object($this->getUser())){
+        if (is_object($this->getUser())) {
             return $this->redirect('home');
         }
-        
+
         //cargar servicio de autenticacion
         $authenticationUtils = $this->get('security.authentication_utils');
         //si el login falla conseguimos el error con esto
@@ -39,10 +40,10 @@ class UserController extends Controller {
 
     public function registerAction(Request $request) {
         //redirección si ya estamos logueados
-        if(is_object($this->getUser())){
+        if (is_object($this->getUser())) {
             return $this->redirect('home');
         }
-        
+
         $user = new User();
         $form = $this->createForm(RegisterType::class, $user);
 
@@ -65,9 +66,11 @@ class UserController extends Controller {
 
                     //algunos datos nos llegan del form se guardan en la variable $user
                     //pero los que no los seteamos
+                    $createdAt = new \Datetime('now');
                     $user->setPassword($password);
                     $user->setRole("ROLE_USER");
                     $user->setImage(null);
+                    $user->setCreatedAt($createdAt);
                     //persistir datos en doctrine
                     $em->persist($user);
                     $flush = $em->flush();
@@ -114,6 +117,63 @@ class UserController extends Controller {
             $result = "unused";
         }
         return new response($result);
+    }
+
+    public function editUserAction(Request $request) {
+        $user = $this->getUser();
+        $user_image = $user->getImage();
+        $form = $this->createForm(UserType::class, $user);
+        //bindear la informacion de la request
+        $form->handleRequest($request);
+        //comprobar si el formulario ha sido enviado y si es valido
+        if ($form->isSubmitted()) {
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $query = $em->createQuery('SELECT u FROM BackendBundle:User u WHERE u.email = :email')
+                        ->setParameter('email', $form->get("email")->getData());
+                //si el usuario existe
+                // almacenamos el usuario existente
+
+                $user_isset = $query->getResult();
+                //si el email logeado y el usuario de la bd coinciden va a permitir modificar
+                if ((count($user_isset) == 0 || $user->getEmail() == $user_isset[0]->getEmail())) {
+                    //subir imagen al servidor
+                    //capturar fichero
+                    $file = $form["image"]->getData();
+                    if (!empty($file) && $file != null) {
+                        $ext = $file->guessExtension();
+                        if ($ext == 'jpg' || $ext == 'jpeg' || $ext == 'png' || $ext == 'gif') {
+                            $file_name = $user->getId(). time() . "." . $ext;
+                            $file->move("uploads/users", $file_name);
+                            $user->setImage($file_name);
+                        }
+                    } else {
+                        $user->setImage($user_image);
+                    }
+                    //persistir datos en doctrine
+                    $em->persist($user);
+                    $flush = $em->flush();
+
+                    if ($flush == null) {
+                        $status = "Has modificado tus datos correctamente";
+                    } else {
+                        $status = "No has modificado tus datos correctamente";
+                    }
+                } else {
+                    $status = "Este correo ya está registrado";
+                }
+            } else {
+                $status = "No se han actualizado tus datos correctamente";
+            }
+            /* mensaje flash */
+            $this->session->getFlashBag()->add("status", $status);
+            return $this->redirect('my-data');
+        }
+
+
+        return $this->render('AppBundle:User:edit_user.html.twig', array(
+                    "form" => $form->createView()
+        ));
     }
 
 }

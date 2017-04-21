@@ -60,7 +60,15 @@
                             <ul class="nav navbar-nav navbar-right">
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        {{ app.user.name }} {{app.user.plastname}}
+                                        <div class="avatar">
+                                            {% if app.user.image == null %}
+                                                <img src="{{asset('assets/images/default.jpg')}}">
+                                            {% else %}
+                                                <img src="{{asset('uploads/users/'~app.user.image)}}">
+                                            {% endif %}
+
+                                        </div>
+                                        {{ app.user.name }} {{app.user.plastname}} {{ app.user.mlastname }}
                                         <span class="caret"></span>
                                     </a>
                                     <ul class="dropdown-menu">
@@ -70,7 +78,7 @@
                                                 Mi perfil
                                             </a>
                                         </li>
-                                        <li><a href="">
+                                        <li><a href="{{path("user_edit")}}">
                                                 <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> &nbsp;
                                                 Mis datos
                                             </a></li>

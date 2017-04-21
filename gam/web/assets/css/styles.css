@@ -11,11 +11,36 @@ and open the template in the editor.
 body{
     background: #eee;
 }
+
+a, p{
+    font-size: 1.1em;
+}
+
+/*header*/
+.navbar-collapse .avatar{
+    background: white;
+    border-radius: 500px;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    float: left;
+    margin-right: 12px;
+    margin-top: -5px;
+}
+
+.navbar-collapse .avatar img{
+    height: 100%;
+    text-align: center;
+
+}
+
 .page-header {
     padding-bottom: 9px;
     margin: 40px 0 20px;
     border-bottom: 1px solid #149c82;
 }
+
+
 
 /*REGISTRO*/
 .box-form{

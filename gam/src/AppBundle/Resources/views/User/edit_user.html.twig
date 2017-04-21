@@ -1,0 +1,16 @@
+{% extends "AppBundle:layouts:layout.html.twig" %}
+    
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{asset('assets/js/custom/email-test.js') }}"></script>
+{%endblock%}
+{% block content %}
+    <h1 class="page-header">Editar perfil</h1>
+   	<div class="col-lg-4 box-form">
+   		<h2>Mis datos</h2>
+
+   		{{form_start(form, {'enctype':'multipart/form-data'})}}
+   		{{form_end(form)}}
+   	</div>
+
+{% endblock %}
