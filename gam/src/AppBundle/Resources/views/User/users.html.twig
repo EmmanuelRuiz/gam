@@ -1,0 +1,43 @@
+{% extends "AppBundle:layouts:layout.html.twig" %}
+
+{% block javascripts %}
+{{ parent() }}
+<script src="{{asset('assets/js/custom/email-test.js') }}"></script>
+{%endblock%}
+{% block content %}
+<h1 class="page-header">Usuarios registrados</h1>
+<div class="container">
+    <div class="col-lg-12 box-default">
+        <h1>Registros</h1>
+        <div class="count">
+            <span class="label label-primary">
+                Total de usuarios {{ pagination.getTotalItemCount }}
+            </div>
+            <hr>
+            <div class="box-content box-users">
+                {% for user in pagination %}
+                    <div class="col-lg-12 user-item">
+                        <div class="avatar">
+                            {% if user.image == null %}
+                                <img src="{{asset('assets/images/default.jpg')}}">
+                            {% else %}
+                                <img src="{{asset('uploads/users/'~user.image)}}">
+                            {% endif %}
+
+                        </div>
+                        <div class="user-item-content">
+                        <p>{{user.name}} {{user.plastname}} {{user.mlastname}}</p>
+                        <p>{{user.email}}
+                        <div class="clear-fix"></div>
+                        <hr>
+                        </div>
+
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="navigation">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+        </div>
+    </div>
+    {% endblock %}

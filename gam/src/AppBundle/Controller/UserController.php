@@ -143,7 +143,7 @@ class UserController extends Controller {
                     if (!empty($file) && $file != null) {
                         $ext = $file->guessExtension();
                         if ($ext == 'jpg' || $ext == 'jpeg' || $ext == 'png' || $ext == 'gif') {
-                            $file_name = $user->getId(). time() . "." . $ext;
+                            $file_name = $user->getId() . time() . "." . $ext;
                             $file->move("uploads/users", $file_name);
                             $user->setImage($file_name);
                         }
@@ -176,8 +176,19 @@ class UserController extends Controller {
         ));
     }
 
-    public function usersAction(Request $request){
-        var_dump("users action");
-        die();
+    public function usersAction(Request $request) {
+        $em = $this->getDoctrine()->getManager();
+        $dql = "SELECT u FROM BackendBundle:User u";
+        $query = $em->createQuery($dql);
+        //sacar la info de la bd con el paginador
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+                $query, $request->query->getInt('page', 1), 5);
+
+        //renderisar vista
+        return $this->render('AppBundle:User:users.html.twig', array(
+            'pagination' => $pagination
+        ));
     }
+
 }
