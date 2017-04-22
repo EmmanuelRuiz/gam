@@ -178,8 +178,34 @@ class UserController extends Controller {
 
     public function usersAction(Request $request) {
         $em = $this->getDoctrine()->getManager();
-        $dql = "SELECT u FROM BackendBundle:User u";
+        $dql = "SELECT u FROM BackendBundle:User u ORDER BY u.id ASC";
         $query = $em->createQuery($dql);
+        //sacar la info de la bd con el paginador
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+                $query, $request->query->getInt('page', 1), 5);
+
+        //renderisar vista
+        return $this->render('AppBundle:User:users.html.twig', array(
+            'pagination' => $pagination
+        ));
+    }
+    public function searchAction(Request $request) {
+        $em = $this->getDoctrine()->getManager();
+        //obtenemos el parametro get desde la url
+        $search = $request->query->get("search", null);
+        
+        //si no hay nada nos redirige a home
+        if($search == null){
+            return $this->redirect($this->generateUrl('app_homepage'));
+        }
+        
+        //coincidencias 
+        $dql = "SELECT u FROM BackendBundle:User u "
+                . "WHERE u.name LIKE :search OR u.plastname LIKE :search "
+                . "OR u.mlastname LIKE :search ORDER BY u.id ASC";
+        //set parameter limpia los parametros que recibimos
+        $query = $em->createQuery($dql)->setParameter('search', "%$search%");
         //sacar la info de la bd con el paginador
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate(

@@ -69,6 +69,15 @@
                                         Usuarios registrados
                                     </a>   
                                 </li>
+
+                                <li>
+                                    <form action="{{path('user_search')}}" class="navbar-form navbar-left">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Buscar usuarios" name="search">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                                    </form>
+                                </li>
                             {% endif%}
                         </ul>
                         {% if app.user != null%}
