@@ -1,6 +1,13 @@
 {% extends "AppBundle:layouts:layout.html.twig" %}
 {% block content %}
-    <h1 class="page-header">Identificarse</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Identificarse</h1>
+            </div>
+        </div>
+    </div>
+
     <div class="col-lg-4 box-form">
         <h2>identificarse</h2>
         {% if is_granted('ROLE_USER') %}
