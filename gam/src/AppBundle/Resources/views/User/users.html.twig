@@ -1,9 +1,11 @@
 {% extends "AppBundle:layouts:layout.html.twig" %}
 
 {% block javascripts %}
-{{ parent() }}
-<script src="{{asset('assets/js/custom/email-test.js') }}"></script>
-{%endblock%}
+    {{ parent() }}
+    <script src="{{ asset('assets/js/custom/users.js')}}"></script>
+
+{% endblock%}
+
 {% block content %}
 <h1 class="page-header">Usuarios registrados</h1>
 <div class="container">
