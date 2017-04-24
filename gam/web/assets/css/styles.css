@@ -91,3 +91,8 @@ height: 1px;
     padding: 10px;
     margin-left: 85px;
 }
+
+/*footer*/
+.text-muted {
+    color: #616161;
+}
