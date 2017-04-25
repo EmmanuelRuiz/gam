@@ -8,6 +8,33 @@
         </div>
     </div>
 
-    
+    <div class="container">
+        <div class="row">
+            <div id="timeline" class="col-lg-7 box-default pull-left">
+                <div class="box-content">
+                    <p>Lista de cenotes</p>
+                </div>
+            </div>
+            <div id="user-card" class="col-lg-4 box-default pull-right">
+                <div class="avatar">
+                    {% if app.user.image == null %}
+                        <img src="{{asset('assets/images/default.jpg')}}">
+                    {% else %}
+                        <img src="{{asset('uploads/users/'~app.user.image)}}">
+                    {% endif %}
+
+                </div>
+                <div class="name-lastname">
+                	<a href="#">{{app.user.name}} {{app.user.plastname}} {{app.user.mlastname}}</a>
+                	<div class="clearfix"></div>
+                	<span class="email">
+                		{{app.user.email}}
+                	</span>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+        </div>
+    </div>
 
 {% endblock %}

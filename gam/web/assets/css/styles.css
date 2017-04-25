@@ -96,3 +96,32 @@ height: 1px;
 .text-muted {
     color: #616161;
 }
+
+/* home cenotes */
+#user-card{
+    padding: 10px;
+}
+
+#user-card .avatar{
+    background: #eee;
+    border-radius: 500px;
+    width: 75px;
+    height: 75px;
+    overflow: hidden;
+    float: left;
+}
+
+#user-card .avatar img{
+    height: 100%;
+    text-align: center;
+}
+
+#user-card .avatar img.default{
+    opacity: 0.5;
+}
+
+#user-card .name-lastname{
+    float: left;
+    font-size: 20px;
+    padding: 10px;
+}
