@@ -125,3 +125,7 @@ height: 1px;
     font-size: 20px;
     padding: 10px;
 }
+
+#new-cenote input{
+    margin-botton: 10px;
+}

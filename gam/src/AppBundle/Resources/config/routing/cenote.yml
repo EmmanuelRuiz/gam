@@ -1,3 +1,7 @@
 home_cenotes:
     path: /home
     defaults: { _controller: AppBundle:Cenote:index }
+
+new_cenote:
+    path: /register-cenote
+    defaults: { _controller: AppBundle:Cenote:newCenote }
