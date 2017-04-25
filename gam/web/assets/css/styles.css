@@ -19,9 +19,9 @@ a, p{
 
 
 hr {
-border: 0 none #149c82;
-border-top: 1px solid #149c82;
-height: 1px;
+    border: 0 none #149c82;
+    border-top: 1px solid #149c82;
+    height: 1px;
 }
 /*header*/
 .navbar-collapse .avatar{
@@ -35,6 +35,11 @@ height: 1px;
     margin-top: -5px;
 }
 
+@media (min-width: 768px){
+    .navbar {
+        border-radius: 0px;
+    }
+}
 .navbar-collapse .avatar img{
     height: 100%;
     text-align: center;
@@ -59,9 +64,12 @@ height: 1px;
     float: none;
 }
 .box-form input{
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
+.box-form textarea{
+    margin-bottom: 15px;
+}
 /*listado users*/
 .box-default{
     background:white;
@@ -124,8 +132,4 @@ height: 1px;
     float: left;
     font-size: 20px;
     padding: 10px;
-}
-
-#new-cenote input{
-    margin-botton: 10px;
 }

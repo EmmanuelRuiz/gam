@@ -3,14 +3,96 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">CÉDULA DE REGISTRO DE SITIO (Site Registration Form) </h1>
+                <h1 class="page-header">Registrar cenote</h1>
             </div>
         </div>
     </div>
     
     <div class="col-lg-6 box-form">
-        <h2>Registrar cenote</h2>
+        <h2 class="page-header">CÉDULA DE REGISTRO DE SITIO <br> (Site Registration Form)</h2>
+        <br>
         {{form_start(form, {'action':'', 'method':'POST'})}}
+        
+            {{ form_row(form.name) }}            
+            {{ form_row(form.entitiname) }}            
+            {{ form_row(form.keysite) }}            
+            {{ form_row(form.coordinatesutm) }}            
+            {{ form_row(form.kindofcontext) }}            
+            {{ form_row(form.drycave) }}            
+            {{ form_row(form.equipment) }}
+            {{ form_errors(form.contextdescription) }}
+                <label>{{"Descripción detallada del sitio (tipo de hallazgo y descripción de contexto)"}}</label>
+                <label>{{"Site Detailed Description (Kind of Discovery and Context Description)"}}</label>
+            {{form_widget(form.contextdescription)}}
+            
+            
+            {{ form_row(form.relevanttraits) }}
+            {{ form_row(form.preservationgeneral) }}
+            
+            {{ form_errors(form.alteration) }}
+                <label>{{"En caso de alguna alteración del contexto favor de explicar"}}</label>
+                <label>{{"(If any context alteration is visible please explain)"}}</label>
+            {{form_widget(form.alteration)}}
+            
+            
+            {{ form_row(form.technicaldescription) }}
+            {{ form_row(form.depth) }}
+            {{ form_row(form.horizontalpenetration) }}
+            {{ form_row(form.sitedimensions) }}
+            {{ form_row(form.entrancedistance) }}
+            {{ form_row(form.siteassociated) }}
+            {{ form_row(form.watersamples) }}
+            {{ form_row(form.typeofwater) }}
+            {{form_errors(form.contact)}}
+                <label>{{"Datos de contacto: nombre, número telefónico y/o correo electrónico del dueño/responsable del predio."}}</label>
+                <label>{{"Contact: (Name, Phone Number and/or email of Owner/Land Responsible)"}}</label>
+            {{form_widget(form.contact)}}
+            {{ form_row(form.exploredby) }}
+            {{ form_row(form.documentedby) }}
+            {{ form_row(form.inspectiondate) }}
+            {{ form_row(form.registrationby) }}
+            <h2 class="page-header">Cédula de registro del análisis bioquímico del acuífero </h2>
+            <br>
+            {{ form_row(form.sitecode) }}
+            {{ form_row(form.coordinates) }}
+            {{ form_row(form.state) }}
+            {{ form_row(form.townquintanaroo) }}
+            {{ form_row(form.townyucatan) }}
+            {{ form_row(form.location) }}
+            {{ form_row(form.characteristics) }}
+            {{ form_row(form.typeofcontext) }}
+            {{ form_row(form.conservationstatus) }}
+            {{ form_row(form.flora) }}
+            {{ form_row(form.fauna) }}
+            {{ form_row(form.archaelements) }}
+            {{ form_row(form.whichelements) }}
+            {{ form_row(form.archasurvey) }}
+            {{ form_row(form.touristactivities) }}
+            {{ form_row(form.whichactivities) }}
+            <h2 class="page-header">Resultados de análisis</h2>
+            <br>
+            {{ form_row(form.dateofanalisis) }}
+            {{ form_row(form.temperature) }}
+            {{ form_row(form.turbidity) }}
+            {{ form_row(form.ph) }}
+            {{ form_row(form.ammonium) }}
+            {{ form_row(form.nitrites) }}
+            {{ form_row(form.nitratos) }}
+            {{ form_row(form.phosphates) }}
+            {{ form_row(form.hardness) }}
+            {{ form_row(form.detergents) }}
+            {{ form_row(form.chlorine) }}
+            {{ form_row(form.coliforms) }}
+            {{ form_row(form.observations) }}
+            {{ form_row(form.status) }}
+            {{ form_row(form.image) }}
+            {{ form_row(form.videoPath) }}
+            {{ form_row(form.createdAt) }}
+            {{ form_row(form.updatedAt) }}
+            {{ form_row(form.user) }}
+            <br>
+        
+        
         {{form_errors(form)}}
         {{form_end(form)}}
 
