@@ -67,9 +67,7 @@ class CenoteType extends AbstractType {
                     'attr' => array(
                         'class' => 'form-equipment form-control'
                     )
-                ))               
-                
-                
+                ))
                 ->add('contextdescription', TextareaType::class, array(
                     'label' => 'Descripción detallada del sitio (tipo de hallazgo y descripción de contexto) - Site Detailed Description (Kind of Discovery and Context Description) ',
                     'required' => 'false',
@@ -98,9 +96,6 @@ class CenoteType extends AbstractType {
                         'class' => 'form-alteration form-control'
                     )
                 ))
-                
-                
-                
                 ->add('technicaldescription', TextType::class, array(
                     'label' => 'Descripción técnica de sitio (Site Technical Description)',
                     'required' => 'false',
@@ -115,7 +110,6 @@ class CenoteType extends AbstractType {
                         'class' => 'form-depth form-control'
                     )
                 ))
-                
                 ->add('horizontalpenetration', TextType::class, array(
                     'label' => 'Penetración horizontal en tiempo (Horizontal Penetration Time)',
                     'required' => 'false',
@@ -144,7 +138,6 @@ class CenoteType extends AbstractType {
                         'class' => 'form-siteassociated form-control'
                     )
                 ))
-                
                 ->add('watersamples', TextType::class, array(
                     'label' => 'Colecta de muestras de agua (Water Samples Collection)',
                     'required' => 'false',
@@ -194,7 +187,7 @@ class CenoteType extends AbstractType {
                         'class' => 'form-registrationby form-control'
                     )
                 ))
-                 ->add('sitecode', TextType::class, array(
+                ->add('sitecode', TextType::class, array(
                     'label' => 'Código del sitio',
                     'required' => 'false',
                     'attr' => array(
@@ -222,8 +215,6 @@ class CenoteType extends AbstractType {
                         'class' => 'form-townquintanaroo form-control'
                     )
                 ))
-                
-                
                 ->add('townyucatan', TextType::class, array(
                     'label' => 'Municipio de Yucatán ',
                     'required' => 'false',
@@ -252,8 +243,6 @@ class CenoteType extends AbstractType {
                         'class' => 'form-typeofcontext form-control'
                     )
                 ))
-                
-                
                 ->add('conservationstatus', TextType::class, array(
                     'label' => 'Estado de conservación',
                     'required' => 'false',
@@ -303,7 +292,6 @@ class CenoteType extends AbstractType {
                         'class' => 'form-touristactivities form-control'
                     )
                 ))
-                
                 ->add('whichactivities', TextType::class, array(
                     'label' => 'En caso de actividad turística, señale cuáles.',
                     'required' => 'false',
@@ -403,17 +391,28 @@ class CenoteType extends AbstractType {
                     )
                 ))
                 ->add('status')
-                ->add('image')
-                ->add('videoPath')
-                ->add('createdAt')
-                ->add('updatedAt')
-                ->add('user')
+                ->add('image', FileType::class, array(
+                    'label' => 'Foto de muestra del cenote',
+                    'required' => false,
+                    'data_class' => null,
+                    'attr' => array(
+                        'class' => 'form-image form-control'
+                    )
+                ))
                 ->add('Guardar', SubmitType::class, array(
                     "attr" => array(
                         "class" => "btn btn-success"
                     )
         ));
     }
+
+    /**
+     *                
+      ->add('videoPath')
+      ->add('createdAt')
+      ->add('updatedAt')
+      ->add('user')
+     */
 
     /**
      * {@inheritdoc}
