@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class CenoteType extends AbstractType {
 
@@ -193,35 +194,214 @@ class CenoteType extends AbstractType {
                         'class' => 'form-registrationby form-control'
                     )
                 ))
-                ->add('sitecode')
-                ->add('coordinates')
-                ->add('state')
-                ->add('townquintanaroo')
-                ->add('townyucatan')
-                ->add('location')
-                ->add('characteristics')
-                ->add('typeofcontext')
-                ->add('conservationstatus')
-                ->add('flora')
-                ->add('fauna')
-                ->add('archaelements')
-                ->add('whichelements')
-                ->add('archasurvey')
-                ->add('touristactivities')
-                ->add('whichactivities')
-                ->add('dateofanalisis')
-                ->add('temperature')
-                ->add('turbidity')
-                ->add('ph')
-                ->add('ammonium')
-                ->add('nitrites')
-                ->add('nitratos')
-                ->add('phosphates')
-                ->add('hardness')
-                ->add('detergents')
-                ->add('chlorine')
-                ->add('coliforms')
-                ->add('observations')
+                 ->add('sitecode', TextType::class, array(
+                    'label' => 'Código del sitio',
+                    'required' => 'false',
+                    'attr' => array(
+                        'class' => 'form-sitecode form-control'
+                    )
+                ))
+                ->add('coordinates', TextType::class, array(
+                    'label' => 'Coordenadas UTM',
+                    'required' => 'false',
+                    'attr' => array(
+                        'class' => 'form-coordinates form-control'
+                    )
+                ))
+                ->add('state', TextType::class, array(
+                    'label' => 'Estado ',
+                    'required' => 'false',
+                    'attr' => array(
+                        'class' => 'form-state form-control'
+                    )
+                ))
+                ->add('townquintanaroo', TextType::class, array(
+                    'label' => 'Municipios de Quintana Roo',
+                    'required' => 'false',
+                    'attr' => array(
+                        'class' => 'form-townquintanaroo form-control'
+                    )
+                ))
+                
+                
+                ->add('townyucatan', TextType::class, array(
+                    'label' => 'Municipio de Yucatán ',
+                    'required' => 'false',
+                    'attr' => array(
+                        'class' => 'form-townyucatan form-control'
+                    )
+                ))
+                ->add('location', TextType::class, array(
+                    'label' => 'Localidad',
+                    'required' => 'false',
+                    'attr' => array(
+                        'class' => 'form-location form-control'
+                    )
+                ))
+                ->add('characteristics', TextType::class, array(
+                    'label' => 'Características del sitio',
+                    'required' => 'false',
+                    'attr' => array(
+                        'class' => 'form-characteristics form-control'
+                    )
+                ))
+                ->add('typeofcontext', TextType::class, array(
+                    'label' => 'Tipo de contexto',
+                    'required' => 'false',
+                    'attr' => array(
+                        'class' => 'form-typeofcontext form-control'
+                    )
+                ))
+                
+                
+                ->add('conservationstatus', TextType::class, array(
+                    'label' => 'Estado de conservación',
+                    'required' => 'false',
+                    'attr' => array(
+                        'class' => 'form-conservationstatus form-control'
+                    )
+                ))
+                ->add('flora', TextareaType::class, array(
+                    'label' => 'Flora',
+                    'required' => 'false',
+                    'attr' => array(
+                        'class' => 'form-flora form-control'
+                    )
+                ))
+                ->add('fauna', TextareaType::class, array(
+                    'label' => 'Fauna',
+                    'required' => 'false',
+                    'attr' => array(
+                        'class' => 'form-fauna form-control'
+                    )
+                ))
+                ->add('archaelements', TextType::class, array(
+                    'label' => 'Presencia de elementos arqueológicos',
+                    'required' => 'false',
+                    'attr' => array(
+                        'class' => 'form-archaelements form-control'
+                    )
+                ))
+                ->add('whichelements', TextType::class, array(
+                    'label' => 'En caso de presencia de elementos arqueológicos, señalar cuáles. ',
+                    'required' => 'false',
+                    'attr' => array(
+                        'class' => 'form-whichelements form-control'
+                    )
+                ))
+                ->add('archasurvey', TextType::class, array(
+                    'label' => 'Prospección arqueológica',
+                    'required' => 'false',
+                    'attr' => array(
+                        'class' => 'form-archasurvey form-control'
+                    )
+                ))
+                ->add('touristactivities', TextType::class, array(
+                    'label' => 'Presencia de actividades turísticas',
+                    'required' => 'false',
+                    'attr' => array(
+                        'class' => 'form-touristactivities form-control'
+                    )
+                ))
+                
+                ->add('whichactivities', TextType::class, array(
+                    'label' => 'En caso de actividad turística, señale cuáles.',
+                    'required' => 'false',
+                    'attr' => array(
+                        'class' => 'form-whichactivities form-control'
+                    )
+                ))
+                ->add('dateofanalisis', DateType::class, array(
+                    'label' => 'Fecha de análisis',
+                    'required' => 'false',
+                    'attr' => array(
+                        'class' => 'form-dateofanalisis form-control'
+                    )
+                ))
+                ->add('temperature', TextType::class, array(
+                    'label' => 'Temperatura',
+                    'required' => 'false',
+                    'attr' => array(
+                        'class' => 'form-temperature form-control'
+                    )
+                ))
+                ->add('turbidity', TextType::class, array(
+                    'label' => 'Turbiedad',
+                    'required' => 'false',
+                    'attr' => array(
+                        'class' => 'form-turbidity form-control'
+                    )
+                ))
+                ->add('ph', TextType::class, array(
+                    'label' => 'pH',
+                    'required' => 'false',
+                    'attr' => array(
+                        'class' => 'form-ph form-control'
+                    )
+                ))
+                ->add('ammonium', TextType::class, array(
+                    'label' => 'Amonio',
+                    'required' => 'false',
+                    'attr' => array(
+                        'class' => 'form-ammonium form-control'
+                    )
+                ))
+                ->add('nitrites', TextType::class, array(
+                    'label' => 'Nitritos',
+                    'required' => 'false',
+                    'attr' => array(
+                        'class' => 'form-nitrites form-control'
+                    )
+                ))
+                ->add('nitratos', TextType::class, array(
+                    'label' => 'Nitratos',
+                    'required' => 'false',
+                    'attr' => array(
+                        'class' => 'form-nitratos form-control'
+                    )
+                ))
+                ->add('phosphates', TextType::class, array(
+                    'label' => 'Fosfatos',
+                    'required' => 'false',
+                    'attr' => array(
+                        'class' => 'form-phosphates form-control'
+                    )
+                ))
+                ->add('hardness', TextType::class, array(
+                    'label' => 'Dureza total CaCo3',
+                    'required' => 'false',
+                    'attr' => array(
+                        'class' => 'form-hardness form-control'
+                    )
+                ))
+                ->add('detergents', TextType::class, array(
+                    'label' => 'Detergentes',
+                    'required' => 'false',
+                    'attr' => array(
+                        'class' => 'form-detergents form-control'
+                    )
+                ))
+                ->add('chlorine', TextType::class, array(
+                    'label' => 'Cloro',
+                    'required' => 'false',
+                    'attr' => array(
+                        'class' => 'form-chlorine form-control'
+                    )
+                ))
+                ->add('coliforms', TextType::class, array(
+                    'label' => 'Coliformes',
+                    'required' => 'false',
+                    'attr' => array(
+                        'class' => 'form-coliforms form-control'
+                    )
+                ))
+                ->add('observations', TextareaType::class, array(
+                    'label' => 'Observaciones',
+                    'required' => 'false',
+                    'attr' => array(
+                        'class' => 'form-observations form-control'
+                    )
+                ))
                 ->add('status')
                 ->add('image')
                 ->add('videoPath')
