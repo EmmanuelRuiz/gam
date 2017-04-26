@@ -70,6 +70,10 @@ hr {
 .box-form textarea{
     margin-bottom: 15px;
 }
+
+.box-form select{
+    margin-bottom: 15px;
+}
 /*listado users*/
 .box-default{
     background:white;

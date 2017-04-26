@@ -8,7 +8,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
 use BackendBundle\Entity\Cenote;
 use AppBundle\Form\CenoteType;
-use BackendBundle\Entity\User;
 
 class CenoteController extends Controller {
 
@@ -39,7 +38,7 @@ class CenoteController extends Controller {
                 if (!empty($file) && $file != null) {
                     $ext = $file->guessExtension();
                     if ($ext == 'jpg' || $ext == 'jpeg' || $ext == 'png' || $ext == 'gif') {
-                        $file_name = $user->getId() . time() . "." . $ext;
+                        $file_name = $user->getId() . $user->getName() . time() . "." . $ext;
                         $file->move("uploads/cenotes/images", $file_name);
                         $cenote->setImage($file_name);
                     } else {
@@ -49,10 +48,9 @@ class CenoteController extends Controller {
                     $cenote->setImage(null);
                 }
 
-
-                $createdAt = new \Datetime('now');
                 $cenote->setUser($user);
-                $cenote->setCreatedAt($createdAt);
+                //$createdAt = new \Datetime('now');
+                $cenote->setCreatedAt(new \Datetime("now"));
                 $em->persist($cenote);
                 $flush = $em->flush();
 
@@ -64,7 +62,7 @@ class CenoteController extends Controller {
             } else {
                 $status = 'El registro no se ha creado, porque el formulario no es valido.';
             }
-            $this->session->getFlashBag()->add('status', $status);
+            $this->session->getFlashBag()->add("status", $status);
             return $this->redirectToRoute('new_cenote');
         }
         return $this->render('AppBundle:Cenote:new_cenote.html.twig', array(

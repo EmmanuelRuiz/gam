@@ -282,11 +282,8 @@ BackendBundle\Entity\Cenote:
                 fixed: false
             column: whichActivities
         dateofanalisis:
-            type: string
+            type: datetime
             nullable: true
-            length: 100
-            options:
-                fixed: false
             column: dateOfAnalisis
         temperature:
             type: string

@@ -213,7 +213,7 @@ class Cenote
     private $whichactivities;
 
     /**
-     * @var string
+     * @var \DateTime
      */
     private $dateofanalisis;
 
@@ -1281,7 +1281,7 @@ class Cenote
     /**
      * Set dateofanalisis
      *
-     * @param string $dateofanalisis
+     * @param \DateTime $dateofanalisis
      *
      * @return Cenote
      */
@@ -1295,7 +1295,7 @@ class Cenote
     /**
      * Get dateofanalisis
      *
-     * @return string
+     * @return \DateTime
      */
     public function getDateofanalisis()
     {

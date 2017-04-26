@@ -173,7 +173,7 @@ class CenoteType extends AbstractType {
                         'class' => 'form-documentedby form-control'
                     )
                 ))
-                ->add('inspectiondate', TextType::class, array(
+                ->add('inspectiondate', DateType::class, array(
                     'label' => 'Fecha de registro de sitio (Site Inspection Date) ',
                     'required' => 'false',
                     'attr' => array(
