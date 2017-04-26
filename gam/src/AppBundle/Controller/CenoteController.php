@@ -24,7 +24,7 @@ class CenoteController extends Controller {
         //sacar la info de la bd con el paginador
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
-                $query, $request->query->getInt('page', 1), 5);
+                $query, $request->query->getInt('page', 1), 9);
 
         //renderisar vista
         return $this->render('AppBundle:Cenote:home.html.twig', array(
