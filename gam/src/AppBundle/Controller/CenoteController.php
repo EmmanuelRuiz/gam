@@ -17,9 +17,22 @@ class CenoteController extends Controller {
         $this->session = new Session();
     }
 
-    public function indexAction() {
-        return $this->render('AppBundle:Cenote:home.html.twig');
+    public function indexAction(Request $request) {
+        $em = $this->getDoctrine()->getManager();
+        $dql = "SELECT u FROM BackendBundle:Cenote u ORDER BY u.id ASC";
+        $query = $em->createQuery($dql);
+        //sacar la info de la bd con el paginador
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+                $query, $request->query->getInt('page', 1), 5);
+
+        //renderisar vista
+        return $this->render('AppBundle:Cenote:home.html.twig', array(
+                    'pagination' => $pagination
+        ));
     }
+
+    /* metodo para registrar un cenote */
 
     public function newCenoteAction(Request $request) {
 
@@ -70,4 +83,13 @@ class CenoteController extends Controller {
         ));
     }
 
+    /**
+      public function getCenote($request){
+      $em = $this->getDoctrine()->getManager();
+      $user = $this->getUser();
+
+      $cenotes_repo = $em->getRepository('BackendBundle:Cenote');
+      $consulta = $cenotes_repo->findBy(array('user' => $user));
+
+      } */
 }

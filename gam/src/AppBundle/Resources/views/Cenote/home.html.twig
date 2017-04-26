@@ -3,18 +3,52 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Cenotes</h1>
+                <h1 class="page-header">Lista de cenotes</h1>
             </div>
         </div>
     </div>
 
     <div class="container">
         <div class="row">
-            <div id="timeline" class="col-lg-7 box-default pull-left">
+            <div id="timeline" class="col-lg-12 box-default">
                 <div class="box-content">
-                    <p>Lista de cenotes</p>
+                    <h1>Registros</h1>
+
+
+                    <div class="count">
+                        <span class="label label-primary">
+                            Total de cenotes {{ pagination.getTotalItemCount }}
+                        </span>
+                    </div>
+                    <hr>
+                    <div class="box-content box-users">
+                        {% for cenote in pagination %}
+                            <div class="col-lg-12 user-item">
+                                <div class="avatar">
+                                    {% if cenote.image == null %}
+                                        <img src="{{asset('assets/images/default.jpg')}}">
+                                    {% else %}
+                                        <img src="{{asset('uploads/cenotes/images/'~cenote.image)}}">
+                                    {% endif %}
+
+                                </div>
+                                <div class="user-item-content">
+                                    <p>{{cenote.name}}
+                                    <div class="clear-fix"></div>
+                                    <hr>
+                                </div>
+
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="navigation">
+                        {{ knp_pagination_render(pagination) }}
+                    </div>
+                    <div class="clearfix"></div>
+  
                 </div>
             </div>
+            <!--
             <div id="user-card" class="col-lg-4 box-default pull-right">
                 <div class="avatar">
                     {% if app.user.image == null %}
@@ -25,15 +59,15 @@
 
                 </div>
                 <div class="name-lastname">
-                	<a href="my-data">{{app.user.name}} {{app.user.plastname}} {{app.user.mlastname}}</a>
-                	<div class="clearfix"></div>
-                	<span class="email">
-                		{{app.user.email}}
-                	</span>
+                    <a href="my-data">{{app.user.name}} {{app.user.plastname}} {{app.user.mlastname}}</a>
+                    <div class="clearfix"></div>
+                    <span class="email">
+                        {{app.user.email}}
+                    </span>
                 </div>
                 <div class="clearfix"></div>
             </div>
-
+            -->
         </div>
     </div>
 
