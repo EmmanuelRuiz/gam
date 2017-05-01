@@ -35,6 +35,9 @@
                                 <div class="data">
                                     <h4><a href="#">{{cenote.name}}</a></h4>
                                     <p>Registro por: {{ cenote.user.name }} {{ cenote.user.plastname }}</p>
+                                    <span class="pub-date">
+                                        {{cenote.createdAt|date('d-m-y')}}
+                                    </span>
                                 </div>
                                 <div class="clearfix"></div>
                             </li>
