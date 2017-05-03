@@ -193,7 +193,7 @@ class UserController extends Controller {
     public function searchAction(Request $request) {
         $em = $this->getDoctrine()->getManager();
         //obtenemos el parametro get desde la url
-        $search = $request->query->get("search", null);
+        $search = trim($request->query->get("search", null));
         
         //si no hay nada nos redirige a home
         if($search == null){
