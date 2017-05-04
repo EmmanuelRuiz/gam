@@ -216,5 +216,29 @@ class UserController extends Controller {
             'pagination' => $pagination
         ));
     }
+    
+    public function profileAction(Request $request, $email = null){
+        $em = $this->getDoctrine()->getManager();
+        if($email != null){
+            $user_repo = $em->getRepository("BackendBundle:User");
+            $user = $user_repo->findOneBy(array("email" => $email));
+        } else {
+            $user = $this->getUser();
+        }
+        
+        if(empty($user) || !is_object($user)){
+            return $this->redirect($this->generateUrl('app_homepage'));
+        }
+        
+        $user_id = $user->getId();
+        $dql = "SELECT c FROM BackendBundle:Cenote c WHERE c.user = $user_id ORDER BY c.id DESC";
+        $query = $em->createQuery($dql);
+        $paginator = $this->get('knp_paginator');
+        $cenotes = $paginator->paginate($query, $request->query->getInt('page', 1), 6);
+        return $this->render('AppBundle:User:profile.html.twig', array(
+            'user' => $user,
+            'pagination' => $cenotes
+        ));
+    }
 
 }

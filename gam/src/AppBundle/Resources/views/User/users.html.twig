@@ -36,7 +36,11 @@
 
                         </div>
                         <div class="user-item-content">
-                            <p>{{user.name}} {{user.plastname}} {{user.mlastname}}</p>
+                            <p>
+                                <a href="{{path('user_profile', {'email':user.email})}}">
+                                   {{user.name}} {{user.plastname}} {{user.mlastname}}
+                                </a>
+                            </p>
                             <p>{{user.email}}</p>
                             <div class="clear-fix"></div>
                             <hr>
