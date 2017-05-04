@@ -92,4 +92,27 @@ class CenoteController extends Controller {
       $consulta = $cenotes_repo->findBy(array('user' => $user));
 
       } */
+    
+    public function cenoteAction(Request $request, $id = null){
+        $user = $this->getUser();
+        $em = $this->getDoctrine()->getManager();
+        
+        if($id != null){
+            $cenote_repo = $em->getRepository('BackendBundle:Cenote');
+            $cenote = $cenote_repo->findOneBy(array(
+                'id' => $id
+            ));
+        } else {
+            $cenote = $this->getId();
+        }
+        
+        if(empty($cenote) || !is_object($cenote)){
+            return $this->redirect($this->generateUrl('app_homepage'));
+        }
+        
+        return $this->render('AppBundle:Cenote:cenote.html.twig', array(
+           'cenote' => $cenote 
+        ));
+        
+    }
 }

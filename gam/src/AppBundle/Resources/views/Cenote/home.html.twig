@@ -39,7 +39,7 @@
                                     </div>
                                 </div>
                                 <div class="data">
-                                    <h4><a href="#">{{cenote.name}}</a></h4>
+                                    <h4><a href="{{ path('cenote_profile',{'id':cenote.id})}}">{{cenote.name}}</a></h4>
                                     <p>Registro por: 
                                         <a href="{{ path('user_profile', {'email':cenote.user.email})}}">
                                             {{ cenote.user.name }} {{ cenote.user.plastname }}

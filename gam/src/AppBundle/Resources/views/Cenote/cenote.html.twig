@@ -1,0 +1,97 @@
+{% extends "AppBundle:layouts:layout.html.twig" %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Registro: {{cenote.name}}</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div id="timeline" class="col-lg-12 box-default">
+                <div class="box-content">
+                    <h2 class="page-header">CÉDULA DE REGISTRO DE SITIO <br> (Site Registration Form)</h2>
+
+
+                    <div class="cenote-image">
+                        <div class="avatar">
+                            {% if cenote.image == null %}
+                                <img src="{{asset('assets/images/default.jpg')}}">
+                            {% else %}
+                                <img src="{{asset('uploads/cenotes/images/'~cenote.image)}}">
+                            {% endif %}
+                        </div>
+                    </div>
+                    <p>{{cenote.name}}</p>
+                    <p>{{cenote.entitiname}}</p>
+                    <p>{{cenote.keysite}}</p>
+                    <p>{{cenote.coordinatesutm}}</p>
+                    <p>{{cenote.kindofcontext}}</p>
+                    <p>{{cenote.drycave}}</p>
+                    <p>{{cenote.equipment}}</p>
+
+                    <p>{{cenote.contextdescription}}</p>
+                    <p>{{cenote.relevanttraits}}</p>
+                    <p>{{cenote.preservationgeneral}}</p>
+                    <p>{{cenote.technicaldescription}}</p>
+                    <p>{{cenote.depth}}</p>
+                    <p>{{cenote.equipment}}</p>
+                    <p>{{cenote.horizontalpenetration}}</p>
+                    <p>{{cenote.sitedimensions}}</p>
+                    <p>{{cenote.entrancedistance}}</p>
+                    <p>{{cenote.siteassociated}}</p>
+                    <p>{{cenote.watersamples}}</p>
+                    <p>{{cenote.typeofwater}}</p>
+                    <p>{{cenote.contact}}</p>
+                    <p>{{cenote.exploredby}}</p>
+                    <p>{{cenote.documentedby}}</p>
+                    <p>{{cenote.inspectiondate|date('d-m-y')}}</p>
+                    <p>{{cenote.registrationby}}</p>
+                    <h2 class="page-header">Cédula de registro del análisis bioquímico del acuífero </h2>
+                    <br>
+                    <p>{{cenote.sitecode}}</p>
+                    <p>{{cenote.coordinates}}</p>
+                    <p>{{cenote.state}}</p>
+                    <p>{{cenote.townquintanaroo}}</p>
+                    <p>{{cenote.townyucatan}}</p>
+                    <p>{{cenote.location}}</p>
+                    <p>{{cenote.characteristics}}</p>
+                    <p>{{cenote.typeofcontext}}</p>
+                    <p>{{cenote.conservationstatus}}</p>
+                    <p>{{cenote.flora}}</p>
+                    <p>{{cenote.fauna}}</p>
+                    <p>{{cenote.archaelements}}</p>
+                    <p>{{cenote.whichelements}}</p>
+                    <p>{{cenote.archasurvey}}</p>
+                    <p>{{cenote.touristactivities}}</p>
+                    <p>{{cenote.whichactivities}}</p>
+                    <h2 class="page-header">Resultados de análisis</h2>
+                    <br>
+                    <p>{{cenote.dateofanalisis|date('d-m-y')}}</p>
+                    <p>{{cenote.temperature}}</p>
+                    <p>{{cenote.turbidity}}</p>
+                    <p>{{cenote.ph}}</p>
+                    <p>{{cenote.ammonium}}</p>
+                    <p>{{cenote.nitrites}}</p>
+                    <p>{{cenote.nitratos}}</p>
+                    <p>{{cenote.phosphates}}</p>
+                    <p>{{cenote.hardness}}</p>
+                    <p>{{cenote.detergents}}</p>
+                    <p>{{cenote.chlorine}}</p>
+                    <p>{{cenote.coliforms}}</p>
+                    <p>{{cenote.observations}}</p>
+                    <p>{{cenote.status}}</p>
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

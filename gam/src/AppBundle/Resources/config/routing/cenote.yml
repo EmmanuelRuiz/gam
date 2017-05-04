@@ -5,3 +5,7 @@ home_cenotes:
 new_cenote:
     path: /register-cenote
     defaults: { _controller: AppBundle:Cenote:newCenote }
+
+cenote_profile:
+    path: /cenote/{id}
+    defaults: { _controller: AppBundle:Cenote:cenote, id:null }
