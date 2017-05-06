@@ -12,8 +12,8 @@
         {% endblock %}
         {% block javascripts %}
             <script type="text/javascript">
-                //cuando se publique el proyecto se borra la url extra (/gam/gam...)
-                var URL = "{{ app.request.getSchemeAndHttpHost() }}/gam/gam/web/app_dev.php";
+				//cuando se publique el proyecto se borra la url extra (/gam/gam...)
+				var URL = "{{ app.request.getSchemeAndHttpHost() }}/gam/gam/web/app_dev.php";
             </script>
             <script src="{{ asset('assets/js/jquery.min.js')}}"></script>
             <script src="{{ asset('assets/bootstrap/js/bootstrap.min.js')}}"></script>
@@ -124,6 +124,7 @@
                 </div>
             </nav>
         </header>
+                    
         <section id="content">
             <!-- sessiones mensajes flag-->
             <div class="container">
@@ -137,36 +138,36 @@
             {% endblock %}
         </section>
 
-  <!-- Footer -->
-  <!-- la clase texto centrado es para usarlo solo en responsive -->
-  <footer class="footer texto-centrado">
-      <div class="container">
-          <div class="page-header"></div>
-          <div class="row">
-              <div class="col-lg-5">
-                  <p class="text-muted"><b>Gran Acuífero Maya &copy; 2017.</b></p>
-                  <br>
-              </div>
-              <div class="col-lg-3">
-                  <p class="text-muted"><b>Lorem Impsum</b></p>
-                  <p class="text-muted">Lorem Impsum Lorem Impsum Lorem Impsum<br>Lorem Impsum Lorem Impsum Lorem Impsum</p>
-                  <br>
-              </div>
-              <div class="col-lg-2">
-                  <p class="text-muted"><b>Lorem Impsum</b></p>
-                  <p class="text-muted">Lorem Impsum <br> Lorem Impsum</p>
-                  <p class="text-muted">Lorem Impsum <br> Lorem Impsum</p>
-                  <br>
-              </div>
-              <div class="col-lg-2">
-                  <p class="text-muted"><b>Síguenos en Facebook</b></p>
-                  <span class="fa-stack fa-2x">
-                    <a href="https://www.facebook.com"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
-                </span>
-                <p class="text-muted">Sitio Web Creado con <span class="glyphicon glyphicon-heart"></span> por <a href="www.facebook.com/crealab">CreaLab</a></p>
+        <!-- Footer -->
+        <!-- la clase texto centrado es para usarlo solo en responsive -->
+        <footer class="footer texto-centrado">
+            <div class="container">
+                <div class="page-header"></div>
+                <div class="row">
+                    <div class="col-lg-5">
+                        <p class="text-muted"><b>Gran Acuífero Maya &copy; 2017.</b></p>
+                        <br>
+                    </div>
+                    <div class="col-lg-3">
+                        <p class="text-muted"><b>Lorem Impsum</b></p>
+                        <p class="text-muted">Lorem Impsum Lorem Impsum Lorem Impsum<br>Lorem Impsum Lorem Impsum Lorem Impsum</p>
+                        <br>
+                    </div>
+                    <div class="col-lg-2">
+                        <p class="text-muted"><b>Lorem Impsum</b></p>
+                        <p class="text-muted">Lorem Impsum <br> Lorem Impsum</p>
+                        <p class="text-muted">Lorem Impsum <br> Lorem Impsum</p>
+                        <br>
+                    </div>
+                    <div class="col-lg-2">
+                        <p class="text-muted"><b>Síguenos en Facebook</b></p>
+                        <span class="fa-stack fa-2x">
+                            <a href="https://www.facebook.com"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+                        </span>
+                        <p class="text-muted">Sitio Web Creado con <span class="glyphicon glyphicon-heart"></span> por <a href="www.facebook.com/crealab">CreaLab</a></p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-  </footer>
+        </footer>
     </body>
 </html>
