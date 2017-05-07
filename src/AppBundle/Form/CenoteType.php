@@ -401,7 +401,7 @@ class CenoteType extends AbstractType {
                 ))
                 ->add('Guardar', SubmitType::class, array(
                     "attr" => array(
-                        "class" => "btn btn-success"
+                        "class" => "btn btn-success btn-lg btn-block"
                     )
         ));
     }

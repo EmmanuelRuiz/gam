@@ -89,48 +89,50 @@
             
         <div class="box-form">
             <h3 class="page-header">CÉDULA DE REGISTRO DEL ANÁLISIS BIOQUÍMICO DEL ACUÍFERO </h3>
-            <br>
-            {{ form_row(form.sitecode) }}
-            {{ form_row(form.coordinates) }}
-            {{ form_row(form.state) }}
-            {{ form_row(form.townquintanaroo) }}
-            {{ form_row(form.townyucatan) }}
-            {{ form_row(form.location) }}
-            {{ form_row(form.characteristics) }}
-            {{ form_row(form.typeofcontext) }}
-            {{ form_row(form.conservationstatus) }}
-            {{ form_row(form.flora) }}
-            {{ form_row(form.fauna) }}
-            {{ form_row(form.archaelements) }}
-            {{ form_row(form.whichelements) }}
-            {{ form_row(form.archasurvey) }}
-            {{ form_row(form.touristactivities) }}
-            {{ form_row(form.whichactivities) }}
+            <div class="col-lg-6">{{ form_row(form.sitecode) }}</div>
+            <div class="col-lg-6">{{ form_row(form.coordinates) }}</div>
+            <div class="col-lg-4">{{ form_row(form.state) }}</div>
+            <div class="col-lg-4">{{ form_row(form.townquintanaroo) }}</div>
+            <div class="col-lg-4">{{ form_row(form.townyucatan) }}</div>
+            <div class="col-lg-6">{{ form_row(form.location) }}</div>
+            <div class="col-lg-6">{{ form_row(form.typeofcontext) }}</div>
+            <div class="col-lg-6">{{ form_row(form.characteristics) }}</div>
+            <div class="col-lg-6">{{ form_row(form.conservationstatus) }}</div>
+            <div class="col-lg-6">{{ form_row(form.flora) }}</div>
+            <div class="col-lg-6">{{ form_row(form.fauna) }}</div>
+            <div class="col-lg-4">{{ form_row(form.archaelements) }}</div>
+            <div class="col-lg-4">{{ form_row(form.archasurvey) }}</div>
+            <div class="col-lg-4">{{ form_row(form.touristactivities) }}</div>
+            <div class="col-lg-6">{{ form_row(form.whichelements) }}</div>
+            <div class="col-lg-6">{{ form_row(form.whichactivities) }}</div>
+            <div class="clearfix"></div>
+
         </div>
-            
-            <h2 class="page-header">Resultados de análisis</h2>
-            <br>
-            {{ form_row(form.dateofanalisis) }}
-            {{ form_row(form.temperature) }}
-            {{ form_row(form.turbidity) }}
-            {{ form_row(form.ph) }}
-            {{ form_row(form.ammonium) }}
-            {{ form_row(form.nitrites) }}
-            {{ form_row(form.nitratos) }}
-            {{ form_row(form.phosphates) }}
-            {{ form_row(form.hardness) }}
-            {{ form_row(form.detergents) }}
-            {{ form_row(form.chlorine) }}
-            {{ form_row(form.coliforms) }}
-            {{ form_row(form.observations) }}
-            {{ form_row(form.status) }}
-            {{ form_row(form.image) }}
+        <br>
+        
+        <div class="box-form">    
+            <h3 class="page-header">RESULTADO DE ANALISIS</h3>
+            <div class="col-lg-3">{{ form_row(form.temperature) }}</div>
+            <div class="col-lg-3">{{ form_row(form.turbidity) }}</div>
+            <div class="col-lg-3">{{ form_row(form.ph) }}</div>
+            <div class="col-lg-3"> {{ form_row(form.ammonium) }}</div>
+            <div class="col-lg-6">{{ form_row(form.nitrites) }}</div>
+            <div class="col-lg-6"> {{ form_row(form.nitratos) }}</div>
+            <div class="col-lg-4"> {{ form_row(form.detergents) }}</div>
+            <div class="col-lg-4">{{ form_row(form.chlorine) }}</div>
+            <div class="col-lg-4"> {{ form_row(form.coliforms) }}</div>
+            <div class="col-lg-6">{{ form_row(form.phosphates) }}</div>
+            <div class="col-lg-6">{{ form_row(form.hardness) }}</div>
+            <div class="col-lg-12">{{ form_row(form.observations) }}</div>
 
-            <br>
-
-
+            <div class="col-lg-4">{{ form_row(form.dateofanalisis) }}</div>
+            <div class="col-lg-4">{{ form_row(form.status) }}</div>
+            <div class="col-lg-4">{{ form_row(form.image) }}</div>
+            <div class="col-lg-12">{{ form_row(form.Guardar) }}</div>
+            <div class="clearfix"></div>
             {{form_errors(form)}}
             {{form_end(form)}}
+        </div>
 
         
     </div>
