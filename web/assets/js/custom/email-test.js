@@ -13,9 +13,9 @@ $(document).ready(function(){
             type: 'POST',
             success: function(response){
                 if(response == "used"){
-                    $(".email-input").css("border", "1px solid red");
+                    $(".email-input").css("border", "3px solid red");
                 } else {
-                    $(".email-input").css("border", "1px solid green");
+                    $(".email-input").css("border", "3px solid green");
                 }
             }
         });
