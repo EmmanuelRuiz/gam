@@ -1,0 +1,17 @@
+{% extends "AppBundle:layouts:layout.html.twig" %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Registro: {{cenote.name}}</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 box-form">
+        <h2>Mis datos</h2>
+
+        {{form_start(form, {'enctype':'multipart/form-data'})}}
+        {{form_end(form)}}
+    </div>
+{%endblock%}

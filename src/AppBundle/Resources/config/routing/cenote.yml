@@ -9,3 +9,7 @@ new_cenote:
 cenote_profile:
     path: /cenote/{id}
     defaults: { _controller: AppBundle:Cenote:cenote, id:null }
+
+cenotes_edit:
+    path: /editar-cenote
+    defaults: { _controller: AppBundle:Cenote:editCenote }
