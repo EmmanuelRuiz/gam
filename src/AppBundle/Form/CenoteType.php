@@ -11,6 +11,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class CenoteType extends AbstractType {
 
@@ -26,8 +28,8 @@ class CenoteType extends AbstractType {
                         'class' => 'form-name form-control'
                     )
                 ))
-                ->add('entitiname', TextType::class, array(
-                    'label' => 'Región (Entity Name)       ',
+                ->add('entitiname', CheckboxType::class, array(
+                    'label' => 'Región (Entity Name)',
                     'required' => 'false',
                     'attr' => array(
                         'class' => 'form-entitiname form-control'
@@ -306,8 +308,32 @@ class CenoteType extends AbstractType {
                         'class' => 'form-dateofanalisis form-control'
                     )
                 ))
-                ->add('temperature', TextType::class, array(
+                ->add('temperature', ChoiceType::class, array(
                     'label' => 'Temperatura',
+                    'choices' => array(
+                        '24°C' => '24°C',
+                        '25°C' => '25°C',
+                        '26°C' => '26°C',
+                        '27°C' => '27°C',
+                        '28°C' => '28°C',
+                        '29°C' => '29°C',
+                        '30°C' => '30°C',
+                        '31°C' => '31°C',
+                        '32°C' => '32°C',
+                        '33°C' => '33°C',
+                        '34°C' => '34°C',
+                        '35°C' => '35°C',
+                        '36°C' => '36°C',
+                        '37°C' => '37°C',
+                        '38°C' => '38°C',
+                        '39°C' => '39°C',
+                        '40°C' => '40°C',
+                        '41°C' => '41°C',
+                        '42°C' => '42°C',
+                        '43°C' => '43°C',
+                        '44°C' => '44°C',
+                        '45°C' => '45°C',
+                    ),
                     'required' => 'false',
                     'attr' => array(
                         'class' => 'form-temperature form-control'
@@ -362,22 +388,37 @@ class CenoteType extends AbstractType {
                         'class' => 'form-hardness form-control'
                     )
                 ))
-                ->add('detergents', TextType::class, array(
+                ->add('detergents', ChoiceType::class, array(
                     'label' => 'Detergentes',
+                    'choices' => array(
+                        'Positivo' => 'Positivo',
+                        'Negativo' => 'Negativo',
+                        'Ninguno' => 'Ninguno'
+                    ),
                     'required' => 'false',
                     'attr' => array(
                         'class' => 'form-detergents form-control'
                     )
                 ))
-                ->add('chlorine', TextType::class, array(
+                ->add('chlorine', ChoiceType::class, array(
                     'label' => 'Cloro',
+                    'choices' => array(
+                        'Positivo' => 'Positivo',
+                        'Negativo' => 'Negativo',
+                        'Ninguno' => 'Ninguno'
+                    ),
                     'required' => 'false',
                     'attr' => array(
                         'class' => 'form-chlorine form-control'
                     )
                 ))
-                ->add('coliforms', TextType::class, array(
+                ->add('coliforms', ChoiceType::class, array(
                     'label' => 'Coliformes',
+                    'choices' => array(
+                        'Positivo' => 'Positivo',
+                        'Negativo' => 'Negativo',
+                        'Ninguno' => 'Ninguno'
+                    ),
                     'required' => 'false',
                     'attr' => array(
                         'class' => 'form-coliforms form-control'
@@ -390,7 +431,17 @@ class CenoteType extends AbstractType {
                         'class' => 'form-observations form-control'
                     )
                 ))
-                ->add('status')
+                ->add('status', ChoiceType::class, array(
+                    'label' => 'Estatus',
+                    'choices' => array(
+                        'Disponible' => 'Disponible',
+                        'Oculto' => 'Oculto'
+                    ),
+                    'required' => 'true',
+                    'attr' => array(
+                        'class' => 'form-status form-control'
+                    )
+                ))
                 ->add('image', FileType::class, array(
                     'label' => 'Foto de muestra del cenote',
                     'required' => false,
