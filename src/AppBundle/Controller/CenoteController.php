@@ -51,7 +51,7 @@ class CenoteController extends Controller {
                 if (!empty($file) && $file != null) {
                     $ext = $file->guessExtension();
                     if ($ext == 'jpg' || $ext == 'jpeg' || $ext == 'png' || $ext == 'gif') {
-                        $file_name = $user->getId() . $user->getName() . time() . "." . $ext;
+                        $file_name = $cenote->getId().time().'.'.$ext;
                         $file->move("uploads/cenotes/images", $file_name);
                         $cenote->setImage($file_name);
                     } else {
@@ -125,7 +125,7 @@ class CenoteController extends Controller {
         $cenote = $cenote_repo->find($id);
 
         // guardamos la imagen por defecto
-        $cenote_image = $cenote->getLogo();
+        $cenote_image = $cenote->getImage();
 
         // creamos variable para la instancia del formulario
         $form = $this->createForm(CenoteType::class, $cenote);
@@ -147,7 +147,7 @@ class CenoteController extends Controller {
                 if ((count($cenote_isset) == 0 || $cenote->getName() == $cenote_isset[0]->getName())) {
                     
                     // upload archivo
-                    $file = $form["logo"]->getData();
+                    $file = $form["image"]->getData();
 
                     if (!empty($file) && $file != null) {
                             // comprobamos que sea un formato de imagen
@@ -156,11 +156,11 @@ class CenoteController extends Controller {
                                     // creamos el nombre del archivo nuevo
                                     $file_name = $cenote->getId().time().'.'.$ext;
                                     //carpeta en la que se guardara
-                                    $file->move("uploads/cenote", $file_name);
-                                    $cenote->setLogo($file_name);
+                                    $file->move("uploads/cenotes/images", $file_name);
+                                    $cenote->setImage($file_name);
                             }
                     } else {
-                            $cenote->setLogo($cenote_image);
+                            $cenote->setImage($cenote_image);
                     }
 					
                     /* volcar el objeto y persistir en doctrine */
@@ -186,7 +186,7 @@ class CenoteController extends Controller {
         }
 		
 		return $this->render('AppBundle:Cenote:edit_cenote.html.twig', array(
-			'cenote' => $company,
+			'cenote' => $cenote,
 			'form' => $form->createView()
 		));
 	}
