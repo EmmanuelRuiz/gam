@@ -81,4 +81,3 @@ class Video
         return $this->cenote;
     }
 }
-
