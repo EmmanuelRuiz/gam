@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
 use BackendBundle\Entity\Cenote;
+use BackendBundle\Entity\Image;
 use AppBundle\Form\CenoteType;
 
 class CenoteController extends Controller {
@@ -211,28 +212,36 @@ class CenoteController extends Controller {
     public function uploadingImagesAction(Request $request, $id) {
         $em = $this->getDoctrine()->getManager();
         $db = $em->getConnection();
+        
         $files = $request->query->get("files");
-
+        //var_dump($files);
+        //die();
+        
         foreach ($files as $file) {
             //$db->insert('images', array( 'cenote_id' => $id,'image' => $files));
             $query = "INSERT INTO `images`(`cenote_id`, `image`) VALUES ($id, '$file');";
             $stmt = $db->prepare($query);
             $params = array();
             $stmt->execute($params);
+
+            $files->move("uploads/cenotes/images/", $file);
         }
-        die();
+
+        $this->addFlash('msg', 'Las imagenes se han subido correctamente');
+
+        return $this->redirectToRoute('upload_images', array('id' => $id));
     }
-    
+
     public function searchAction(Request $request) {
         $em = $this->getDoctrine()->getManager();
         //obtenemos el parametro get desde la url
         $search = trim($request->query->get("search", null));
-        
+
         //si no hay nada nos redirige a home
-        if($search == null){
+        if ($search == null) {
             return $this->redirect($this->generateUrl('app_homepage'));
         }
-        
+
         //coincidencias 
         $dql = "SELECT u FROM BackendBundle:Cenote u "
                 . "WHERE u.name LIKE :search ORDER BY u.id ASC";
@@ -245,7 +254,7 @@ class CenoteController extends Controller {
 
         //renderisar vista
         return $this->render('AppBundle:Cenote:cenotes.html.twig', array(
-            'pagination' => $pagination
+                    'pagination' => $pagination
         ));
     }
 
