@@ -211,3 +211,7 @@ hr {
     text-align: center;
 
 }
+
+.box-content .btn{
+    margin-left: 10px;
+}

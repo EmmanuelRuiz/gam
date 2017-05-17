@@ -222,5 +222,31 @@ class CenoteController extends Controller {
         }
         die();
     }
+    
+    public function searchAction(Request $request) {
+        $em = $this->getDoctrine()->getManager();
+        //obtenemos el parametro get desde la url
+        $search = trim($request->query->get("search", null));
+        
+        //si no hay nada nos redirige a home
+        if($search == null){
+            return $this->redirect($this->generateUrl('app_homepage'));
+        }
+        
+        //coincidencias 
+        $dql = "SELECT u FROM BackendBundle:Cenote u "
+                . "WHERE u.name LIKE :search ORDER BY u.id ASC";
+        //set parameter limpia los parametros que recibimos
+        $query = $em->createQuery($dql)->setParameter('search', "%$search%");
+        //sacar la info de la bd con el paginador
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+                $query, $request->query->getInt('page', 1), 5);
+
+        //renderisar vista
+        return $this->render('AppBundle:Cenote:cenotes.html.twig', array(
+            'pagination' => $pagination
+        ));
+    }
 
 }

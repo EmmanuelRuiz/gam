@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Session;
 use BackendBundle\Entity\User;
+
 use AppBundle\Form\RegisterType;
 use AppBundle\Form\UserType;
 
@@ -190,6 +191,7 @@ class UserController extends Controller {
             'pagination' => $pagination
         ));
     }
+        
     public function searchAction(Request $request) {
         $em = $this->getDoctrine()->getManager();
         //obtenemos el parametro get desde la url
@@ -202,8 +204,7 @@ class UserController extends Controller {
         
         //coincidencias 
         $dql = "SELECT u FROM BackendBundle:User u "
-                . "WHERE u.name LIKE :search OR u.plastname LIKE :search "
-                . "OR u.mlastname LIKE :search ORDER BY u.id ASC";
+                . "WHERE u.name LIKE :search OR u.plastname LIKE :search ORDER BY u.id ASC";
         //set parameter limpia los parametros que recibimos
         $query = $em->createQuery($dql)->setParameter('search', "%$search%");
         //sacar la info de la bd con el paginador

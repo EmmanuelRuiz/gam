@@ -10,7 +10,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Usuarios registrados</h1>
+                <h1 class="page-header">Cenotes registrados</h1>
             </div>
         </div>
     </div>
@@ -25,23 +25,23 @@
             </div>
             <hr>
             <div class="box-content box-users">
-                {% for user in pagination %}
+                {% for cenote in pagination %}
                     <div class="col-lg-12 user-item">
                         <div class="avatar">
-                            {% if user.image == null %}
+                            {% if cenote.image == null %}
                                 <img src="{{asset('assets/images/default.jpg')}}">
                             {% else %}
-                                <img src="{{asset('uploads/users/'~user.image)}}">
+                                <img src="{{asset('uploads/cenotes/images/'~cenote.image)}}">
                             {% endif %}
 
                         </div>
                         <div class="user-item-content">
                             <p>
-                                <a href="{{path('user_profile', {'email':user.email})}}">
-                                   {{user.name}} {{user.plastname}}
+                                <a href="{{path('cenote_profile', {'id':cenote.id})}}">
+                                   {{cenote.name}}
                                 </a>
                             </p>
-                            <p>Email: {{user.email}}</p>
+                            <p>Registro por: {{cenote.user.name}}</p>
                             <div class="clear-fix"></div>
                             <hr>
                         </div>

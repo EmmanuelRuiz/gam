@@ -21,3 +21,7 @@ upload_images:
 uploading_images:
     path: /subiendo-imagenes/{id}
     defaults: { _controller: AppBundle:Cenote:uploadingImages, id:null }
+
+cenote_search:
+    path: /search
+    defaults: { _controller: AppBundle:Cenote:search }

@@ -442,6 +442,14 @@ class CenoteType extends AbstractType {
                         'class' => 'form-status form-control'
                     )
                 ))
+                ->add('image', FileType::class, array(
+                    'label' => 'Foto de muestra del cenote',
+                    'required' => false,
+                    'data_class' => null,
+                    'attr' => array(
+                        'class' => 'form-image form-control'
+                    )
+                ))
                 
                 ->add('Guardar', SubmitType::class, array(
                     "attr" => array(
