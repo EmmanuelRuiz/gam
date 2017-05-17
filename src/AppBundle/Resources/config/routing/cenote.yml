@@ -13,3 +13,11 @@ cenote_profile:
 cenotes_edit:
     path: /editar-cenote
     defaults: { _controller: AppBundle:Cenote:editCenote }
+
+upload_images:
+    path: /subir-imagenes
+    defaults: { _controller: AppBundle:Cenote:uploadImages }
+
+uploading_images:
+    path: /subiendo-imagenes/{id}
+    defaults: { _controller: AppBundle:Cenote:uploadingImages, id:null }

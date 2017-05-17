@@ -28,7 +28,7 @@ class CenoteType extends AbstractType {
                         'class' => 'form-name form-control'
                     )
                 ))
-                ->add('entitiname', CheckboxType::class, array(
+                ->add('entitiname', TextType::class, array(
                     'label' => 'Región (Entity Name)',
                     'required' => 'false',
                     'attr' => array(

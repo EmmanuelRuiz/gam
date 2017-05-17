@@ -51,7 +51,7 @@ class CenoteController extends Controller {
                 if (!empty($file) && $file != null) {
                     $ext = $file->guessExtension();
                     if ($ext == 'jpg' || $ext == 'jpeg' || $ext == 'png' || $ext == 'gif') {
-                        $file_name = $cenote->getId().time().'.'.$ext;
+                        $file_name = $cenote->getId() . time() . '.' . $ext;
                         $file->move("uploads/cenotes/images", $file_name);
                         $cenote->setImage($file_name);
                     } else {
@@ -132,43 +132,43 @@ class CenoteController extends Controller {
 
         /* recoger la request del formulario */
         $form->handleRequest($request);
-        
-        
+
+
         /* comprobar si el formularion se ha enviado */
         if ($form->isSubmitted()) {
             if ($form->isValid()) {
                 $query = $em->createQuery('SELECT u FROM BackendBundle:Cenote u WHERE u.name = :name')
-						->setParameter('name', $form->get("name")->getData());
-				
+                        ->setParameter('name', $form->get("name")->getData());
+
                 // almacenamos el cenote existente
                 $cenote_isset = $query->getResult();
-				
+
                 /* si user_isset es = 0 crea el cenote, si no no se registra por que ya existe */
                 if ((count($cenote_isset) == 0 || $cenote->getName() == $cenote_isset[0]->getName())) {
-                    
+
                     // upload archivo
                     $file = $form["image"]->getData();
 
                     if (!empty($file) && $file != null) {
-                            // comprobamos que sea un formato de imagen
-                            $ext = $file->guessExtension();
-                            if ($ext == 'jpg' || $ext == 'jpeg' || $ext == 'png' || $ext == 'gif') {
-                                    // creamos el nombre del archivo nuevo
-                                    $file_name = $cenote->getId().time().'.'.$ext;
-                                    //carpeta en la que se guardara
-                                    $file->move("uploads/cenotes/images", $file_name);
-                                    $cenote->setImage($file_name);
-                            }
+                        // comprobamos que sea un formato de imagen
+                        $ext = $file->guessExtension();
+                        if ($ext == 'jpg' || $ext == 'jpeg' || $ext == 'png' || $ext == 'gif') {
+                            // creamos el nombre del archivo nuevo
+                            $file_name = $cenote->getId() . time() . '.' . $ext;
+                            //carpeta en la que se guardara
+                            $file->move("uploads/cenotes/images", $file_name);
+                            $cenote->setImage($file_name);
+                        }
                     } else {
-                            $cenote->setImage($cenote_image);
+                        $cenote->setImage($cenote_image);
                     }
-					
+
                     /* volcar el objeto y persistir en doctrine */
                     $em->persist($cenote);
                     /* pasar los objetos persistidos a la bd */
                     $flush = $em->flush();
-					
-					
+
+
                     // mensajes de comprobación 
                     if ($flush == null) {
                         $status = "La información del cenote se a actualizado correctamente";
@@ -182,15 +182,45 @@ class CenoteController extends Controller {
                 $status = "No se ha realizado ninguna actualización";
             }
             $this->session->getFlashBag()->add("status", $status);
-			return $this->redirectToRoute('cenotes_edit', array('id'=>$id));
+            return $this->redirectToRoute('cenotes_edit', array('id' => $id));
         }
-		
-		return $this->render('AppBundle:Cenote:edit_cenote.html.twig', array(
-			'cenote' => $cenote,
-			'form' => $form->createView()
-		));
-	}
 
-    
+        return $this->render('AppBundle:Cenote:edit_cenote.html.twig', array(
+                    'cenote' => $cenote,
+                    'form' => $form->createView()
+        ));
+    }
+
+    public function uploadImagesAction(Request $request) {
+
+        $em = $this->getDoctrine()->getManager();
+        $user = $this->getUser();
+
+        $cenote = new Cenote();
+
+        $id = $request->query->get('id');
+        $cenote_repo = $em->getRepository('BackendBundle:Cenote');
+        $cenote = $cenote_repo->find($id);
+
+
+        return $this->render('AppBundle:Cenote:upload_images.html.twig', array(
+                    'cenote' => $cenote
+        ));
+    }
+
+    public function uploadingImagesAction(Request $request, $id) {
+        $em = $this->getDoctrine()->getManager();
+        $db = $em->getConnection();
+        $files = $request->query->get("files");
+
+        foreach ($files as $file) {
+            //$db->insert('images', array( 'cenote_id' => $id,'image' => $files));
+            $query = "INSERT INTO `images`(`cenote_id`, `image`) VALUES ($id, '$file');";
+            $stmt = $db->prepare($query);
+            $params = array();
+            $stmt->execute($params);
+        }
+        die();
+    }
 
 }
