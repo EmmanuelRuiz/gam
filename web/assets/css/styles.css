@@ -48,11 +48,12 @@ hr {
 }
 
 .page-header {
-    padding-bottom: 9px;
+    padding-bottom: 15px;
     margin: 40px 0 20px;
     border-bottom: 1px solid #149c82;
 }
 
+ 
 
 
 /*REGISTRO*/
@@ -162,14 +163,15 @@ hr {
 }
 
 .cenote-image{
-    width: 100%;
+    width: 50%;
     overflow: hidden;
     background: #ddd;
+    margin-left: 25%;
 }
 
 .cenote-image img{
     width: 100%;
-    float: left;
+    text-align: center;
 }
 
 .cenote-image-thumb img{

@@ -16,13 +16,10 @@
                     <a href="{{ path('cenotes_edit', {'id':cenote.id}) }}" class="btn btn-success    pull-right" type="button"  aria-haspopup="true" aria-expanded="false">
                         Editar cenote
                     </a>
-                    
-                        
                     <a href="{{ path('upload_images', {'id':cenote.id}) }}" class="btn btn-info  espacio  pull-right" type="button"  aria-haspopup="true" aria-expanded="false">
                         Subir imagenes
                     </a>
-                    <h2 class="page-header">CÉDULA DE REGISTRO DE SITIO <br> (Site Registration Form)</h2>
-
+                    <h2 class="page-header">Fecha del registro: {{cenote.createdAt|date('Y-m-d')}}</h2>
 
                     <div class="cenote-image">
                         <div class="avatar">
@@ -33,31 +30,132 @@
                             {% endif %}
                         </div>
                     </div>
-                    <p>{{cenote.name}}</p>
-                    <p>{{cenote.entitiname}}</p>
-                    <p>{{cenote.keysite}}</p>
-                    <p>{{cenote.coordinatesutm}}</p>
-                    <p>{{cenote.kindofcontext}}</p>
-                    <p>{{cenote.drycave}}</p>
-                    <p>{{cenote.equipment}}</p>
+                    <br>
+                    <h2 class="page-header">CÉDULA DE REGISTRO DE SITIO</h2>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>Nombre del sitio (Site Name)</h3>
+                                <p class="page-header">{{cenote.name}}</p>
+                            </div>
+                            <div class="col-lg-6">
+                                <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>Región (Entity Name)</h3>
+                                <p class="page-header">{{cenote.entitiname}}</p>
+                            </div>
+                            <div class="col-lg-6">
+                                <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>Clave del sitio (Key Site)</h3>
+                                <p class="page-header">{{cenote.keysite}}</p>
+                            </div>
+                            <div class="col-lg-6">
+                                <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>Coordenadas UTM (Coordinates UTM)</h3>
+                                <p class="page-header">{{cenote.coordinatesutm}}</p>
+                            </div>
+                            <div class="col-lg-6">
+                                <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>Tipo de contexto (Kind of Context)</h3>
+                                <p class="page-header">{{cenote.kindofcontext}}</p>
+                            </div>
+                            <div class="col-lg-6">
+                                <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>En caso de cueva seca (In case of Dry Cave)</h3>
+                                <p class="page-header">{{cenote.drycave}}</p>
+                            </div>
+                            <div class="col-lg-6">
+                                <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>Equipo requerido (Equipment Needed)</h3>
+                                <p class="page-header">{{cenote.equipment}}</p>
+                            </div>
 
-                    <p>{{cenote.contextdescription}}</p>
-                    <p>{{cenote.relevanttraits}}</p>
-                    <p>{{cenote.preservationgeneral}}</p>
-                    <p>{{cenote.technicaldescription}}</p>
-                    <p>{{cenote.depth}}</p>
-                    <p>{{cenote.equipment}}</p>
-                    <p>{{cenote.horizontalpenetration}}</p>
-                    <p>{{cenote.sitedimensions}}</p>
-                    <p>{{cenote.entrancedistance}}</p>
-                    <p>{{cenote.siteassociated}}</p>
-                    <p>{{cenote.watersamples}}</p>
-                    <p>{{cenote.typeofwater}}</p>
-                    <p>{{cenote.contact}}</p>
-                    <p>{{cenote.exploredby}}</p>
-                    <p>{{cenote.documentedby}}</p>
-                    <p>{{cenote.inspectiondate|date('d-m-y')}}</p>
-                    <p>{{cenote.registrationby}}</p>
+                            <div class="col-lg-6">
+                                <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>Descripción detallada del sitio (Tipo de hallazgo y descripción de contexto)</h3>
+                                <p class="page-header">{{cenote.contextdescription}}</p>            
+                            </div>
+
+                            <div class="col-lg-6">
+                                <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>Rasgo relevantes (Relevant Traits)</h3>
+                                <p class="page-header">{{cenote.relevanttraits}}</p>            
+                            </div>
+
+                            <div class="col-lg-6">
+                                <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>Condiciones generales de preservación (Preservation General Conditions)</h3>
+                                <p class="page-header">{{cenote.preservationgeneral}}</p>            
+                            </div>
+
+                            <div class="col-lg-6">
+                                <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>Descripción técnica de sitio (Site Technical Description)</h3>
+                                <p class="page-header">{{cenote.technicaldescription}}</p>            
+                            </div>
+
+                            <div class="col-lg-6">
+                                <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>Profundidad (Depth)</h3>
+                                <p class="page-header">{{cenote.depth}}</p>            
+                            </div>
+
+                            <div class="col-lg-6">
+                                <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>Penetración horizontal en tiempo (Horizontal Penetration Time)</h3>
+                                <p class="page-header">{{cenote.horizontalpenetration}}</p>            
+                            </div>
+
+                            <div class="col-lg-6">
+                                <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>Dimensiones del sitio (Site Dimensions)</h3>
+                                <p class="page-header">{{cenote.sitedimensions}}</p>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>Distancia al ingreso más próximo (Closest Entrance Distance)</h3>
+                                <p class="page-header">{{cenote.entrancedistance}}</p>
+
+                            </div>
+
+                            <div class="col-lg-6">
+                                <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>Sitio asociado a (Site associated to) </h3>
+                                <p class="page-header">{{cenote.siteassociated}}</p>
+
+                            </div>
+
+                            <div class="col-lg-6">
+                                <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>Colecta de muestras de agua (Water Samples Collection)</h3>
+                                <p class="page-header">{{cenote.watersamples}}</p>
+
+                            </div>
+
+                            <div class="col-lg-6">
+                                <h4><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>Datos de contacto: nombre, número telefónico y/o correo electrónico del dueño/responsable del predio.                                                                              Contact: (Name, Phone Number and/or email of Owner/Land Responsible)</h4>
+                                <p class="page-header">{{cenote.contact}}</p>
+
+                            </div>
+
+                            <div class="col-lg-6">
+                                <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>Tipo de agua (Type of water)</h3>
+                                <p class="page-header">{{cenote.typeofwater}}</p>
+
+                            </div>
+
+                            <div class="col-lg-6">
+                                <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>Explorado por: (Explored by:)</h3>
+                                <p class="page-header">{{cenote.exploredby}}</p>
+
+                            </div>
+
+                            <div class="col-lg-6">
+                                <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>Fecha de registro de sitio (Site Inspection Date) </h3>
+                                <p class="page-header">{{cenote.inspectiondate|date('d-m-y')}}</p>
+
+                            </div>
+                            <div class="col-lg-6">
+                                <h4><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>Documentado por: (numero telefónico y/o correo electrónico). Documented by: (Phone Number and / or email)</h4>
+                                <p class="page-header">{{cenote.documentedby}}</p>
+
+                            </div>
+
+                            <div class="col-lg-6">
+                                <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>Registro realizado por (Registration by)</h3>
+                                <p class="page-header">{{cenote.registrationby}}</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+
                     <h2 class="page-header">Cédula de registro del análisis bioquímico del acuífero </h2>
                     <br>
                     <p>{{cenote.sitecode}}</p>
