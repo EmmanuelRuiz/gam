@@ -364,7 +364,7 @@ class Cenote
     public function getEntitiname()
     {
         if($this->entitiname){
-            return json_decode($entitiname);
+            return json_decode($this->entitiname);
         }
         return null;
     }

@@ -40,7 +40,9 @@
                             </div>
                             <div class="col-lg-6">
                                 <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>Región (Entity Name)</h3>
-                                <p class="p-header">{{cenote.entitiname}}</p>
+                                {% for entidad in cenote.entitiname %}
+                                    <p class="p-header">{{entidad}}</p>
+                                {% endfor %}
                             </div>
                             <div class="col-lg-6">
                                 <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>Clave del sitio (Key Site)</h3>

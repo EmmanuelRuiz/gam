@@ -20,7 +20,7 @@ class CenoteType extends AbstractType {
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options) {
-        $roles = ['w w', 'w 22', 'qq 3'];
+        //$roles = ['w w', 'w 22', 'qq 3'];
         $builder
                 ->add('name', TextType::class, array(
                     'label' => 'Nombre del sitio (Site Name)',
