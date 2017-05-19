@@ -351,7 +351,7 @@ class Cenote
      */
     public function setEntitiname($entitiname)
     {
-        $this->entitiname = $entitiname;
+        $this->entitiname = json_encode($entitiname);
 
         return $this;
     }
@@ -363,7 +363,10 @@ class Cenote
      */
     public function getEntitiname()
     {
-        return $this->entitiname;
+        if($this->entitiname){
+            return json_decode($entitiname);
+        }
+        return null;
     }
 
     /**
