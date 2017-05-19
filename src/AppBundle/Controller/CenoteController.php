@@ -133,7 +133,7 @@ class CenoteController extends Controller {
         }
 
         return $this->render('AppBundle:Cenote:cenote.html.twig', array(
-			'cenote' => $cenote
+                    'cenote' => $cenote
         ));
     }
 
