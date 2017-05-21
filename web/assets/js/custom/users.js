@@ -1,6 +1,5 @@
 $(document).ready(function(){
-	
-	//alert('entro');
+ 	//alert('entro');
 
 	// Instanciamos el objeto IAS
 	var ias = jQuery.ias({

@@ -26,7 +26,8 @@ class CenoteType extends AbstractType {
                     'label' => 'Nombre del sitio (Site Name)',
                     'required' => 'required',
                     'attr' => array(
-                        'class' => 'form-name form-control'
+                        'class' => 'form-name form-control',
+                        'placeholder' => 'Nombre del sitio'
                     )
                 ))
                 
@@ -70,17 +71,40 @@ class CenoteType extends AbstractType {
                     'label' => 'Coordenadas UTM (Coordinates UTM)',
                     'required' => null,
                     'attr' => array(
-                        'class' => 'form-coordinatesutm form-control'
+                        'class' => 'form-coordinatesutm form-control',
+                        'placeholder' => 'Coordenadas UTM'
                     )
                 ))
-                ->add('kindofcontext', TextType::class, array(
+                ->add('kindofcontext', ChoiceType::class, array(
+                    'choices' => array(
+                        'Cenote abierto (Open Cenote)' => 'Cenote abierto (Open Cenote)',
+                        'Cenote con acceso restringido (Restricted Access Cenote)' => 'Cenote con acceso restringido (Restricted Access Cenote)',
+                        'Cenote profundo (Deep Cenote)' => 'Cenote profundo (Deep Cenote)',
+                        'Noria (Colonial Water Well)' => 'Noria (Colonial Water Well)',
+                        'Laguna (Lagoon)' => 'Laguna (Lagoon)',
+                        'Ría (Estuary)' => 'Ría (Estuary)',
+                        'Cueva seca (Dry Cave)' => 'Cueva seca (Dry Cave)',
+                        'OTRA' => 'OTRA'  
+                    ),
+                    'multiple' => true,
+                    'expanded' => true,
                     'label' => 'Tipo de contexto (Kind of Context)',
                     'required' => null,
                     'attr' => array(
                         'class' => 'form-kindofcontext form-control'
                     )
                 ))
-                ->add('drycave', TextType::class, array(
+                ->add('drycave', ChoiceType::class, array(
+                    'choices' => array(
+                        'Con descenso vertical (Vertical Descend)' => 'Con descenso vertical (Vertical Descend)',
+                        'Con penetración horizontal (Horizontal Penetration)' => 'Con penetración horizontal (Horizontal Penetration)',
+                        'Con cuerpos de agua (Shafts)' => 'Con cuerpos de agua (Shafts)',
+                        'Parcialmente inundada (Partial Floated)' => 'Parcialmente inundada (Partial Floated)',
+                        'Otra' => 'Otra'
+                        
+                    ),
+                    'multiple' => true,
+                    'expanded' => true,
                     'label' => 'En caso de cueva seca (In case of Dry Cave)',
                     'required' => null,
                     'attr' => array(

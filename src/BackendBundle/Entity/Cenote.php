@@ -430,7 +430,7 @@ class Cenote
      */
     public function setKindofcontext($kindofcontext)
     {
-        $this->kindofcontext = $kindofcontext;
+        $this->kindofcontext = json_encode($kindofcontext);
 
         return $this;
     }
@@ -442,7 +442,11 @@ class Cenote
      */
     public function getKindofcontext()
     {
-        return $this->kindofcontext;
+        if($this->kindofcontext){
+            return json_decode($this->kindofcontext);
+        }
+        
+        return null;
     }
 
     /**
@@ -454,7 +458,7 @@ class Cenote
      */
     public function setDrycave($drycave)
     {
-        $this->drycave = $drycave;
+        $this->drycave = json_encode($drycave);
 
         return $this;
     }
@@ -466,7 +470,11 @@ class Cenote
      */
     public function getDrycave()
     {
-        return $this->drycave;
+        if($this->drycave){
+            return json_decode($this->drycave);
+        }
+        
+        return null;
     }
 
     /**

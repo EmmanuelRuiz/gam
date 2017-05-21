@@ -56,7 +56,9 @@
                             </div>
                             <div class="col-lg-6">
                                 <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>Tipo de contexto (Kind of Context)</h3>
-                                <p class="p-header">{{cenote.kindofcontext}}</p>
+                                {% for entidad in cenote.kindofcontext %}
+                                <p class="p-header">{{entidad}}</p>
+                                {% endfor %}
                             </div>
                             <div class="col-lg-6">
                                 <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>En caso de cueva seca (In case of Dry Cave)</h3>

@@ -79,7 +79,7 @@ class CenoteController extends Controller {
                 $cenote->setCreatedAt(new \Datetime("now"));
                 $em->persist($cenote);
                 $flush = $em->flush();
-
+                
                 if ($flush == null)
                 {
                     $status = 'El registro se ha creado correctamente';

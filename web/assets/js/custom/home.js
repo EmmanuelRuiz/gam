@@ -1,5 +1,4 @@
 $(document).ready(function(){
-	
 	//alert('entro');
 
 	// Instanciamos el objeto IAS
