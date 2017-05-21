@@ -40,10 +40,10 @@ class CenoteType extends AbstractType {
                         ),
                     'multiple' => true,
                     'expanded' => true,
-                    'label' => 'Región (Entity Name)',
+                    'label' => false,
                     'required' => null,
                     'attr' => array(
-                        'class' => 'form-entitiname form-control',
+                        'class' => ' hidden form-entitiname form-control',
                         
                     )
                 ))
@@ -61,10 +61,10 @@ class CenoteType extends AbstractType {
                     ),
                     'multiple' => true,
                     'expanded' => true,
-                    'label' => 'Clave del sitio (Key Site)',
+                    'label' => false,
                     'required' => null,
                     'attr' => array(
-                        'class' => 'form-keysite form-control'
+                        'class' => 'hidden form-keysite form-control'
                     )
                 ))
                 ->add('coordinatesutm', TextType::class, array(
@@ -88,10 +88,10 @@ class CenoteType extends AbstractType {
                     ),
                     'multiple' => true,
                     'expanded' => true,
-                    'label' => 'Tipo de contexto (Kind of Context)',
+                    'label' => false,
                     'required' => null,
                     'attr' => array(
-                        'class' => 'form-kindofcontext form-control'
+                        'class' => 'hidden form-kindofcontext form-control'
                     )
                 ))
                 ->add('drycave', ChoiceType::class, array(
@@ -105,10 +105,10 @@ class CenoteType extends AbstractType {
                     ),
                     'multiple' => true,
                     'expanded' => true,
-                    'label' => 'En caso de cueva seca (In case of Dry Cave)',
+                    'label' => false,
                     'required' => null,
                     'attr' => array(
-                        'class' => 'form-drycave form-control'
+                        'class' => 'hidden form-drycave form-control'
                     )
                 ))
                 ->add('equipment', TextType::class, array(
@@ -125,18 +125,41 @@ class CenoteType extends AbstractType {
                         'class' => 'form-contextdescription form-control'
                     )
                 ))
-                ->add('relevanttraits', TextType::class, array(
-                    'label' => 'Rasgo relevantes (Relevant Traits)',
+                ->add('relevanttraits', ChoiceType::class, array(
+					'choices' => array(
+                        'Cerámica (Ceramics)' => 'Cerámica (Ceramics)',
+                        'Restos óseos humanos (Human Bones)' => 'Restos óseos humanos (Human Bones)',
+                        'Restos óseos de fauna (Animal Bones)' => 'Restos óseos de fauna (Animal Bones)',
+                        'Montículos de piedras (Maya structures / Mounts / Hills)' => 'Montículos de piedras (Maya structures / Mounts / Hills)',
+						'Altares (Altars)' => 'Altares (Altars)',
+						'Muros bajos de piedras (Low Stone Walls)' => 'Muros bajos de piedras (Low Stone Walls)',
+						'Petrograbados (Petroglyphs)' => 'Petrograbados (Petroglyphs)',
+						'Grafico rupestre (Hand Prints)' => 'Grafico rupestre (Hand Prints)',
+						'Pintura mural (Maya painting / Maya Glyphs)' => 'Pintura mural (Maya painting / Maya Glyphs)',
+						'Fauna pleistocénica (Pleistocenic Fauna)' => 'Fauna pleistocénica (Pleistocenic Fauna)',
+						'Carbón (Charcoal)' => 'Carbón (Charcoal)',
+                        'Otros' => 'Otros'
+                    ),
+                    'multiple' => true,
+                    'expanded' => true,
+                    'label' => false,
                     'required' => null,
                     'attr' => array(
-                        'class' => 'form-relevanttraits form-control'
+                        'class' => 'hidden form-relevanttraits form-control'
                     )
                 ))
-                ->add('preservationgeneral', TextType::class, array(
-                    'label' => 'Condiciones generales de preservación (Preservation General Conditions) ',
+                ->add('preservationgeneral', ChoiceType::class, array(
+					'choices' => array(
+                        'Alterado (Altered)' => 'Alterado (Altered)',
+                        'No alterado (Non Altered)' => 'No alterado (Non Altered)',
+                        'Otros' => 'Otros'
+                    ),
+					'multiple' => true,
+                    'expanded' => true,
+                    'label' => false,
                     'required' => null,
                     'attr' => array(
-                        'class' => 'form-preservationgeneral form-control'
+                        'class' => 'hidden form-preservationgeneral form-control'
                     )
                 ))
                 ->add('alteration', TextareaType::class, array(
@@ -146,11 +169,17 @@ class CenoteType extends AbstractType {
                         'class' => 'form-alteration form-control'
                     )
                 ))
-                ->add('technicaldescription', TextType::class, array(
-                    'label' => 'Descripción técnica de sitio (Site Technical Description)',
+                ->add('technicaldescription', ChoiceType::class, array(
+					'choices' => array(
+                        'Mapeado (Mapped)' => 'Mapeado (Mapped)',
+                        'No mapeado (Not Mapped)' => 'No mapeado (Not Mapped)'
+                    ),
+					'multiple' => true,
+                    'expanded' => true,
+                    'label' => false,
                     'required' => null,
                     'attr' => array(
-                        'class' => 'form-technicaldescription form-control'
+                        'class' => 'hidden form-technicaldescription form-control'
                     )
                 ))
                 ->add('depth', TextType::class, array(
@@ -181,25 +210,58 @@ class CenoteType extends AbstractType {
                         'class' => 'form-entrancedistance form-control'
                     )
                 ))
-                ->add('siteassociated', TextType::class, array(
-                    'label' => 'Sitio asociado a (Site associated to)',
+                ->add('siteassociated', ChoiceType::class, array(
+					'choices' => array(
+                        'Asentamiento urbano (Urban Settlement)' => 'Asentamiento urbano (Urban Settlement)',
+                        'Sitio arqueológico (Archeological Site)' => 'Sitio arqueológico (Archeological Site)',
+						'Sitio Colonial (Colonial Site)' => 'Sitio Colonial (Colonial Site)',
+						'Cuerpos de agua (Aquifers)' => 'Cuerpos de agua (Aquifers)',
+						'Línea de costa (Coast Line)' => 'Línea de costa (Coast Line)',
+						'Ninguno (Non)' => 'Ninguno (Non)',
+						'Otros' => 'Otros	'
+                    ),
+					'multiple' => true,
+                    'expanded' => true,
+                    'label' => false,
                     'required' => null,
                     'attr' => array(
-                        'class' => 'form-siteassociated form-control'
+                        'class' => 'hidden form-siteassociated form-control'
                     )
                 ))
-                ->add('watersamples', TextType::class, array(
-                    'label' => 'Colecta de muestras de agua (Water Samples Collection)',
+                ->add('watersamples', ChoiceType::class, array(
+					'choices' => array(
+                        'Superficial (Surface)' => 'Superficial (Surface)',
+                        'Entre 5 y 10 metros (Between 5 to 10 meters depth)' => 'Entre 5 y 10 metros (Between 5 to 10 meters depth)',
+						'Entre 10 y 20 metros (Between 10 to 20 meters depth)' => 'Entre 10 y 20 metros (Between 10 to 20 meters depth)',
+						'Entre 20 y 30 metros (Between 20 to 30 meters depth)' => 'Entre 20 y 30 metros (Between 20 to 30 meters depth)',
+						'Entre 30 y 40 metros (Between 30 to 40 meters depth)' => 'Entre 30 y 40 metros (Between 30 to 40 meters depth)',
+						'Entre 40 y 50 metros (Between 40 to 50 meters depth)' => 'Entre 40 y 50 metros (Between 40 to 50 meters depth)',
+						'A favor de la corriente o flujo de agua (Downstream)' => 'A favor de la corriente o flujo de agua (Downstream)',
+						'En contra de corriente o flujo de agua (Upstream)' => 'En contra de corriente o flujo de agua (Upstream)'
+                    ),
+					'multiple' => true,
+                    'expanded' => true,
+                    'label' => false,
                     'required' => null,
                     'attr' => array(
-                        'class' => 'form-watersamples form-control'
+                        'class' => 'hidden form-watersamples form-control'
                     )
                 ))
-                ->add('typeofwater', TextType::class, array(
-                    'label' => 'Tipo de agua (Type of water)',
+                ->add('typeofwater', ChoiceType::class, array(
+					'choices' => array(
+                        'Dulce (Fresh Water))' => 'Dulce (Fresh Water)',
+                        'Salada (Salt Water)' => 'Salada (Salt Water)',
+						'Haloclina (Halocline)' => 'Haloclina (Halocline)',
+						'Tánica (Tannic)' => 'Tánica (Tannic)',
+						'Ácido Sulfhídrico (Hydrogen Sulfide)' => 'Ácido Sulfhídrico (Hydrogen Sulfide)',
+						'Otros' => 'Otros'
+                    ),
+					'multiple' => true,
+                    'expanded' => true,
+                    'label' => false,
                     'required' => null,
                     'attr' => array(
-                        'class' => 'form-typeofwater form-control'
+                        'class' => 'hidden form-typeofwater form-control'
                     )
                 ))
                 ->add('contact', TextType::class, array(
@@ -237,7 +299,9 @@ class CenoteType extends AbstractType {
                         'class' => 'form-registrationby form-control'
                     )
                 ))
+				
                 ->add('sitecode', TextType::class, array(
+					
                     'label' => 'Código del sitio',
                     'required' => null,
                     'attr' => array(
@@ -251,14 +315,29 @@ class CenoteType extends AbstractType {
                         'class' => 'form-coordinates form-control'
                     )
                 ))
-                ->add('state', TextType::class, array(
+                ->add('state', ChoiceType::class, array(
+					'choices' => array(
+                        'Quintana Roo' => 'Quintana Roo',
+                        'Yucatán' => 'Yucatán',
+						'Campeche' => 'Campeche'
+                    ),
                     'label' => 'Estado ',
                     'required' => null,
                     'attr' => array(
                         'class' => 'form-state form-control'
                     )
                 ))
-                ->add('townquintanaroo', TextType::class, array(
+                ->add('townquintanaroo', ChoiceType::class, array(
+					'choices' => array(
+                        'Bacalar' => 'Quintana Roo',
+                        'Benito Juarez' => 'Benito Juarez',
+						'Felipe Carrillo Puerto' => 'Felipe Carrillo Puerto',
+						'Jose Maria Morelos' => 'Jose Maria Morelos',
+						'Othon P. Blanco' => 'Othon P. Blanco',
+						'Tulum' => 'Tulum',
+						'Solidaridad' => 'Solidaridad',
+						'Lazaro Cardenas' => 'Lazaro Cardenas'
+                    ),
                     'label' => 'Municipios de Quintana Roo',
                     'required' => null,
                     'attr' => array(
@@ -286,11 +365,26 @@ class CenoteType extends AbstractType {
                         'class' => 'form-characteristics form-control'
                     )
                 ))
-                ->add('typeofcontext', TextType::class, array(
-                    'label' => 'Tipo de contexto',
+                ->add('typeofcontext', ChoiceType::class, array(
+					'choices' => array(
+                        'Cenote abierto' => 'Cenote abierto',
+                        'Cenote con acceso restringido' => 'Cenote con acceso restringido',
+						'Cenote profundo' => 'Cenote profundo',
+						'Noria' => 'Noria',
+						'Laguna' => 'Laguna',
+						'Estuario' => 'Estuario',
+						'Cueva seca' => 'Cueva seca',
+						'Acuífero a nivel superficial' => 'Acuífero a nivel superficial',
+						'Cueva profunda' => 'Cueva profunda',
+						'Cueva con penetración' => 'Cueva con penetración',
+						'Otros' => 'Otros'
+                    ),
+					'multiple' => true,
+                    'expanded' => true,
+                    'label' => false,
                     'required' => null,
                     'attr' => array(
-                        'class' => 'form-typeofcontext form-control'
+                        'class' => 'hidden form-typeofcontext form-control'
                     )
                 ))
                 ->add('conservationstatus', TextType::class, array(
