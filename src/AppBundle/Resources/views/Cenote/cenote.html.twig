@@ -36,17 +36,19 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>Nombre del sitio (Site Name)</h3>
-                                <p class="p-header">{{cenote.name}}</p>
+                                <p class="p-header">&nbsp; &nbsp; &nbsp;<span class="glyphicon glyphicon-ok-circle " style="color:#149c82" aria-hidden="true"></span>{{cenote.name}}</p>
                             </div>
                             <div class="col-lg-6">
                                 <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>Región (Entity Name)</h3>
                                 {% for entidad in cenote.entitiname %}
-                                    <p class="p-header">{{entidad}}</p>
+                                    <p class="p-header">&nbsp; &nbsp; &nbsp;<span class="glyphicon glyphicon-ok-circle " style="color:#149c82" aria-hidden="true"></span>{{entidad}}</p>
                                 {% endfor %}
                             </div>
                             <div class="col-lg-6">
                                 <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>Clave del sitio (Key Site)</h3>
-                                <p class="p-header">{{cenote.keysite}}</p>
+                                {% for entidad in cenote.keysite %}
+                                <p class="p-header"><span class="glyphicon glyphicon-ok-circle " style="color:#149c82" aria-hidden="true"></span>{{entidad}}</p>
+                                {% endfor %}
                             </div>
                             <div class="col-lg-6">
                                 <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>Coordenadas UTM (Coordinates UTM)</h3>

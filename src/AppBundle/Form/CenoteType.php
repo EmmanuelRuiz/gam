@@ -32,11 +32,13 @@ class CenoteType extends AbstractType {
                 
                 ->add('entitiname', ChoiceType::class, array(
                     'choices' => array(
-                        'opción 1 ' => 'Standard',
-                        'opción 2' => 'VIP'
+                        'Quintana Roo' => 'Quintana Roo',
+                        'Yucatán' => 'Yucatán',
+                        'Campeche' => 'Campeche',
+                        'OTROS' => 'OTROS'
                         ),
                     'multiple' => true,
-                     'expanded' => true,
+                    'expanded' => true,
                     'label' => 'Región (Entity Name)',
                     'required' => null,
                     'attr' => array(
@@ -44,7 +46,20 @@ class CenoteType extends AbstractType {
                         
                     )
                 ))
-                ->add('keysite', TextType::class, array(
+                ->add('keysite', ChoiceType::class, array(
+                    'choices' => array(
+                        'Q1: Bacalar' => 'Q1: Bacalar',
+                        'Q2: Dzulá, Felipe Carillo Puerto, José Maria Morelos' => 'Q2: Dzulá, Felipe Carillo Puerto, José Maria Morelos',
+                        'Q3: Chumpón, Muyil, Tulum' => 'Q3: Chumpón, Muyil, Tulum',
+                        'Q4: Cobá, Laguna Chabela' => 'Q4: Cobá, Laguna Chabela',
+                        'Q5: Kantunilkin' => 'Q5: Kantunilkin',
+                        'Y1: Tinum' => 'Y1: Tinum',
+                        'Q6: Cancún, Puerto Morelos' => 'Q6: Cancún, Puerto Morelos',
+                        'Q7: Playa del Carmen, Puerto Venturas, Akumal' => 'Q7: Playa del Carmen, Puerto Venturas, Akumal',
+                        'OTRA' => 'OTRA'                         
+                    ),
+                    'multiple' => true,
+                    'expanded' => true,
                     'label' => 'Clave del sitio (Key Site)',
                     'required' => null,
                     'attr' => array(

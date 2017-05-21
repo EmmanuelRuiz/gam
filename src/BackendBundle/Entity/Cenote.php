@@ -378,7 +378,7 @@ class Cenote
      */
     public function setKeysite($keysite)
     {
-        $this->keysite = $keysite;
+        $this->keysite = json_encode($keysite);
 
         return $this;
     }
@@ -390,7 +390,11 @@ class Cenote
      */
     public function getKeysite()
     {
-        return $this->keysite;
+        if($this->keysite){
+            return json_decode($this->keysite);
+
+        }
+        return null;
     }
 
     /**
