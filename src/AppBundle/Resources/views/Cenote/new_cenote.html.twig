@@ -1,7 +1,5 @@
 {% extends "AppBundle:layouts:layout.html.twig" %}
 
-
-
 {% block content %}
     <div class="container">
         <div class="row">
@@ -14,110 +12,172 @@
         <div class="box-form">
             <h3 class="page-header">CÉDULA DE REGISTRO DEL SITIO (SITE REGISTRATION FORM)</h3>
             {{form_start(form, {'action':'', 'method':'POST'})}}
-            <div class="col-lg-6">
-                {{ form_row(form.name) }}
-            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    {{ form_row(form.name) }}
+                </div> 
+                <div class="col-lg-6">
+                    {{ form_row(form.coordinatesutm) }}    
+                </div>
 
-            <div class="col-lg-6">
-                <label>Región (Entity Name)</label><br>
-                <span class=""> 
-                    <input type="checkbox" id="backendbundle_cenote_entitiname_0" name="backendbundle_cenote[entitiname][]" value="Quintana Roo"> Quintana Roo<br>
-                </span>
-                <span class="">
-                    <input type="checkbox" id="backendbundle_cenote_entitiname_1" name="backendbundle_cenote[entitiname][]" value="Yucatán">  Yucatán<br>
-                </span>
-                <span class="">
-                    <input type="checkbox" id="backendbundle_cenote_entitiname_2" name="backendbundle_cenote[entitiname][]" value="Campeche">  Campeche<br>
-                </span>
-                <span class="">
-                    <input type="checkbox" id="backendbundle_cenote_entitiname_3" name="backendbundle_cenote[entitiname][]" value="Otro">  Otro<br>
-                </span>
-            </div>
+                <div class="col-lg-6">
+                    <label>Región (Entity Name)</label><br>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="backendbundle_cenote_entitiname_0" name="backendbundle_cenote[entitiname][]" value="Quintana Roo"> Quintana Roo
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label> 
+                            <input type="checkbox" id="backendbundle_cenote_entitiname_1" name="backendbundle_cenote[entitiname][]" value="Yucatán">  Yucatán 
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>   
+                            <input type="checkbox" id="backendbundle_cenote_entitiname_2" name="backendbundle_cenote[entitiname][]" value="Campeche">  Campeche
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>   
+                            <input type="checkbox" id="backendbundle_cenote_entitiname_3" name="backendbundle_cenote[entitiname][]" value="Otro">  Otro
+                        </label>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <label>Clave del sitio (Key Site)</label>
 
-            <div class="col-lg-6">
-                <label>Clave del sitio (Key Site)</label><br>
-                <span class="">
-                    <input type="checkbox" id="backendbundle_cenote_keysite_0" name="backendbundle_cenote[keysite][]" value="Q1: Bacalar"> Q1: Bacalar<br>
-                </span>
-                <span class="">
-                    <input type="checkbox" id="backendbundle_cenote_keysite_1" name="backendbundle_cenote[keysite][]" value="Q2: Dzulá, Felipe Carillo Puerto, José Maria Morelos"> Q2: Dzulá, Felipe Carillo Puerto, José Maria Morelos<br>
-                </span>
-                <span class="">
-                    <input type="checkbox" id="backendbundle_cenote_keysite_2" name="backendbundle_cenote[keysite][]" value="Q3: Chumpón, Muyil, Tulum"> Q3: Chumpón, Muyil, Tulum<br>
-                </span>
-                <span class="">
-                    <input type="checkbox" id="backendbundle_cenote_keysite_3" name="backendbundle_cenote[keysite][]" value="Q4: Cobá, Laguna Chabela"> Q4: Cobá, Laguna Chabela<br>
-                </span>
-                <span class="">
-                    <input type="checkbox" id="backendbundle_cenote_keysite_4" name="backendbundle_cenote[keysite][]" value="Q5: Kantunilkin"> Q5: Kantunilkin<br>
-                </span>
-                <span class="">
-                    <input type="checkbox" id="backendbundle_cenote_keysite_5" name="backendbundle_cenote[keysite][]" value="Y1: Tinum"> Y1: Tinum<br>
-                </span>
-                <span class="">
-                    <input type="checkbox" id="backendbundle_cenote_keysite_6" name="backendbundle_cenote[keysite][]" value="Q6: Cancún, Puerto Morelos"> Q6: Cancún, Puerto Morelos<br>
-                    
-                </span>
-                <span class="">
-                    <input type="checkbox" id="backendbundle_cenote_keysite_7" name="backendbundle_cenote[keysite][]" value="Q7: Playa del Carmen, Puerto Venturas, Akumal"> Q7: Playa del Carmen, Puerto Venturas, Akumal<br>
-                </span>
-                <span class="">
-                    <input type="checkbox" id="backendbundle_cenote_keysite_8" name="backendbundle_cenote[keysite][]" value="Otra"> Otra<br>
-                </span>
-            </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="backendbundle_cenote_keysite_0" name="backendbundle_cenote[keysite][]" value="Q1: Bacalar"> Q1: Bacalar
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="backendbundle_cenote_keysite_1" name="backendbundle_cenote[keysite][]" value="Q2: Dzulá, Felipe Carillo Puerto, José Maria Morelos"> Q2: Dzulá, Felipe Carillo Puerto, José Maria Morelos<br>
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="backendbundle_cenote_keysite_2" name="backendbundle_cenote[keysite][]" value="Q3: Chumpón, Muyil, Tulum"> Q3: Chumpón, Muyil, Tulum<br>
+                        </label>
 
-            <div class="col-lg-6">
-                {{ form_row(form.coordinatesutm) }}    
-            </div>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="backendbundle_cenote_keysite_3" name="backendbundle_cenote[keysite][]" value="Q4: Cobá, Laguna Chabela"> Q4: Cobá, Laguna Chabela<br>
+                        </label>
 
-            <div class="col-lg-6">
-                <label>Tipo de contexto (Kind of Context)</label><br>
-                <span class="">
-                    <input type="checkbox" id="backendbundle_cenote_kindofcontext_0" name="backendbundle_cenote[kindofcontext][]" value="Cenote abierto (Open Cenote)"> Cenote abierto (Open Cenote)<br>
-                </span>
-                <span class="">
-                    <input type="checkbox" id="backendbundle_cenote_kindofcontext_1" name="backendbundle_cenote[kindofcontext][]" value="Cenote con acceso restringido (Restricted Access Cenote)"> Cenote con acceso restringido (Restricted Access Cenote)<br>
-                </span>
-                <span class="">
-                    <input type="checkbox" id="backendbundle_cenote_kindofcontext_2" name="backendbundle_cenote[kindofcontext][]" value="Cenote profundo (Deep Cenote)"> Cenote profundo (Deep Cenote)<br>
-                </span>
-                <span class="">
-                    <input type="checkbox" id="backendbundle_cenote_kindofcontext_3" name="backendbundle_cenote[kindofcontext][]" value="Noria (Colonial Water Well)"> Noria (Colonial Water Well)<br>
-                </span>
-                <span class="">
-                    <input type="checkbox" id="backendbundle_cenote_kindofcontext_4" name="backendbundle_cenote[kindofcontext][]" value="Laguna (Lagoon)"> Laguna (Lagoon)<br>
-                </span>
-                <span class="">
-                    <input type="checkbox" id="backendbundle_cenote_kindofcontext_5" name="backendbundle_cenote[kindofcontext][]" value="Ría (Estuary)"> Ría (Estuary)<br>
-                </span>
-                <span class="">
-                    <input type="checkbox" id="backendbundle_cenote_kindofcontext_6" name="backendbundle_cenote[kindofcontext][]" value="Cueva seca (Dry Cave)"> Cueva seca (Dry Cave)<br>
-                </span>
-                <span class="">
-                    <input type="checkbox" id="backendbundle_cenote_kindofcontext_7" name="backendbundle_cenote[kindofcontext][]" value="Otra"> Otra<br>
-                </span>
-            </div>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="backendbundle_cenote_keysite_4" name="backendbundle_cenote[keysite][]" value="Q5: Kantunilkin"> Q5: Kantunilkin<br>
+                        </label>
 
-            <div class="col-lg-6">
-                <label>En caso de cueva seca (In case of Dry Cave)</label><br>
-                <span class="">
-                    <input type="checkbox" id="backendbundle_cenote_drycave_0" name="backendbundle_cenote[drycave][]" value="Con descenso vertical (Vertical Descend)"> Con descenso vertical (Vertical Descend)<br>
-                </span>
-                <span class="">
-                    <input type="checkbox" id="backendbundle_cenote_drycave_1" name="backendbundle_cenote[drycave][]" value="Con penetración horizontal (Horizontal Penetration)"> Con penetración horizontal (Horizontal Penetration)<br>
-                </span>
-                <span class="">
-                    <input type="checkbox" id="backendbundle_cenote_drycave_2" name="backendbundle_cenote[drycave][]" value="Con cuerpos de agua (Shafts)"> Con cuerpos de agua (Shafts)<br>
-                </span>
-                <span class="">
-                    <input type="checkbox" id="backendbundle_cenote_drycave_3" name="backendbundle_cenote[drycave][]" value="Parcialmente inundada (Partial Floated)"> Parcialmente inundada (Partial Floated)<br>
-                </span>
-                <span class="">
-                    <input type="checkbox" id="backendbundle_cenote_drycave_4" name="backendbundle_cenote[drycave][]" value="Otra"> Otra<br>
-                </span>
-            </div>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="backendbundle_cenote_keysite_5" name="backendbundle_cenote[keysite][]" value="Y1: Tinum"> Y1: Tinum<br>
+                        </label>
 
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="backendbundle_cenote_keysite_6" name="backendbundle_cenote[keysite][]" value="Q6: Cancún, Puerto Morelos"> Q6: Cancún, Puerto Morelos<br>
+                        </label>
 
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="backendbundle_cenote_keysite_7" name="backendbundle_cenote[keysite][]" value="Q7: Playa del Carmen, Puerto Venturas, Akumal"> Q7: Playa del Carmen, Puerto Venturas, Akumal<br>
+                        </label>
+
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="backendbundle_cenote_keysite_8" name="backendbundle_cenote[keysite][]" value="Otra"> Otra<br>
+                        </label>
+
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <label>Tipo de contexto (Kind of Context)</label><br>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="backendbundle_cenote_kindofcontext_0" name="backendbundle_cenote[kindofcontext][]" value="Cenote abierto (Open Cenote)"> Cenote abierto (Open Cenote)<br>    
+                        </label>
+
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="backendbundle_cenote_kindofcontext_1" name="backendbundle_cenote[kindofcontext][]" value="Cenote con acceso restringido (Restricted Access Cenote)"> Cenote con acceso restringido (Restricted Access Cenote)<br>    
+                        </label>
+
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="backendbundle_cenote_kindofcontext_2" name="backendbundle_cenote[kindofcontext][]" value="Cenote profundo (Deep Cenote)"> Cenote profundo (Deep Cenote)<br>
+                        </label>
+
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="backendbundle_cenote_kindofcontext_3" name="backendbundle_cenote[kindofcontext][]" value="Noria (Colonial Water Well)"> Noria (Colonial Water Well)<br>
+                        </label>
+
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="backendbundle_cenote_kindofcontext_4" name="backendbundle_cenote[kindofcontext][]" value="Laguna (Lagoon)"> Laguna (Lagoon)<br>    
+                        </label>
+
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="backendbundle_cenote_kindofcontext_5" name="backendbundle_cenote[kindofcontext][]" value="Ría (Estuary)"> Ría (Estuary)<br>
+                        </label>
+
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="backendbundle_cenote_kindofcontext_6" name="backendbundle_cenote[kindofcontext][]" value="Cueva seca (Dry Cave)"> Cueva seca (Dry Cave)<br>    
+                        </label>
+
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="backendbundle_cenote_kindofcontext_7" name="backendbundle_cenote[kindofcontext][]" value="Otra"> Otra<br>
+                        </label>
+
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <label>En caso de cueva seca (In case of Dry Cave)</label><br>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="backendbundle_cenote_drycave_0" name="backendbundle_cenote[drycave][]" value="Con descenso vertical (Vertical Descend)"> Con descenso vertical (Vertical Descend)<br>
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="backendbundle_cenote_drycave_1" name="backendbundle_cenote[drycave][]" value="Con penetración horizontal (Horizontal Penetration)"> Con penetración horizontal (Horizontal Penetration)<br>
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="backendbundle_cenote_drycave_2" name="backendbundle_cenote[drycave][]" value="Con cuerpos de agua (Shafts)"> Con cuerpos de agua (Shafts)<br> 
+                        </label>  
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="backendbundle_cenote_drycave_3" name="backendbundle_cenote[drycave][]" value="Parcialmente inundada (Partial Floated)"> Parcialmente inundada (Partial Floated)<br> 
+                        </label> 
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="backendbundle_cenote_drycave_4" name="backendbundle_cenote[drycave][]" value="Otra"> Otra<br>
+                        </label>
+                    </div>
+                </div>
                 <div class="col-lg-12">
                     {{ form_row(form.equipment) }}  
                 </div>
@@ -173,11 +233,14 @@
                 <div class="col-lg-6">{{ form_row(form.inspectiondate) }}</div>
                 <div class="col-lg-6">{{ form_row(form.registrationby) }}</div>
                 <div class="clearfix"></div>
-            </div>
-            <br>
+            </div>                
+        </div>
 
-            <div class="box-form">
-                <h3 class="page-header">CÉDULA DE REGISTRO DEL ANÁLISIS BIOQUÍMICO DEL ACUÍFERO </h3>
+        <br>
+
+        <div class="box-form">
+            <h3 class="page-header">CÉDULA DE REGISTRO DEL ANÁLISIS BIOQUÍMICO DEL ACUÍFERO </h3>
+            <div class="row">
                 <div class="col-lg-6">{{ form_row(form.sitecode) }}</div>
                 <div class="col-lg-6">{{ form_row(form.coordinates) }}</div>
                 <div class="col-lg-4">{{ form_row(form.state) }}</div>
@@ -194,37 +257,39 @@
                 <div class="col-lg-4">{{ form_row(form.touristactivities) }}</div>
                 <div class="col-lg-6">{{ form_row(form.whichelements) }}</div>
                 <div class="col-lg-6">{{ form_row(form.whichactivities) }}</div>
-                <div class="clearfix"></div>
-
+                <div class="clearfix"></div> 
             </div>
-            <br>
+        </div>
+        <br>
 
-            <div class="box-form">    
-                <h3 class="page-header">RESULTADO DE ANALISIS</h3>
+        <div class="box-form">   
+            <h3 class="page-header">RESULTADO DE ANALISIS</h3>
+            <div class="row">
                 <div class="col-lg-2">{{ form_row(form.temperature) }}</div>
-                <div class="col-lg-4">{{ form_row(form.turbidity) }}</div>
-                <div class="col-lg-3">{{ form_row(form.ph) }}</div>
-                <div class="col-lg-3"> {{ form_row(form.ammonium) }}</div>
-                <div class="col-lg-6">{{ form_row(form.nitrites) }}</div>
-                <div class="col-lg-6"> {{ form_row(form.nitratos) }}</div>
-                <div class="col-lg-4"> {{ form_row(form.detergents) }}</div>
-                <div class="col-lg-4">{{ form_row(form.chlorine) }}</div>
-                <div class="col-lg-4"> {{ form_row(form.coliforms) }}</div>
-                <div class="col-lg-6">{{ form_row(form.phosphates) }}</div>
-                <div class="col-lg-6">{{ form_row(form.hardness) }}</div>
-                <div class="col-lg-12">{{ form_row(form.observations) }}</div>
+            <div class="col-lg-4">{{ form_row(form.turbidity) }}</div>
+            <div class="col-lg-3">{{ form_row(form.ph) }}</div>
+            <div class="col-lg-3"> {{ form_row(form.ammonium) }}</div>
+            <div class="col-lg-6">{{ form_row(form.nitrites) }}</div>
+            <div class="col-lg-6"> {{ form_row(form.nitratos) }}</div>
+            <div class="col-lg-4"> {{ form_row(form.detergents) }}</div>
+            <div class="col-lg-4">{{ form_row(form.chlorine) }}</div>
+            <div class="col-lg-4"> {{ form_row(form.coliforms) }}</div>
+            <div class="col-lg-6">{{ form_row(form.phosphates) }}</div>
+            <div class="col-lg-6">{{ form_row(form.hardness) }}</div>
+            <div class="col-lg-12">{{ form_row(form.observations) }}</div>
 
-                <div class="col-lg-4">{{ form_row(form.dateofanalisis) }}</div>
-                <div class="col-lg-4">{{ form_row(form.status) }}</div>
-                <div class="col-lg-4">{{ form_row(form.image) }}</div>
-                <div class="col-lg-12">{{ form_row(form.Guardar) }}</div>
-                <div class="clearfix"></div>
-                {{form_errors(form)}}
-                {{form_end(form)}}
+            <div class="col-lg-4">{{ form_row(form.dateofanalisis) }}</div>
+            <div class="col-lg-4">{{ form_row(form.status) }}</div>
+            <div class="col-lg-4">{{ form_row(form.image) }}</div>
+            <div class="col-lg-12">{{ form_row(form.Guardar) }}</div>
+            <div class="clearfix"></div>
             </div>
-
-
+            {{form_errors(form)}}
+            {{form_end(form)}}
         </div>
 
 
-    {% endblock %}
+    </div>
+
+
+{% endblock %}
