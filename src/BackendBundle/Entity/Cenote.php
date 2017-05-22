@@ -1086,7 +1086,7 @@ class Cenote
      */
     public function setTypeofcontext($typeofcontext)
     {
-        $this->typeofcontext = $typeofcontext;
+        $this->typeofcontext = json_encode($typeofcontext);
 
         return $this;
     }
@@ -1098,7 +1098,10 @@ class Cenote
      */
     public function getTypeofcontext()
     {
-        return $this->typeofcontext;
+        if($this->typeofcontext){
+            return json_decode($this->typeofcontext);
+        }
+        return null;
     }
 
     /**
@@ -1110,7 +1113,7 @@ class Cenote
      */
     public function setConservationstatus($conservationstatus)
     {
-        $this->conservationstatus = $conservationstatus;
+        $this->conservationstatus = json_encode($conservationstatus);
 
         return $this;
     }
@@ -1122,7 +1125,10 @@ class Cenote
      */
     public function getConservationstatus()
     {
-        return $this->conservationstatus;
+        if($this->conservationstatus){
+            return json_decode($this->conservationstatus);
+        }
+        return null;
     }
 
     /**
@@ -1206,7 +1212,7 @@ class Cenote
      */
     public function setWhichelements($whichelements)
     {
-        $this->whichelements = $whichelements;
+        $this->whichelements = json_encode($whichelements);
 
         return $this;
     }
@@ -1218,7 +1224,10 @@ class Cenote
      */
     public function getWhichelements()
     {
-        return $this->whichelements;
+        if($this->whichelements){
+            return json_decode($this->whichelements);
+        }
+        return null;
     }
 
     /**

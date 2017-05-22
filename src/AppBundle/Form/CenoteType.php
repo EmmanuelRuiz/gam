@@ -383,7 +383,18 @@ class CenoteType extends AbstractType {
                         'class' => 'hidden form-typeofcontext form-control'
                     )
                 ))
-                ->add('conservationstatus', TextType::class, array(
+                ->add('conservationstatus', ChoiceType::class, array(
+                    'choices' =>  array(
+                        'Natural, bien preservado' => 'Natural, bien preservado',
+                        'Sitio urbanizado' => 'Sitio urbanizado',
+                        'Poca influencia de actividades humanas' => 'Poca influencia de actividades humanas',
+                        'Alta influencia de actividades humanas' => 'Alta influencia de actividades humanas',
+                        'Baja presencia de contaminantes' => 'Baja presencia de contaminantes',
+                        'Alta presencia de contaminantes' => 'Alta presencia de contaminantes',
+                        'Otros' => 'Otros'
+                    ),
+                    'multiple' => true,
+                    'expanded' => true,
                     'label' => 'Estado de conservación',
                     'required' => null,
                     'attr' => array(
@@ -404,28 +415,57 @@ class CenoteType extends AbstractType {
                         'class' => 'form-fauna form-control'
                     )
                 ))
-                ->add('archaelements', TextType::class, array(
+                ->add('archaelements', ChoiceType::class, array(
                     'label' => 'Presencia de elementos arqueológicos',
+                    'choices' => array(
+                      'Sí' => 'Sí',
+                      'No' => 'No'
+                    ),
+                    
                     'required' => null,
                     'attr' => array(
                         'class' => 'form-archaelements form-control'
                     )
                 ))
-                ->add('whichelements', TextType::class, array(
+                ->add('whichelements', ChoiceType::class, array(
+                    'choices' => array(
+                        'Altar' => 'Altar',
+                        'Alineamientos de piedra' => 'Alineamientos de piedra',
+                        'Montículos' => 'Montículos',
+                        'Petroglifos' => 'Petroglifos',
+                        'Gráfico rupestre' => 'Gráfico rupestre',
+                        'Fauna pleistocénica' => 'Fauna pleistocénica',
+                        'Restos óseos humanos' => 'Restos óseos humanos',
+                        'Cerámica' => 'Cerámica',
+                        'Restos óseos de fauna' => 'Restos óseos de fauna',
+                        'Muros' => 'Muros',
+                        'Otros' => 'Otros'
+                            ),
+                    'multiple' => true,
+                    'expanded' => true,
                     'label' => 'En caso de presencia de elementos arqueológicos, señalar cuáles. ',
                     'required' => null,
                     'attr' => array(
                         'class' => 'form-whichelements form-control'
                     )
                 ))
-                ->add('archasurvey', TextType::class, array(
+                ->add('archasurvey', ChoiceType::class, array(
+                    'choices' => array(
+                        'Sí' => 'Sí',
+                        'No' => 'No',
+                        'Pendiente' => 'Pendiente'
+                    ),
                     'label' => 'Prospección arqueológica',
                     'required' => null,
                     'attr' => array(
                         'class' => 'form-archasurvey form-control'
                     )
                 ))
-                ->add('touristactivities', TextType::class, array(
+                ->add('touristactivities', ChoiceType::class, array(
+                    'choices' => array(
+                      'Sí' => 'Sí',
+                        'No' => 'No'
+                    ),
                     'label' => 'Presencia de actividades turísticas',
                     'required' => null,
                     'attr' => array(
@@ -477,7 +517,13 @@ class CenoteType extends AbstractType {
                         'class' => 'form-temperature form-control'
                     )
                 ))
-                ->add('turbidity', TextType::class, array(
+                ->add('turbidity', ChoiceType::class, array(
+                    'choices' => array(
+                        'Aguas claras (AC)' => 'Aguas claras (AC)',
+                        'Turbiedad media (TM)' => 'Turbiedad media (TM)',
+                        'Turbiedad alta (TA)' => 'Turbiedad alta (TA)',
+                        
+                    ),
                     'label' => 'Turbiedad',
                     'required' => null,
                     'attr' => array(
