@@ -19,7 +19,8 @@ class CenoteType extends AbstractType {
     /**
      * {@inheritdoc}
      */
-    public function buildForm(FormBuilderInterface $builder, array $options) {
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
         //$roles = ['w w', 'w 22', 'qq 3'];
         $builder
                 ->add('name', TextType::class, array(
@@ -30,21 +31,19 @@ class CenoteType extends AbstractType {
                         'placeholder' => 'Nombre del sitio'
                     )
                 ))
-                
                 ->add('entitiname', ChoiceType::class, array(
                     'choices' => array(
                         'Quintana Roo' => 'Quintana Roo',
                         'Yucatán' => 'Yucatán',
                         'Campeche' => 'Campeche',
                         'OTROS' => 'OTROS'
-                        ),
+                    ),
                     'multiple' => true,
                     'expanded' => true,
                     'label' => false,
                     'required' => null,
                     'attr' => array(
                         'class' => ' hidden form-entitiname form-control',
-                        
                     )
                 ))
                 ->add('keysite', ChoiceType::class, array(
@@ -57,7 +56,7 @@ class CenoteType extends AbstractType {
                         'Y1: Tinum' => 'Y1: Tinum',
                         'Q6: Cancún, Puerto Morelos' => 'Q6: Cancún, Puerto Morelos',
                         'Q7: Playa del Carmen, Puerto Venturas, Akumal' => 'Q7: Playa del Carmen, Puerto Venturas, Akumal',
-                        'OTRA' => 'OTRA'                         
+                        'OTRA' => 'OTRA'
                     ),
                     'multiple' => true,
                     'expanded' => true,
@@ -84,7 +83,7 @@ class CenoteType extends AbstractType {
                         'Laguna (Lagoon)' => 'Laguna (Lagoon)',
                         'Ría (Estuary)' => 'Ría (Estuary)',
                         'Cueva seca (Dry Cave)' => 'Cueva seca (Dry Cave)',
-                        'OTRA' => 'OTRA'  
+                        'OTRA' => 'OTRA'
                     ),
                     'multiple' => true,
                     'expanded' => true,
@@ -101,7 +100,6 @@ class CenoteType extends AbstractType {
                         'Con cuerpos de agua (Shafts)' => 'Con cuerpos de agua (Shafts)',
                         'Parcialmente inundada (Partial Floated)' => 'Parcialmente inundada (Partial Floated)',
                         'Otra' => 'Otra'
-                        
                     ),
                     'multiple' => true,
                     'expanded' => true,
@@ -126,18 +124,18 @@ class CenoteType extends AbstractType {
                     )
                 ))
                 ->add('relevanttraits', ChoiceType::class, array(
-					'choices' => array(
+                    'choices' => array(
                         'Cerámica (Ceramics)' => 'Cerámica (Ceramics)',
                         'Restos óseos humanos (Human Bones)' => 'Restos óseos humanos (Human Bones)',
                         'Restos óseos de fauna (Animal Bones)' => 'Restos óseos de fauna (Animal Bones)',
                         'Montículos de piedras (Maya structures / Mounts / Hills)' => 'Montículos de piedras (Maya structures / Mounts / Hills)',
-						'Altares (Altars)' => 'Altares (Altars)',
-						'Muros bajos de piedras (Low Stone Walls)' => 'Muros bajos de piedras (Low Stone Walls)',
-						'Petrograbados (Petroglyphs)' => 'Petrograbados (Petroglyphs)',
-						'Grafico rupestre (Hand Prints)' => 'Grafico rupestre (Hand Prints)',
-						'Pintura mural (Maya painting / Maya Glyphs)' => 'Pintura mural (Maya painting / Maya Glyphs)',
-						'Fauna pleistocénica (Pleistocenic Fauna)' => 'Fauna pleistocénica (Pleistocenic Fauna)',
-						'Carbón (Charcoal)' => 'Carbón (Charcoal)',
+                        'Altares (Altars)' => 'Altares (Altars)',
+                        'Muros bajos de piedras (Low Stone Walls)' => 'Muros bajos de piedras (Low Stone Walls)',
+                        'Petrograbados (Petroglyphs)' => 'Petrograbados (Petroglyphs)',
+                        'Grafico rupestre (Hand Prints)' => 'Grafico rupestre (Hand Prints)',
+                        'Pintura mural (Maya painting / Maya Glyphs)' => 'Pintura mural (Maya painting / Maya Glyphs)',
+                        'Fauna pleistocénica (Pleistocenic Fauna)' => 'Fauna pleistocénica (Pleistocenic Fauna)',
+                        'Carbón (Charcoal)' => 'Carbón (Charcoal)',
                         'Otros' => 'Otros'
                     ),
                     'multiple' => true,
@@ -149,12 +147,12 @@ class CenoteType extends AbstractType {
                     )
                 ))
                 ->add('preservationgeneral', ChoiceType::class, array(
-					'choices' => array(
+                    'choices' => array(
                         'Alterado (Altered)' => 'Alterado (Altered)',
                         'No alterado (Non Altered)' => 'No alterado (Non Altered)',
                         'Otros' => 'Otros'
                     ),
-					'multiple' => true,
+                    'multiple' => true,
                     'expanded' => true,
                     'label' => false,
                     'required' => null,
@@ -170,11 +168,11 @@ class CenoteType extends AbstractType {
                     )
                 ))
                 ->add('technicaldescription', ChoiceType::class, array(
-					'choices' => array(
+                    'choices' => array(
                         'Mapeado (Mapped)' => 'Mapeado (Mapped)',
                         'No mapeado (Not Mapped)' => 'No mapeado (Not Mapped)'
                     ),
-					'multiple' => true,
+                    'multiple' => true,
                     'expanded' => true,
                     'label' => false,
                     'required' => null,
@@ -211,16 +209,16 @@ class CenoteType extends AbstractType {
                     )
                 ))
                 ->add('siteassociated', ChoiceType::class, array(
-					'choices' => array(
+                    'choices' => array(
                         'Asentamiento urbano (Urban Settlement)' => 'Asentamiento urbano (Urban Settlement)',
                         'Sitio arqueológico (Archeological Site)' => 'Sitio arqueológico (Archeological Site)',
-						'Sitio Colonial (Colonial Site)' => 'Sitio Colonial (Colonial Site)',
-						'Cuerpos de agua (Aquifers)' => 'Cuerpos de agua (Aquifers)',
-						'Línea de costa (Coast Line)' => 'Línea de costa (Coast Line)',
-						'Ninguno (Non)' => 'Ninguno (Non)',
-						'Otros' => 'Otros	'
+                        'Sitio Colonial (Colonial Site)' => 'Sitio Colonial (Colonial Site)',
+                        'Cuerpos de agua (Aquifers)' => 'Cuerpos de agua (Aquifers)',
+                        'Línea de costa (Coast Line)' => 'Línea de costa (Coast Line)',
+                        'Ninguno (Non)' => 'Ninguno (Non)',
+                        'Otros' => 'Otros	'
                     ),
-					'multiple' => true,
+                    'multiple' => true,
                     'expanded' => true,
                     'label' => false,
                     'required' => null,
@@ -229,17 +227,17 @@ class CenoteType extends AbstractType {
                     )
                 ))
                 ->add('watersamples', ChoiceType::class, array(
-					'choices' => array(
+                    'choices' => array(
                         'Superficial (Surface)' => 'Superficial (Surface)',
                         'Entre 5 y 10 metros (Between 5 to 10 meters depth)' => 'Entre 5 y 10 metros (Between 5 to 10 meters depth)',
-						'Entre 10 y 20 metros (Between 10 to 20 meters depth)' => 'Entre 10 y 20 metros (Between 10 to 20 meters depth)',
-						'Entre 20 y 30 metros (Between 20 to 30 meters depth)' => 'Entre 20 y 30 metros (Between 20 to 30 meters depth)',
-						'Entre 30 y 40 metros (Between 30 to 40 meters depth)' => 'Entre 30 y 40 metros (Between 30 to 40 meters depth)',
-						'Entre 40 y 50 metros (Between 40 to 50 meters depth)' => 'Entre 40 y 50 metros (Between 40 to 50 meters depth)',
-						'A favor de la corriente o flujo de agua (Downstream)' => 'A favor de la corriente o flujo de agua (Downstream)',
-						'En contra de corriente o flujo de agua (Upstream)' => 'En contra de corriente o flujo de agua (Upstream)'
+                        'Entre 10 y 20 metros (Between 10 to 20 meters depth)' => 'Entre 10 y 20 metros (Between 10 to 20 meters depth)',
+                        'Entre 20 y 30 metros (Between 20 to 30 meters depth)' => 'Entre 20 y 30 metros (Between 20 to 30 meters depth)',
+                        'Entre 30 y 40 metros (Between 30 to 40 meters depth)' => 'Entre 30 y 40 metros (Between 30 to 40 meters depth)',
+                        'Entre 40 y 50 metros (Between 40 to 50 meters depth)' => 'Entre 40 y 50 metros (Between 40 to 50 meters depth)',
+                        'A favor de la corriente o flujo de agua (Downstream)' => 'A favor de la corriente o flujo de agua (Downstream)',
+                        'En contra de corriente o flujo de agua (Upstream)' => 'En contra de corriente o flujo de agua (Upstream)'
                     ),
-					'multiple' => true,
+                    'multiple' => true,
                     'expanded' => true,
                     'label' => false,
                     'required' => null,
@@ -248,15 +246,15 @@ class CenoteType extends AbstractType {
                     )
                 ))
                 ->add('typeofwater', ChoiceType::class, array(
-					'choices' => array(
+                    'choices' => array(
                         'Dulce (Fresh Water))' => 'Dulce (Fresh Water)',
                         'Salada (Salt Water)' => 'Salada (Salt Water)',
-						'Haloclina (Halocline)' => 'Haloclina (Halocline)',
-						'Tánica (Tannic)' => 'Tánica (Tannic)',
-						'Ácido Sulfhídrico (Hydrogen Sulfide)' => 'Ácido Sulfhídrico (Hydrogen Sulfide)',
-						'Otros' => 'Otros'
+                        'Haloclina (Halocline)' => 'Haloclina (Halocline)',
+                        'Tánica (Tannic)' => 'Tánica (Tannic)',
+                        'Ácido Sulfhídrico (Hydrogen Sulfide)' => 'Ácido Sulfhídrico (Hydrogen Sulfide)',
+                        'Otros' => 'Otros'
                     ),
-					'multiple' => true,
+                    'multiple' => true,
                     'expanded' => true,
                     'label' => false,
                     'required' => null,
@@ -299,9 +297,7 @@ class CenoteType extends AbstractType {
                         'class' => 'form-registrationby form-control'
                     )
                 ))
-				
                 ->add('sitecode', TextType::class, array(
-					
                     'label' => 'Código del sitio',
                     'required' => null,
                     'attr' => array(
@@ -316,10 +312,10 @@ class CenoteType extends AbstractType {
                     )
                 ))
                 ->add('state', ChoiceType::class, array(
-					'choices' => array(
+                    'choices' => array(
                         'Quintana Roo' => 'Quintana Roo',
                         'Yucatán' => 'Yucatán',
-						'Campeche' => 'Campeche'
+                        'Campeche' => 'Campeche'
                     ),
                     'label' => 'Estado ',
                     'required' => null,
@@ -328,15 +324,15 @@ class CenoteType extends AbstractType {
                     )
                 ))
                 ->add('townquintanaroo', ChoiceType::class, array(
-					'choices' => array(
+                    'choices' => array(
                         'Bacalar' => 'Quintana Roo',
                         'Benito Juarez' => 'Benito Juarez',
-						'Felipe Carrillo Puerto' => 'Felipe Carrillo Puerto',
-						'Jose Maria Morelos' => 'Jose Maria Morelos',
-						'Othon P. Blanco' => 'Othon P. Blanco',
-						'Tulum' => 'Tulum',
-						'Solidaridad' => 'Solidaridad',
-						'Lazaro Cardenas' => 'Lazaro Cardenas'
+                        'Felipe Carrillo Puerto' => 'Felipe Carrillo Puerto',
+                        'Jose Maria Morelos' => 'Jose Maria Morelos',
+                        'Othon P. Blanco' => 'Othon P. Blanco',
+                        'Tulum' => 'Tulum',
+                        'Solidaridad' => 'Solidaridad',
+                        'Lazaro Cardenas' => 'Lazaro Cardenas'
                     ),
                     'label' => 'Municipios de Quintana Roo',
                     'required' => null,
@@ -366,20 +362,20 @@ class CenoteType extends AbstractType {
                     )
                 ))
                 ->add('typeofcontext', ChoiceType::class, array(
-					'choices' => array(
+                    'choices' => array(
                         'Cenote abierto' => 'Cenote abierto',
                         'Cenote con acceso restringido' => 'Cenote con acceso restringido',
-						'Cenote profundo' => 'Cenote profundo',
-						'Noria' => 'Noria',
-						'Laguna' => 'Laguna',
-						'Estuario' => 'Estuario',
-						'Cueva seca' => 'Cueva seca',
-						'Acuífero a nivel superficial' => 'Acuífero a nivel superficial',
-						'Cueva profunda' => 'Cueva profunda',
-						'Cueva con penetración' => 'Cueva con penetración',
-						'Otros' => 'Otros'
+                        'Cenote profundo' => 'Cenote profundo',
+                        'Noria' => 'Noria',
+                        'Laguna' => 'Laguna',
+                        'Estuario' => 'Estuario',
+                        'Cueva seca' => 'Cueva seca',
+                        'Acuífero a nivel superficial' => 'Acuífero a nivel superficial',
+                        'Cueva profunda' => 'Cueva profunda',
+                        'Cueva con penetración' => 'Cueva con penetración',
+                        'Otros' => 'Otros'
                     ),
-					'multiple' => true,
+                    'multiple' => true,
                     'expanded' => true,
                     'label' => false,
                     'required' => null,
@@ -592,7 +588,6 @@ class CenoteType extends AbstractType {
                         'class' => 'form-image form-control'
                     )
                 ))
-                
                 ->add('Guardar', SubmitType::class, array(
                     "attr" => array(
                         "class" => "btn btn-success btn-lg btn-block"
@@ -611,7 +606,8 @@ class CenoteType extends AbstractType {
     /**
      * {@inheritdoc}
      */
-    public function configureOptions(OptionsResolver $resolver) {
+    public function configureOptions(OptionsResolver $resolver)
+    {
         $resolver->setDefaults(array(
             'data_class' => 'BackendBundle\Entity\Cenote'
         ));
@@ -620,7 +616,8 @@ class CenoteType extends AbstractType {
     /**
      * {@inheritdoc}
      */
-    public function getBlockPrefix() {
+    public function getBlockPrefix()
+    {
         return 'backendbundle_cenote';
     }
 
