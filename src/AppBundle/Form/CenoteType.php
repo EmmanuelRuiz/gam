@@ -36,7 +36,7 @@ class CenoteType extends AbstractType {
                         'Quintana Roo' => 'Quintana Roo',
                         'Yucatán' => 'Yucatán',
                         'Campeche' => 'Campeche',
-                        'OTROS' => 'OTROS'
+                        'Otra' => 'Otra'
                     ),
                     'multiple' => true,
                     'expanded' => true,
@@ -56,7 +56,7 @@ class CenoteType extends AbstractType {
                         'Y1: Tinum' => 'Y1: Tinum',
                         'Q6: Cancún, Puerto Morelos' => 'Q6: Cancún, Puerto Morelos',
                         'Q7: Playa del Carmen, Puerto Venturas, Akumal' => 'Q7: Playa del Carmen, Puerto Venturas, Akumal',
-                        'OTRA' => 'OTRA'
+                        'Otra' => 'Otra'
                     ),
                     'multiple' => true,
                     'expanded' => true,
@@ -83,7 +83,7 @@ class CenoteType extends AbstractType {
                         'Laguna (Lagoon)' => 'Laguna (Lagoon)',
                         'Ría (Estuary)' => 'Ría (Estuary)',
                         'Cueva seca (Dry Cave)' => 'Cueva seca (Dry Cave)',
-                        'OTRA' => 'OTRA'
+                        'Otra' => 'Otra'
                     ),
                     'multiple' => true,
                     'expanded' => true,
@@ -136,7 +136,7 @@ class CenoteType extends AbstractType {
                         'Pintura mural (Maya painting / Maya Glyphs)' => 'Pintura mural (Maya painting / Maya Glyphs)',
                         'Fauna pleistocénica (Pleistocenic Fauna)' => 'Fauna pleistocénica (Pleistocenic Fauna)',
                         'Carbón (Charcoal)' => 'Carbón (Charcoal)',
-                        'Otros' => 'Otros'
+                        'Otra' => 'Otra'
                     ),
                     'multiple' => true,
                     'expanded' => true,
@@ -150,7 +150,7 @@ class CenoteType extends AbstractType {
                     'choices' => array(
                         'Alterado (Altered)' => 'Alterado (Altered)',
                         'No alterado (Non Altered)' => 'No alterado (Non Altered)',
-                        'Otros' => 'Otros'
+                        'Otra' => 'Otra'
                     ),
                     'multiple' => true,
                     'expanded' => true,
@@ -216,7 +216,7 @@ class CenoteType extends AbstractType {
                         'Cuerpos de agua (Aquifers)' => 'Cuerpos de agua (Aquifers)',
                         'Línea de costa (Coast Line)' => 'Línea de costa (Coast Line)',
                         'Ninguno (Non)' => 'Ninguno (Non)',
-                        'Otros' => 'Otros	'
+                        'Otra' => 'Otra'
                     ),
                     'multiple' => true,
                     'expanded' => true,
@@ -252,7 +252,7 @@ class CenoteType extends AbstractType {
                         'Haloclina (Halocline)' => 'Haloclina (Halocline)',
                         'Tánica (Tannic)' => 'Tánica (Tannic)',
                         'Ácido Sulfhídrico (Hydrogen Sulfide)' => 'Ácido Sulfhídrico (Hydrogen Sulfide)',
-                        'Otros' => 'Otros'
+                        'Otra' => 'Otra'
                     ),
                     'multiple' => true,
                     'expanded' => true,
@@ -373,7 +373,7 @@ class CenoteType extends AbstractType {
                         'Acuífero a nivel superficial' => 'Acuífero a nivel superficial',
                         'Cueva profunda' => 'Cueva profunda',
                         'Cueva con penetración' => 'Cueva con penetración',
-                        'Otros' => 'Otros'
+                        'Otra' => 'Otra'
                     ),
                     'multiple' => true,
                     'expanded' => true,
@@ -391,7 +391,7 @@ class CenoteType extends AbstractType {
                         'Alta influencia de actividades humanas' => 'Alta influencia de actividades humanas',
                         'Baja presencia de contaminantes' => 'Baja presencia de contaminantes',
                         'Alta presencia de contaminantes' => 'Alta presencia de contaminantes',
-                        'Otros' => 'Otros'
+                        'Otra' => 'Otra'
                     ),
                     'multiple' => true,
                     'expanded' => true,
@@ -440,7 +440,7 @@ class CenoteType extends AbstractType {
                         'Cerámica' => 'Cerámica',
                         'Restos óseos de fauna' => 'Restos óseos de fauna',
                         'Muros' => 'Muros',
-                        'Otros' => 'Otros'
+                        'Otra' => 'Otra'
                             ),
                     'multiple' => true,
                     'expanded' => true,
@@ -484,7 +484,7 @@ class CenoteType extends AbstractType {
                         'Pesca' => 'Pesca',
                         'Paseos a pie, en bicicleta o motos.' => 'Paseos a pie, en bicicleta o motos.',
                         'Recorridos en Kayak, canoa o lancha.' => 'Recorridos en Kayak, canoa o lancha.',
-                        'Otro' => 'Otro',
+                        'Otra' => 'Otra',
                     ),
                     'multiple' => true,
                     'expanded' => true,

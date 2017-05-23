@@ -22,16 +22,16 @@ BackendBundle\Entity\Cenote:
             options:
                 fixed: false
         entitiname:
-            type: string
+            type: text
             nullable: true
-            length: 100
+            length: 65535
             options:
                 fixed: false
             column: entitiName
         keysite:
-            type: string
+            type: text
             nullable: true
-            length: 100
+            length: 65535
             options:
                 fixed: false
             column: keySite
@@ -43,16 +43,16 @@ BackendBundle\Entity\Cenote:
                 fixed: false
             column: coordinatesUTM
         kindofcontext:
-            type: string
+            type: text
             nullable: true
-            length: 100
+            length: 65535
             options:
                 fixed: false
             column: kindOfContext
         drycave:
-            type: string
+            type: text
             nullable: true
-            length: 100
+            length: 65535
             options:
                 fixed: false
             column: dryCave
@@ -70,16 +70,16 @@ BackendBundle\Entity\Cenote:
                 fixed: false
             column: contextDescription
         relevanttraits:
-            type: string
+            type: text
             nullable: true
-            length: 100
+            length: 65535
             options:
                 fixed: false
             column: relevantTraits
         preservationgeneral:
-            type: string
+            type: text
             nullable: true
-            length: 100
+            length: 65535
             options:
                 fixed: false
             column: preservationGeneral
@@ -90,9 +90,9 @@ BackendBundle\Entity\Cenote:
             options:
                 fixed: false
         technicaldescription:
-            type: string
+            type: text
             nullable: true
-            length: 100
+            length: 65535
             options:
                 fixed: false
             column: technicalDescription
@@ -124,23 +124,23 @@ BackendBundle\Entity\Cenote:
                 fixed: false
             column: entranceDistance
         siteassociated:
-            type: string
+            type: text
             nullable: true
-            length: 100
+            length: 65535
             options:
                 fixed: false
             column: siteAssociated
         watersamples:
-            type: string
+            type: text
             nullable: true
-            length: 255
+            length: 65535
             options:
                 fixed: false
             column: waterSamples
         typeofwater:
-            type: string
+            type: text
             nullable: true
-            length: 255
+            length: 65535
             options:
                 fixed: false
             column: typeOfWater
@@ -191,27 +191,27 @@ BackendBundle\Entity\Cenote:
         state:
             type: string
             nullable: true
-            length: 100
+            length: 255
             options:
                 fixed: false
         townquintanaroo:
             type: string
             nullable: true
-            length: 100
+            length: 255
             options:
                 fixed: false
             column: townQuintanaRoo
         townyucatan:
             type: string
             nullable: true
-            length: 100
+            length: 255
             options:
                 fixed: false
             column: townYucatan
         location:
             type: string
             nullable: true
-            length: 100
+            length: 255
             options:
                 fixed: false
         characteristics:
@@ -221,16 +221,16 @@ BackendBundle\Entity\Cenote:
             options:
                 fixed: false
         typeofcontext:
-            type: string
+            type: text
             nullable: true
-            length: 100
+            length: 65535
             options:
                 fixed: false
             column: typeOfContext
         conservationstatus:
-            type: string
+            type: text
             nullable: true
-            length: 100
+            length: 65535
             options:
                 fixed: false
             column: conservationStatus
@@ -249,35 +249,35 @@ BackendBundle\Entity\Cenote:
         archaelements:
             type: string
             nullable: true
-            length: 100
+            length: 255
             options:
                 fixed: false
             column: archaElements
         whichelements:
-            type: string
+            type: text
             nullable: true
-            length: 100
+            length: 65535
             options:
                 fixed: false
             column: whichElements
         archasurvey:
-            type: string
+            type: text
             nullable: true
-            length: 100
+            length: 65535
             options:
                 fixed: false
             column: archaSurvey
         touristactivities:
             type: string
             nullable: true
-            length: 100
+            length: 255
             options:
                 fixed: false
             column: touristActivities
         whichactivities:
-            type: string
+            type: text
             nullable: true
-            length: 100
+            length: 65535
             options:
                 fixed: false
             column: whichActivities
@@ -288,67 +288,67 @@ BackendBundle\Entity\Cenote:
         temperature:
             type: string
             nullable: true
-            length: 100
+            length: 255
             options:
                 fixed: false
         turbidity:
             type: string
             nullable: true
-            length: 100
+            length: 255
             options:
                 fixed: false
         ph:
             type: string
             nullable: true
-            length: 100
+            length: 255
             options:
                 fixed: false
         ammonium:
             type: string
             nullable: true
-            length: 100
+            length: 255
             options:
                 fixed: false
         nitrites:
             type: string
             nullable: true
-            length: 100
+            length: 255
             options:
                 fixed: false
         nitratos:
             type: string
             nullable: true
-            length: 100
+            length: 255
             options:
                 fixed: false
         phosphates:
             type: string
             nullable: true
-            length: 100
+            length: 255
             options:
                 fixed: false
         hardness:
             type: string
             nullable: true
-            length: 100
+            length: 255
             options:
                 fixed: false
         detergents:
             type: string
             nullable: true
-            length: 100
+            length: 255
             options:
                 fixed: false
         chlorine:
             type: string
             nullable: true
-            length: 100
+            length: 255
             options:
                 fixed: false
         coliforms:
             type: string
             nullable: true
-            length: 100
+            length: 255
             options:
                 fixed: false
         observations:
@@ -360,7 +360,7 @@ BackendBundle\Entity\Cenote:
         status:
             type: string
             nullable: true
-            length: 20
+            length: 255
             options:
                 fixed: false
         image:
