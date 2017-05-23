@@ -20,7 +20,7 @@
                     {{ form_row(form.coordinatesutm) }}    
                 </div>
 
-                <div class="col-lg-6">
+                <div class="col-lg-3">
                     <label>Región (Entity Name)</label><br>
                     <div class="checkbox">
                         <label>
@@ -43,7 +43,7 @@
                         </label>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-4">
                     <label>Clave del sitio (Key Site)</label>
 
                     <div class="checkbox">
@@ -99,6 +99,34 @@
 
                     </div>
                 </div>
+                <div class="col-lg-5">
+                    <label>En caso de cueva seca (In case of Dry Cave)</label><br>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="backendbundle_cenote_drycave_0" name="backendbundle_cenote[drycave][]" value="Con descenso vertical (Vertical Descend)"> Con descenso vertical (Vertical Descend)<br>
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="backendbundle_cenote_drycave_1" name="backendbundle_cenote[drycave][]" value="Con penetración horizontal (Horizontal Penetration)"> Con penetración horizontal (Horizontal Penetration)<br>
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="backendbundle_cenote_drycave_2" name="backendbundle_cenote[drycave][]" value="Con cuerpos de agua (Shafts)"> Con cuerpos de agua (Shafts)<br> 
+                        </label>  
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="backendbundle_cenote_drycave_3" name="backendbundle_cenote[drycave][]" value="Parcialmente inundada (Partial Floated)"> Parcialmente inundada (Partial Floated)<br> 
+                        </label> 
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="backendbundle_cenote_drycave_4" name="backendbundle_cenote[drycave][]" value="Otra"> Otra<br>
+                        </label>
+                    </div>
+                </div>
                 <div class="col-lg-6">
                     <label>Tipo de contexto (Kind of Context)</label><br>
                     <div class="checkbox">
@@ -149,42 +177,6 @@
                         </label>
 
                     </div>
-                </div>
-                <div class="col-lg-6">
-                    <label>En caso de cueva seca (In case of Dry Cave)</label><br>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" id="backendbundle_cenote_drycave_0" name="backendbundle_cenote[drycave][]" value="Con descenso vertical (Vertical Descend)"> Con descenso vertical (Vertical Descend)<br>
-                        </label>
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" id="backendbundle_cenote_drycave_1" name="backendbundle_cenote[drycave][]" value="Con penetración horizontal (Horizontal Penetration)"> Con penetración horizontal (Horizontal Penetration)<br>
-                        </label>
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" id="backendbundle_cenote_drycave_2" name="backendbundle_cenote[drycave][]" value="Con cuerpos de agua (Shafts)"> Con cuerpos de agua (Shafts)<br> 
-                        </label>  
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" id="backendbundle_cenote_drycave_3" name="backendbundle_cenote[drycave][]" value="Parcialmente inundada (Partial Floated)"> Parcialmente inundada (Partial Floated)<br> 
-                        </label> 
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" id="backendbundle_cenote_drycave_4" name="backendbundle_cenote[drycave][]" value="Otra"> Otra<br>
-                        </label>
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    {{ form_row(form.equipment) }}  
-                </div>
-                <div class="col-lg-12">
-                    <label>{{"Descripción detallada del sitio (Tipo de hallazgo y descripción de contexto)"}}</label><br>
-                    <label>{{"Site Detailed Description (Kind of Discovery and Context Description)"}}</label>
-                    {{form_widget(form.contextdescription)}}
                 </div>
                 <div class="col-lg-6">
                     <label>Rasgo relevantes (Relevant Traits) </label>
@@ -250,6 +242,16 @@
                     </div>
 
                 </div>
+                 <div class="col-lg-6">
+                    <label>{{"Descripción detallada del sitio (Tipo de hallazgo y descripción de contexto)"}}</label><br>
+                    <label>{{"Site Detailed Description (Kind of Discovery and Context Description)"}}</label>
+                    {{form_widget(form.contextdescription)}}
+                </div>
+                <div class="col-lg-6">
+                    {{ form_row(form.equipment) }}  
+                </div>
+               
+                
 
                 <div class="col-lg-6">
                     <label>Condiciones generales de preservación (Preservation General Conditions)</label>
@@ -274,7 +276,20 @@
                     <label>{{"(In case of any context alteration is visible, please explain)"}}</label>
                     {{form_widget(form.alteration)}}
                 </div>  
-                <div class="col-lg-12">
+                
+                <div class="col-lg-6">
+                    {{ form_row(form.depth) }}
+                </div>  
+                <div class="col-lg-6">
+                    {{ form_row(form.horizontalpenetration) }}
+                </div>  
+                <div class="col-lg-6">
+                    {{ form_row(form.sitedimensions) }}
+                </div>  
+                <div class="col-lg-6">
+                    {{ form_row(form.entrancedistance) }}
+                </div>  
+                <div class="col-lg-4">
                     <label>Descripción técnica de sitio (Site Technical Description)</label>
                     <div class="checkbox">
                         <label>
@@ -289,18 +304,6 @@
 
                 </div>
                 <div class="col-lg-4">
-                    {{ form_row(form.depth) }}
-                </div>  
-                <div class="col-lg-4">
-                    {{ form_row(form.horizontalpenetration) }}
-                </div>  
-                <div class="col-lg-4">
-                    {{ form_row(form.sitedimensions) }}
-                </div>  
-                <div class="col-lg-6">
-                    {{ form_row(form.entrancedistance) }}
-                </div>  
-                <div class="col-lg-6">
                     <label>Sitio asociado a (Site associated to)</label>
                     <div class="checkbox">
                         <label>
@@ -337,7 +340,40 @@
                             <input type="checkbox" id="backendbundle_cenote_siteassociated_6" name="backendbundle_cenote[siteassociated][]" value="Otros"> Otros
                         </label>
                     </div>
-                </div>  
+                </div> 
+                <div class="col-lg-4">
+                    <label>Tipo de agua (Type of water)</label>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="backendbundle_cenote_typeofwater_0" name="backendbundle_cenote[typeofwater][]" value="Dulce (Fresh Water)"> Dulce (Fresh Water)
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="backendbundle_cenote_typeofwater_1" name="backendbundle_cenote[typeofwater][]" value="Salada (Salt Water)"> Salada (Salt Water)
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="backendbundle_cenote_typeofwater_2" name="backendbundle_cenote[typeofwater][]" value="Haloclina (Halocline)"> Haloclina (Halocline)
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="backendbundle_cenote_typeofwater_3" name="backendbundle_cenote[typeofwater][]" value="Tánica (Tannic)"> Tánica (Tannic)
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="backendbundle_cenote_typeofwater_4" name="backendbundle_cenote[typeofwater][]" value="Ácido Sulfhídrico (Hydrogen Sulfide)"> Ácido Sulfhídrico (Hydrogen Sulfide)
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="backendbundle_cenote_typeofwater_5" name="backendbundle_cenote[typeofwater][]" value="Otros"> Otros
+                        </label>
+                    </div>
+                </div>
                 <div class="col-lg-6">
                     <label>Colecta de muestras de agua (Water Samples Collection)</label>
                     <div class="checkbox">
@@ -381,40 +417,8 @@
                         </label>
                     </div>
                 </div>  
+                  
                 <div class="col-lg-6">
-                    <label>Tipo de agua (Type of water)</label>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" id="backendbundle_cenote_typeofwater_0" name="backendbundle_cenote[typeofwater][]" value="Dulce (Fresh Water)"> Dulce (Fresh Water)
-                        </label>
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" id="backendbundle_cenote_typeofwater_1" name="backendbundle_cenote[typeofwater][]" value="Salada (Salt Water)"> Salada (Salt Water)
-                        </label>
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" id="backendbundle_cenote_typeofwater_2" name="backendbundle_cenote[typeofwater][]" value="Haloclina (Halocline)"> Haloclina (Halocline)
-                        </label>
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" id="backendbundle_cenote_typeofwater_3" name="backendbundle_cenote[typeofwater][]" value="Tánica (Tannic)"> Tánica (Tannic)
-                        </label>
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" id="backendbundle_cenote_typeofwater_4" name="backendbundle_cenote[typeofwater][]" value="Ácido Sulfhídrico (Hydrogen Sulfide)"> Ácido Sulfhídrico (Hydrogen Sulfide)
-                        </label>
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" id="backendbundle_cenote_typeofwater_5" name="backendbundle_cenote[typeofwater][]" value="Otros"> Otros
-                        </label>
-                    </div>
-                </div>  
-                <div class="col-lg-12">
                     <label>{{"Datos de contacto: nombre, número telefónico y/o correo electrónico del dueño/responsable del predio."}}</label>
                     <label>{{"Contact: (Name, Phone Number and/or email of Owner/Land Responsible)"}}</label>
                     {{form_widget(form.contact)}}
@@ -546,9 +550,9 @@
                 <div class="col-lg-6">{{ form_row(form.fauna) }}</div>
                 <div class="col-lg-4">{{ form_row(form.archaelements) }}</div>
                 <div class="col-lg-4">{{ form_row(form.archasurvey) }}</div>
-                <div class="col-lg-4">{{ form_row(form.touristactivities) }}</div>
+                <div class="col-lg-3">{{ form_row(form.touristactivities) }}</div>
 
-                <div class="col-lg-6">
+                <div class="col-lg-5">
                     <label>En caso de presencia de elementos arqueológicos, señalar cuáles. </label>
                     <div class="checkbox">
                         <label>
@@ -609,7 +613,7 @@
 
                 </div>
 
-                <div class="col-lg-6">
+                <div class="col-lg-4">
                     <label>En caso de actividad turística, señale cuáles.</label>
                     <div class="checkbox">
                         <label>

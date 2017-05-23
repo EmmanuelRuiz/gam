@@ -534,7 +534,7 @@ class Cenote
      */
     public function setRelevanttraits($relevanttraits)
     {
-        $this->relevanttraits = $relevanttraits;
+        $this->relevanttraits = json_encode($relevanttraits);
 
         return $this;
     }
@@ -546,7 +546,11 @@ class Cenote
      */
     public function getRelevanttraits()
     {
-        return $this->relevanttraits;
+        if($this->relevanttraits){
+            return json_decode($this->relevanttraits);
+        }
+        
+        return null;
     }
 
     /**
@@ -558,7 +562,7 @@ class Cenote
      */
     public function setPreservationgeneral($preservationgeneral)
     {
-        $this->preservationgeneral = $preservationgeneral;
+        $this->preservationgeneral = json_encode($preservationgeneral);
 
         return $this;
     }
@@ -570,7 +574,10 @@ class Cenote
      */
     public function getPreservationgeneral()
     {
-        return $this->preservationgeneral;
+        if($this->preservationgeneral){
+            return json_decode($this->preservationgeneral);
+        }
+        return null;
     }
 
     /**
@@ -606,7 +613,7 @@ class Cenote
      */
     public function setTechnicaldescription($technicaldescription)
     {
-        $this->technicaldescription = $technicaldescription;
+        $this->technicaldescription = json_encode($technicaldescription);
 
         return $this;
     }
@@ -618,7 +625,10 @@ class Cenote
      */
     public function getTechnicaldescription()
     {
-        return $this->technicaldescription;
+        if($this->technicaldescription){
+            return json_decode($this->technicaldescription);
+        }
+        return null;
     }
 
     /**
@@ -726,7 +736,7 @@ class Cenote
      */
     public function setSiteassociated($siteassociated)
     {
-        $this->siteassociated = $siteassociated;
+        $this->siteassociated = json_encode($siteassociated);
 
         return $this;
     }
@@ -738,7 +748,10 @@ class Cenote
      */
     public function getSiteassociated()
     {
-        return $this->siteassociated;
+        if($this->siteassociated){
+            return json_decode($this->siteassociated);
+        }
+        return null;
     }
 
     /**
@@ -750,7 +763,7 @@ class Cenote
      */
     public function setWatersamples($watersamples)
     {
-        $this->watersamples = $watersamples;
+        $this->watersamples = json_encode($watersamples);
 
         return $this;
     }
@@ -762,7 +775,10 @@ class Cenote
      */
     public function getWatersamples()
     {
-        return $this->watersamples;
+        if($this->watersamples){
+            return json_decode($this->watersamples);
+        }
+        return null;
     }
 
     /**
@@ -774,7 +790,7 @@ class Cenote
      */
     public function setTypeofwater($typeofwater)
     {
-        $this->typeofwater = $typeofwater;
+        $this->typeofwater = json_encode($typeofwater);
 
         return $this;
     }
@@ -786,7 +802,10 @@ class Cenote
      */
     public function getTypeofwater()
     {
-        return $this->typeofwater;
+        if($this->typeofcontext){
+            return json_decode($this->typeofcontext);
+        }
+        return null;
     }
 
     /**

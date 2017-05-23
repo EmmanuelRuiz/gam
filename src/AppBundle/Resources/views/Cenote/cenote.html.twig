@@ -42,7 +42,7 @@
                                 <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>Región (Entity Name)</h3>
                                 {% for entidad in cenote.entitiname %}
                                     <p class="p-header"> {{entidad}}</p>
-                                    {% endfor %}
+                                {% endfor %}
                             </div>
                             <div class="col-lg-6">
                                 <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>Clave del sitio (Key Site)</h3>
@@ -78,17 +78,23 @@
 
                             <div class="col-lg-6">
                                 <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>Rasgo relevantes (Relevant Traits)</h3>
-                                <p class="p-header">{{cenote.relevanttraits}}</p>            
+                                {% for entidad in cenote.relevanttraits%}
+                                    <p class="p-header">{{entidad}}</p>            
+                                {% endfor %}
                             </div>
 
                             <div class="col-lg-6">
                                 <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>Condiciones generales de preservación (Preservation General Conditions)</h3>
-                                <p class="p-header">{{cenote.preservationgeneral}}</p>            
+                                {% for entidad in cenote.preservationgeneral%}
+                                    <p class="p-header">{{entidad}}</p>    
+                                {% endfor %}
                             </div>
 
                             <div class="col-lg-6">
                                 <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>Descripción técnica de sitio (Site Technical Description)</h3>
-                                <p class="p-header">{{cenote.technicaldescription}}</p>            
+                                {% for entidad in cenote.technicaldescription%}
+                                    <p class="p-header">{{entidad}}</p>
+                                {% endfor %}
                             </div>
 
                             <div class="col-lg-6">
@@ -114,14 +120,19 @@
 
                             <div class="col-lg-6">
                                 <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>Sitio asociado a (Site associated to) </h3>
-                                <p class="p-header">{{cenote.siteassociated}}</p>
+                                {% for entidad in cenote.siteassociated%}
+
+                                    <p class="p-header">{{entidad}}</p>
+                                {% endfor %}
 
                             </div>
 
                             <div class="col-lg-6">
                                 <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>Colecta de muestras de agua (Water Samples Collection)</h3>
-                                <p class="p-header">{{cenote.watersamples}}</p>
-
+                                {% for entidad in cenote.watersamples%}
+                                    <p class="p-header">{{entidad}}</p>
+                                {% endfor %}
+ 
                             </div>
 
                             <div class="col-lg-6">
@@ -132,8 +143,10 @@
 
                             <div class="col-lg-6">
                                 <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>Tipo de agua (Type of water)</h3>
-                                <p class="p-header">{{cenote.typeofwater}}</p>
-
+                                {% for entidad in cenote.typeofwater%}
+                                    <p class="p-header">{{entidad}}</p>
+                                {% endfor %}
+ 
                             </div>
 
                             <div class="col-lg-6">
@@ -219,12 +232,15 @@
                                 {% for entidad in cenote.typeofcontext %}
                                     <p class="p-header">{{entidad}}</p>
                                 {% endfor %}
-                             </div>
+                            </div>
                             <div class="col-lg-6">
                                 <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true">                                    
                                     </span>Estado de conservación 
                                 </h3>
-                                <p class="p-header">{{cenote.conservationstatus}}</p>
+                                {% for entidad in cenote.conservationstatus %}
+                                    <p class="p-header">{{entidad}}</p>
+                                {% endfor%}
+
                             </div>
                             <div class="col-lg-6">
                                 <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true">                                    
