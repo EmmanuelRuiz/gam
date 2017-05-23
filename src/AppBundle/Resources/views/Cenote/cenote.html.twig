@@ -36,18 +36,18 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>Nombre del sitio (Site Name)</h3>
-                                <p class="p-header"><span class="glyphicon glyphicon-ok-circle " style="color:#149c82" aria-hidden="true"></span> {{cenote.name}}</p>
+                                <p class="p-header"> {{cenote.name}}</p>
                             </div>
                             <div class="col-lg-6">
                                 <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>Región (Entity Name)</h3>
                                 {% for entidad in cenote.entitiname %}
-                                    <p class="p-header"><span class="glyphicon glyphicon-ok-circle " style="color:#149c82" aria-hidden="true"></span> {{entidad}}</p>
+                                    <p class="p-header"> {{entidad}}</p>
                                     {% endfor %}
                             </div>
                             <div class="col-lg-6">
                                 <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true"></span>Clave del sitio (Key Site)</h3>
                                 {% for entidad in cenote.keysite %}
-                                    <p class="p-header"><span class="glyphicon glyphicon-ok-circle " style="color:#149c82" aria-hidden="true"></span> {{entidad}}</p>
+                                    <p class="p-header"> {{entidad}}</p>
                                 {% endfor %}
                             </div>
                             <div class="col-lg-6">
@@ -216,8 +216,10 @@
                                 <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true">                                    
                                     </span>Tipo de contexto 
                                 </h3>
-                                <p class="p-header">{{cenote.typeofcontext}}</p>
-                            </div>
+                                {% for entidad in cenote.typeofcontext %}
+                                    <p class="p-header">{{entidad}}</p>
+                                {% endfor %}
+                             </div>
                             <div class="col-lg-6">
                                 <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true">                                    
                                     </span>Estado de conservación 
@@ -246,7 +248,9 @@
                                 <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true">                                    
                                     </span>En caso de presencia de elementos arqueológicos, señalar cuáles.  
                                 </h3>
-                                <p class="p-header">{{cenote.whichelements}}</p>
+                                {% for entidad in cenote.whichelements %}
+                                    <p class="p-header">{{entidad}}</p>
+                                {% endfor %}
                             </div>
                             <div class="col-lg-6">
                                 <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true">                                    
@@ -264,7 +268,9 @@
                                 <h3><span class="glyphicon glyphicon-option-vertical " style="color:#e74c3c;" aria-hidden="true">                                    
                                     </span>En caso de actividad turística, señale cuáles. 
                                 </h3>
-                                <p class="p-header">{{cenote.whichactivities}}</p>
+                                {% for entidad in cenote.whichactivities%}
+                                    <p class="p-header">{{entidad}}</p>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>

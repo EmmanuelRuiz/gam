@@ -1287,7 +1287,7 @@ class Cenote
      */
     public function setWhichactivities($whichactivities)
     {
-        $this->whichactivities = $whichactivities;
+        $this->whichactivities = json_encode($whichactivities);
 
         return $this;
     }
@@ -1299,7 +1299,10 @@ class Cenote
      */
     public function getWhichactivities()
     {
-        return $this->whichactivities;
+        if($this->whichactivities){
+            return json_decode($this->whichactivities);
+        }
+        return null;
     }
 
     /**

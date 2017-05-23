@@ -395,10 +395,11 @@ class CenoteType extends AbstractType {
                     ),
                     'multiple' => true,
                     'expanded' => true,
-                    'label' => 'Estado de conservación',
+                    'label' => false,
+                    
                     'required' => null,
                     'attr' => array(
-                        'class' => 'form-conservationstatus form-control'
+                        'class' => 'hidden form-conservationstatus form-control'
                     )
                 ))
                 ->add('flora', TextareaType::class, array(
@@ -443,10 +444,10 @@ class CenoteType extends AbstractType {
                             ),
                     'multiple' => true,
                     'expanded' => true,
-                    'label' => 'En caso de presencia de elementos arqueológicos, señalar cuáles. ',
+                    'label' => false,
                     'required' => null,
                     'attr' => array(
-                        'class' => 'form-whichelements form-control'
+                        'class' => 'hidden form-whichelements form-control'
                     )
                 ))
                 ->add('archasurvey', ChoiceType::class, array(
@@ -472,11 +473,25 @@ class CenoteType extends AbstractType {
                         'class' => 'form-touristactivities form-control'
                     )
                 ))
-                ->add('whichactivities', TextType::class, array(
-                    'label' => 'En caso de actividad turística, señale cuáles.',
+                ->add('whichactivities', ChoiceType::class, array(
+                    'choices' => array(
+                        'Buceo' => 'Buceo',
+                        'Campamento' => 'Campamento',
+                        'Asociado a sitio Arqueológico' => 'Asociado a sitio Arqueológico',
+                        'Espeleología' => 'Espeleología',
+                        'Nado en cenotes' => 'Nado en cenotes',
+                        'Observación de flora y fauna' => 'Observación de flora y fauna',
+                        'Pesca' => 'Pesca',
+                        'Paseos a pie, en bicicleta o motos.' => 'Paseos a pie, en bicicleta o motos.',
+                        'Recorridos en Kayak, canoa o lancha.' => 'Recorridos en Kayak, canoa o lancha.',
+                        'Otro' => 'Otro',
+                    ),
+                    'multiple' => true,
+                    'expanded' => true,
                     'required' => null,
+                    'label' => false,
                     'attr' => array(
-                        'class' => 'form-whichactivities form-control'
+                        'class' => 'hidden form-whichactivities form-control'
                     )
                 ))
                 ->add('dateofanalisis', DateType::class, array(
