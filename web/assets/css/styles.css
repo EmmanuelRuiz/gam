@@ -12,12 +12,9 @@ body{
     background: #eee;
 }
 
-
 a, p{
     font-size: 1.1em;
 }
-
-
 
 hr {
     border: 0 none #149c82;
@@ -168,13 +165,18 @@ hr {
     background: #ddd;
 }
 
-.cenote-image{
-    width: 50%;
-    overflow: hidden;
-    background: #ddd;
-    margin-left: 25%;
-}
 
+
+ #galeria{
+     width: 250px;  
+     height: 250px;
+     overflow: hidden;
+ }
+ #galeria img{
+    width: 250px;  
+    height: 250px;
+    overflow: hidden;
+ }
 .cenote-image img{
     width: 100%;
     text-align: center;

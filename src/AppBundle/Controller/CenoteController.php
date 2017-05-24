@@ -8,8 +8,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
 use BackendBundle\Entity\Cenote;
 use BackendBundle\Entity\Image;
+use BackendBundle\Entity\Video;
 use AppBundle\Form\CenoteType;
 use AppBundle\Form\ImagesType;
+use AppBundle\Form\VideosType;
 
 class CenoteController extends Controller {
 
@@ -115,6 +117,8 @@ class CenoteController extends Controller {
         $user = $this->getUser();
         $em = $this->getDoctrine()->getManager();
 
+        $image_repo = $em->getRepository('BackendBundle:Image')->findAll();
+        $db = $em->getConnection();
         if ($id != null)
         {
             $cenote_repo = $em->getRepository('BackendBundle:Cenote');
@@ -127,13 +131,15 @@ class CenoteController extends Controller {
             $cenote = $this->getId();
         }
 
+        
         if (empty($cenote) || !is_object($cenote))
         {
             return $this->redirect($this->generateUrl('app_homepage'));
         }
 
         return $this->render('AppBundle:Cenote:cenote.html.twig', array(
-			'cenote' => $cenote
+			'cenote' => $cenote,
+                        'images' =>$image_repo
         ));
     }
 
@@ -236,7 +242,9 @@ class CenoteController extends Controller {
         $user = $this->getUser();
         $cenote = new Cenote();
         $image = new Image();
+        /*guardamos la id del cenote*/
         $id = $request->query->get('id');
+
         $cenote_repo = $em->getRepository('BackendBundle:Cenote');
         $cenote = $cenote_repo->find($id);
 
@@ -256,7 +264,7 @@ class CenoteController extends Controller {
                     if ($ext == 'jpg' || $ext == 'jpeg' || $ext == 'png' || $ext == 'gif')
                     {
                         $file_name = $image->getId() . time() . '.' . $ext;
-                        $file->move("uploads/cenotes/images/perfil", $file_name);
+                        $file->move("uploads/cenotes/images/profile", $file_name);
                         $image->setImage($file_name);
                     }
                     else
@@ -294,7 +302,75 @@ class CenoteController extends Controller {
                     'form' => $form->createView()
         ));
     }
+    
+    public function uploadVideosAction(Request $request)
+    {
 
+        $em = $this->getDoctrine()->getManager();
+        $user = $this->getUser();
+        $cenote = new Cenote();
+        $video = new Video();
+        /*guardamos la id del cenote*/
+        $id = $request->query->get('id');
+
+        $cenote_repo = $em->getRepository('BackendBundle:Cenote');
+        $cenote = $cenote_repo->find($id);
+
+        $form = $this->createForm(VideosType::class, $video);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted())
+        {
+            if ($form->isValid())
+            {
+                //upload-image
+                $file = $form['video']->getData();
+                
+                if (!empty($file) && $file != null)
+                {
+                    $ext = $file->guessExtension();
+                    if ($ext == 'mp4' || $ext == 'avi' || $ext == 'wmv' || $ext == 'mov')
+                    {
+                        $file_name = $video->getId() . time() . '.' . $ext;
+                        $file->move("uploads/cenotes/videos/profile", $file_name);
+                        $video->setVideo($file_name);
+                    }
+                    else
+                    {
+                        $video->setVideo(null);
+                    }
+                }
+                else
+                {
+                    $video->setVideo(null);
+                }
+                $video->setCenote($cenote);
+                $em->persist($video);
+                $flush = $em->flush();
+
+                if ($flush == null)
+                {
+                    $status = 'El registro se ha creado correctamente';
+                }
+                else
+                {
+                    $status = 'Error al intentar hacer el registro';
+                }
+            }
+            else
+            {
+                $status = 'El registro no se ha creado, porque el formulario no es valido.';
+            }
+            $this->session->getFlashBag()->add("status", $status);
+            return $this->redirectToRoute('new_cenote');
+        }
+
+        return $this->render('AppBundle:Cenote:upload_videos.html.twig', array(
+                    'cenote' => $cenote,
+                    'form' => $form->createView()
+        ));
+    }
+/*
     public function uploadingImagesAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
@@ -351,5 +427,5 @@ class CenoteController extends Controller {
                     'pagination' => $pagination
         ));
     }
-
+*/
 }

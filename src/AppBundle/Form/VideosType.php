@@ -10,7 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
  use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
-class ImagesType extends AbstractType {
+class VideosType extends AbstractType {
 
     /**
      * {@inheritdoc}
@@ -18,12 +18,12 @@ class ImagesType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
                 
-                ->add('image', FileType::class, array(
-                    'label' => 'Foto de perfil',
+                ->add('video', FileType::class, array(
+                    'label' => 'Video de perfil',
                     'required' => false,
                     'data_class' => null,
                     'attr' => array(
-                        'class' => 'form-image form-control',
+                        'class' => 'form-video form-control',
                         
                     )
                 ))
@@ -40,7 +40,7 @@ class ImagesType extends AbstractType {
      */
     public function configureOptions(OptionsResolver $resolver) {
         $resolver->setDefaults(array(
-            'data_class' => 'BackendBundle\Entity\Image'
+            'data_class' => 'BackendBundle\Entity\Video'
         ));
     }
 
@@ -48,7 +48,7 @@ class ImagesType extends AbstractType {
      * {@inheritdoc}
      */
     public function getBlockPrefix() {
-        return 'backendbundle_image';
+        return 'backendbundle_video';
     }
 
 }

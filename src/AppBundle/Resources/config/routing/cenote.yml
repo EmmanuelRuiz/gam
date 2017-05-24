@@ -18,6 +18,10 @@ upload_images:
     path: /subir-imagenes
     defaults: { _controller: AppBundle:Cenote:uploadImages }
 
+upload_videos:
+    path: /subir-videos
+    defaults: { _controller: AppBundle:Cenote:uploadVideos }
+
 uploading_images:
     path: /subiendo-imagenes/{id}
     defaults: { _controller: AppBundle:Cenote:uploadingImages, id:null }

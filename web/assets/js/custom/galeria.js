@@ -1,0 +1,1 @@
+$("ul#cenotes-list li div div a").fancybox();

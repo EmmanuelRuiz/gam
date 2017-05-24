@@ -19,6 +19,9 @@
                     <a href="{{ path('upload_images', {'id':cenote.id}) }}" class="btn btn-info  espacio  pull-right" type="button"  aria-haspopup="true" aria-expanded="false">
                         Subir imagenes
                     </a>
+                    <a href="{{ path('upload_videos', {'id':cenote.id}) }}" class="btn btn-info  espacio  pull-right" type="button"  aria-haspopup="true" aria-expanded="false">
+                        Subir videos
+                    </a>
                     <h2 class="page-header">Fecha del registro: {{cenote.createdAt|date('Y-m-d')}}</h2>
 
                     <div class="cenote-image">
@@ -382,11 +385,27 @@
                             </div>
                         </div>
                     </div>
-
-
+                    <h2 class="page-header">Imágenes</h2>
+                    <ul id="cenotes-list"> 
+                        {% for image in images %}
+                            <li class="cenote-item col-md-4 pull-lef">
+                                <div class="cenote-image-thumb">
+                                    <div class="avatar">
+                                        {% if image.image == null %}
+                                            <img src="{{asset('assets/images/default.jpg')}}">
+                                        {% else %}
+                                            <a href="{{asset('uploads/cenotes/images/profile/'~image.image)}}"><img src="{{asset('uploads/cenotes/images/profile/'~image.image)}}"></a>             
+                                            {% endif %}
+                                    </div>                                           
+                                </div>
+                             </li>
+                        {% endfor %}
+                    </ul>
                 </div>
+                <div class="clearfix"></div>
             </div>
         </div>
-    </div>
+
+    </div> 
 
 {% endblock %}
