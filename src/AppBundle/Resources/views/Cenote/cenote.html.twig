@@ -386,21 +386,20 @@
                         </div>
                     </div>
                     <h2 class="page-header">Imágenes</h2>
-                    <ul id="cenotes-list"> 
+
+                    <div class="row">
                         {% for image in images %}
-                            <li class="cenote-item col-md-4 pull-lef">
-                                <div class="cenote-image-thumb">
-                                    <div class="avatar">
-                                        {% if image.image == null %}
-                                            <img src="{{asset('assets/images/default.jpg')}}">
-                                        {% else %}
-                                            <a href="{{asset('uploads/cenotes/images/profile/'~image.image)}}"><img src="{{asset('uploads/cenotes/images/profile/'~image.image)}}"></a>             
-                                            {% endif %}
-                                    </div>                                           
+                            <div class="col-lg-4">
+                                <div class="card " style="width: 350px; " >
+                                    {% if image.image == null %}
+                                        <img class="img-responsive" src="{{asset('assets/images/default.jpg')}}">
+                                    {% else %}
+                                        <a href="{{asset('uploads/cenotes/images/profile/'~image.image)}}"><img class="center-block img-responsive" src="{{asset('uploads/cenotes/images/profile/'~image.image)}}"></a>             
+                                        {% endif %}
                                 </div>
-                             </li>
-                        {% endfor %}
-                    </ul>
+                            </div>
+                        {% endfor %}    
+                    </div>
                 </div>
                 <div class="clearfix"></div>
             </div>
