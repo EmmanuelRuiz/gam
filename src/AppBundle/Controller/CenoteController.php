@@ -99,8 +99,9 @@ class CenoteController extends Controller {
 	public function cenoteAction(Request $request, $id = null) {
 		$user = $this->getUser();
 		$em = $this->getDoctrine()->getManager();
-
+		
 		$image_repo = $em->getRepository('BackendBundle:Image')->findAll();
+		$video_repo = $em->getRepository('BackendBundle:Video')->findAll();
 		$db = $em->getConnection();
 		if ($id != null) {
 			$cenote_repo = $em->getRepository('BackendBundle:Cenote');
@@ -117,8 +118,10 @@ class CenoteController extends Controller {
 		}
 
 		return $this->render('AppBundle:Cenote:cenote.html.twig', array(
+					
 					'cenote' => $cenote,
-					'images' => $image_repo
+					'images' => $image_repo,
+					'videos' => $video_repo
 		));
 	}
 
@@ -270,11 +273,14 @@ class CenoteController extends Controller {
 		$form->handleRequest($request);
 		if ($form->isSubmitted()) {
 			if ($form->isValid()) {
+				
 				//upload-image
 				$file = $form['video']->getData();
-
+				
+				
 				if (!empty($file) && $file != null) {
 					$ext = $file->guessExtension();
+					
 					if ($ext == 'mp4' || $ext == 'avi' || $ext == 'wmv' || $ext == 'mov') {
 						$file_name = $video->getId() . time() . '.' . $ext;
 						$file->move("uploads/cenotes/videos/profile", $file_name);
@@ -295,8 +301,9 @@ class CenoteController extends Controller {
 					$status = 'Error al intentar hacer el registro';
 				}
 			} else {
-				$status = 'El registro no se ha creado, porque el formulario no es valido.';
+				$status = 'nada';
 			}
+			
 			$this->session->getFlashBag()->add("status", $status);
 			return $this->redirectToRoute('new_cenote');
 		}

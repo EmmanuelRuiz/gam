@@ -400,8 +400,22 @@
                             </div>
                         {% endfor %}    
                     </div>
+
+                    <h2 class="page-header">Vídeos</h2>
+
+                    <div class="row">
+                        {% for video in videos %}
+                            <div class="col-lg-4">
+
+                                <video class="" width="320" height="240" controls src="{{asset('uploads/cenotes/videos/profile/'~video.video)}}" >
+
+                                </video>              
+                            </div>
+                        {% endfor %}
+                    </div>
                 </div>
                 <div class="clearfix"></div>
+                <video class="" width="320" height="240" controls src="{{asset('uploads/cenotes/videos/profile/Video_1495049584.wmv')}}" ></video>   
             </div>
         </div>
 
