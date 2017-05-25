@@ -25,84 +25,27 @@
                     {{ form_row(form.coordinatesutm) }}    
                 </div>
 
+
                 <div class="col-lg-3">
-                    <label>Región (Entity Name)</label><br>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" id="backendbundle_cenote_entitiname_0" name="backendbundle_cenote[entitiname][]" value="Quintana Roo"> Quintana Roo
-                        </label>
-                    </div>
-                    <div class="checkbox">
-                        <label> 
-                            <input type="checkbox" id="backendbundle_cenote_entitiname_1" name="backendbundle_cenote[entitiname][]" value="Yucatán">  Yucatán 
-                        </label>
-                    </div>
-                    <div class="checkbox">
-                        <label>   
-                            <input type="checkbox" id="backendbundle_cenote_entitiname_2" name="backendbundle_cenote[entitiname][]" value="Campeche">  Campeche
-                        </label>
-                    </div>
-                    <div class="checkbox">
-                        <label>   
-                            <input type="checkbox" id="backendbundle_cenote_entitiname_3" name="backendbundle_cenote[entitiname][]" value="Otra">Otra
-                        </label>
-                    </div>
+                    {{ form_row(form.entitiname[0]) }}
+                    {{ form_row(form.entitiname[1]) }}
+                    {{ form_row(form.entitiname[2]) }}
+                    {{ form_row(form.entitiname[3]) }}
+
                 </div>
                 <div class="col-lg-4">
                     <label>Clave del sitio (Key Site)</label>
-
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" id="backendbundle_cenote_keysite_0" name="backendbundle_cenote[keysite][]" value="Q1: Bacalar"> Q1: Bacalar
-                        </label>
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" id="backendbundle_cenote_keysite_1" name="backendbundle_cenote[keysite][]" value="Q2: Dzulá, Felipe Carillo Puerto, José Maria Morelos"> Q2: Dzulá, Felipe Carillo Puerto, José Maria Morelos<br>
-                        </label>
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" id="backendbundle_cenote_keysite_2" name="backendbundle_cenote[keysite][]" value="Q3: Chumpón, Muyil, Tulum"> Q3: Chumpón, Muyil, Tulum<br>
-                        </label>
-
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" id="backendbundle_cenote_keysite_3" name="backendbundle_cenote[keysite][]" value="Q4: Cobá, Laguna Chabela"> Q4: Cobá, Laguna Chabela<br>
-                        </label>
-
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" id="backendbundle_cenote_keysite_4" name="backendbundle_cenote[keysite][]" value="Q5: Kantunilkin"> Q5: Kantunilkin<br>
-                        </label>
-
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" id="backendbundle_cenote_keysite_5" name="backendbundle_cenote[keysite][]" value="Y1: Tinum"> Y1: Tinum<br>
-                        </label>
-
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" id="backendbundle_cenote_keysite_6" name="backendbundle_cenote[keysite][]" value="Q6: Cancún, Puerto Morelos"> Q6: Cancún, Puerto Morelos<br>
-                        </label>
-
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" id="backendbundle_cenote_keysite_7" name="backendbundle_cenote[keysite][]" value="Q7: Playa del Carmen, Puerto Venturas, Akumal"> Q7: Playa del Carmen, Puerto Venturas, Akumal<br>
-                        </label>
-
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" id="backendbundle_cenote_keysite_8" name="backendbundle_cenote[keysite][]" value="Otra">Otra<br>
-                        </label>
-
-                    </div>
+                    
+                    {{ form_row(form.keysite[0]) }}
+                    {{ form_row(form.keysite[1]) }}
+                    {{ form_row(form.keysite[2]) }}
+                    {{ form_row(form.keysite[3]) }}
+                    {{ form_row(form.keysite[4]) }}
+                    {{ form_row(form.keysite[5]) }}
+                    {{ form_row(form.keysite[6]) }}
+                    {{ form_row(form.keysite[7]) }}
+                    {{ form_row(form.keysite[8]) }}
+                    
                 </div>
                 <div class="col-lg-5">
                     <label>En caso de cueva seca (In case of Dry Cave)</label><br>
