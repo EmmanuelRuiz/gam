@@ -389,15 +389,18 @@
 
                     <div class="row">
                         {% for image in images %}
-                            <div class="col-lg-4">
-                                <div class="card " style="width: 350px; " >
-                                    {% if image.image == null %}
-                                        <img class="img-responsive" src="{{asset('assets/images/default.jpg')}}">
-                                    {% else %}
-                                        <a href="{{asset('uploads/cenotes/images/profile/'~image.image)}}"><img class="center-block img-responsive" src="{{asset('uploads/cenotes/images/profile/'~image.image)}}"></a>             
-                                        {% endif %}
+                            {% if image.cenote.id == cenote.id %}
+
+                                <div class="col-lg-4">
+                                    <div class="card " style="width: 350px; " >
+                                        {% if image.image == null %}
+                                            <img class="img-responsive" src="{{asset('assets/images/default.jpg')}}">
+                                        {% else %}
+                                            <a href="{{asset('uploads/cenotes/images/profile/'~image.image)}}"><img class="center-block img-responsive" src="{{asset('uploads/cenotes/images/profile/'~image.image)}}"></a>             
+                                            {% endif %}
+                                    </div>
                                 </div>
-                            </div>
+                            {% endif %}
                         {% endfor %}    
                     </div>
 
@@ -405,17 +408,17 @@
 
                     <div class="row">
                         {% for video in videos %}
-                            <div class="col-lg-4">
-
-                                <video class="" width="320" height="240" controls src="{{asset('uploads/cenotes/videos/profile/'~video.video)}}" >
-
-                                </video>              
-                            </div>
+                            {% if video.cenote.id == cenote.id %}
+                                <div class="col-lg-4">                                
+                                    <video class="" width="320" height="240" controls src="{{asset('uploads/cenotes/videos/profile/'~video.video)}}" >
+                                    </video>              
+                                </div>
+                            {% endif %}
                         {% endfor %}
                     </div>
                 </div>
                 <div class="clearfix"></div>
-                
+
             </div>
         </div>
 

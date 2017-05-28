@@ -301,11 +301,11 @@ class CenoteController extends Controller {
 					$status = 'Error al intentar hacer el registro';
 				}
 			} else {
-				$status = 'nada';
+				$status = 'El formulario no es valido';
 			}
 			
 			$this->session->getFlashBag()->add("status", $status);
-			return $this->redirectToRoute('new_cenote');
+			return $this->redirectToRoute('home_cenotes');
 		}
 
 		return $this->render('AppBundle:Cenote:upload_videos.html.twig', array(
