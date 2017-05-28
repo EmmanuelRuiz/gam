@@ -128,6 +128,8 @@ class AdministratorController extends Controller {
         $cenote_repo = $em->getRepository('BackendBundle:Cenote');
         $cenote = $cenote_repo->find($id);
 
+        $query = "SELECT images.cenote_id, cenotes.id FROM images INNER JOIN cenotes ON images.cenote_id = cenotes.id; ";
+        
         $em->remove($cenote);
         $flush = $em->flush();
 

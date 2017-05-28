@@ -1779,4 +1779,14 @@ class Cenote
     {
         return $this->user;
     }
+    
+    $user->getComments()->removeElement($comment);
+    $comment->setAuthor(null);
+
+    $user->getFavorites()->removeElement($comment);
+    $comment->getUserFavorites()->removeElement($user);
+
+    // Remove by Key
+    $user->getComments()->remove($ithComment);
+    $comment->setAuthor(null);
 }
