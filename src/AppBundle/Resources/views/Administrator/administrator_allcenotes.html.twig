@@ -1,0 +1,62 @@
+{% extends "AppBundle:layouts:layout.html.twig" %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <!--<script src="{{ asset('assets/js/custom/companies.js') }}"></script>-->
+{% endblock %}
+
+{% block content %}
+ 
+    <section class="result-company-section">
+        <div class="row">
+            <div class="container">
+                <div class="col-lg-12">
+                    <h1>Administrar empresas</h1>
+                    <div class="count">
+                        <span class="label label-primary">
+                            Total de resultados: {{ pagination.getTotalItemCount }}
+                        </span>
+                    </div>
+                    <hr/>
+                    
+                    <a href="{{ path("administrator_index") }}"><span class="glyphicon glyphicon-arrow-left"></span> Regresar</a> 
+                    {%for message in app.session.flashbag().get('msg')%}
+                        <div class="alert alert-success">{{message}}</div>
+                    {%endfor%}        
+                    
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                 <th>Creado</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        {# usamos la variable company para recorrer cada resultado y mostrarlos #}
+                        {% for cenotes in pagination %}
+                            <tbody>
+                                <tr>
+                                    <td>{{ cenotes.id }}</td>
+                                    <td>{{ cenotes.name }}</td>
+                                    <td>{{ cenotes.createdAt|date("D d M Y") }}</td>
+                                    <td>
+                                        <a href="{{ path("cenote_profile", {"id":cenotes.id})}}" type="button" class="btn btn-success">Ver</a>
+                                         <a href="{{path("administrator_delete_cenotes", {"id":cenotes.id})}}" class="btn btn-danger">Eliminar</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        {% endfor %}
+                    </table>
+                    {# modificar el js para el scroll infinito #}
+                    <div class="navigation text-center">
+                        {{ knp_pagination_render(pagination) }}
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+{%endblock%}

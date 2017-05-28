@@ -1,0 +1,70 @@
+{% extends "AppBundle:layouts:layout.html.twig" %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <!--<script src="{{ asset('assets/js/custom/companies.js') }}"></script>-->
+{% endblock %}
+
+{% block content %}
+ 
+    <section class="result-company-section">
+        <div class="row">
+            <div class="container">
+                <div class="col-lg-12">
+                    <h1>Administrar los usuarios</h1>
+                    <div class="count">
+                        <span class="label label-primary">
+                            Total de resultados: {{ pagination.getTotalItemCount }}
+                        </span>
+                    </div>
+                    <hr/>
+                    
+                    <a href="{{ path("administrator_index") }}"><span class="glyphicon glyphicon-arrow-left"></span> Regresar</a> 
+
+                    {%for message in app.session.flashbag().get('msg')%}
+                        <div class="alert alert-success">{{message}}</div>
+                    {%endfor%}      
+                    
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Apellido Pat</th>
+                                <th>Apellido Mat</th>
+                                 <th>Correo</th>
+                                 <th>Creado</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        {# usamos la variable company para recorrer cada resultado y mostrarlos #}
+                        {% for users in pagination %}
+                            <tbody>
+                                <tr>
+                                    <td>{{ users.id }}</td>
+                                    <td>{{ users.name }}</td>
+                                    <td>{{ users.plastname }}</td>
+                                    <td>{{ users.mlastname }}</td>
+                                     <td>{{ users.email }}</td>
+                                     <td>{{ users.createdAt|date("D d M Y") }}</td>
+                                    <td>
+                                        <a href="{{ path('user_profile', {'id':users.id })}}" type="button" class="btn btn-success">Ver</a>
+                                        {#<a href="{{path('user_edit', {'id':users.id})}}" type="button" class="btn btn-info">Editar</a>#}
+                                        <a href="{{path('administrator_delete_user', {'id':users.id})}}" type="button" class="btn btn-danger">Eliminar</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        {% endfor %}
+                    </table>
+                    {# modificar el js para el scroll infinito #}
+                    <div class="navigation text-center">
+                        {{ knp_pagination_render(pagination) }}
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+{%endblock%}

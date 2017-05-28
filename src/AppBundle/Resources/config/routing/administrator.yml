@@ -1,0 +1,19 @@
+administrator_index:
+    path: /administrar
+    defaults: { _controller: AppBundle:Administrator:index }
+
+administrator_user:
+    path: /administrar/usuarios
+    defaults: { _controller: AppBundle:Administrator:users}
+    
+administrator_allcenotes:
+    path: /administrar/todos_cenotes
+    defaults: { _controller: AppBundle:Administrator:allCenotes}
+
+administrator_delete_user:
+    path: /administrar/usuarios/eliminar/{id}
+    defaults: { _controller: AppBundle:Administrator:deleteUsers, id:null }
+
+administrator_delete_cenotes:
+    path: /administrar/todas_empresas/eliminar
+    defaults: { _controller: AppBundle:Administrator:deleteCenotes }
