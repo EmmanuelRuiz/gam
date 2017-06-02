@@ -1779,7 +1779,7 @@ class Cenote
     {
         return $this->user;
     }
-    
+    /*
     $user->getComments()->removeElement($comment);
     $comment->setAuthor(null);
 
@@ -1788,5 +1788,5 @@ class Cenote
 
     // Remove by Key
     $user->getComments()->remove($ithComment);
-    $comment->setAuthor(null);
+    $comment->setAuthor(null);*/
 }
